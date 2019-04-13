@@ -22,8 +22,17 @@ namespace oopProje
             possword = Password;
 
         }
-        public void printCustomerDetails() { }
-        public void saveCustomer() { }
-        public void printCustomerPurchases() { }
+        public void printCustomerDetails()
+        {
+
+        }
+        public void saveCustomer()
+        {
+
+        }
+        public void printCustomerPurchases()
+        {
+
+        }
     }
 }

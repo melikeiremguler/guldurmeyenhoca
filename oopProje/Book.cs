@@ -15,5 +15,14 @@ namespace oopProje
         public int page { get; set; }
         public Image coverPagePicture { get; set; }
 
+        public Book(int isbn,string Author,string Publisher,int Page,Image CoverPagePicture)
+        {
+            ISBN = isbn;
+            author = Author;
+            publisher = Publisher;
+            page = Page;
+            coverPagePicture = CoverPagePicture;
+
+        }
     }
 }

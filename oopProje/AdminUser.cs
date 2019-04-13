@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,10 +20,22 @@ namespace oopProje
             address = Address;
         }
         public bool IsAdmin(){ return true; }
-        public void addCustomer() { }
-        public void addNewBook() { }
-        public void addNewMagazine() { }
-        public void addNewMusicCD() { }
+        public void addCustomer(int id,string name,string email,string username,string password)
+        {
+            Customer customer = new Customer(id, name, email, userName, password);
+        }
+        public void addNewBook(int isbn, string Author, string Publisher, int Page, Image CoverPagePicture)
+        {
+            Book book = new Book(isbn, Author, Publisher, Page, CoverPagePicture);
+        }
+        public void addNewMagazine(string Issue,Type type)
+        {
+            Magazine magazine = new Magazine(Issue,type);
+        }
+        public void addNewMusicCD(string singer,type type)
+        {
+            MusicCD musicCD = new MusicCD(singer, type);
+        }
 
     }
     

@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace oopProje
 {
+    public enum type { Romance, HardRock, Country }
     class MusicCD
     {
         public String singer { get; set; }
-        public enum type { Romance, HardRock, Country }
+        public type type { get; set; }
 
         public MusicCD(string Singer, type Type)
         {
             singer = Singer;
-            //Type = Type;
+            type =Type;
         }
     }
 }
