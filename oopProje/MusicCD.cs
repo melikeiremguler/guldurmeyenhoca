@@ -7,15 +7,23 @@ using System.Threading.Tasks;
 namespace oopProje
 {
     public enum type { Romance, HardRock, Country }
-    class MusicCD
+    class MusicCD:Product
     {
         public String singer { get; set; }
         public type type { get; set; }
 
-        public MusicCD(string Singer, type Type)
+       
+
+        public MusicCD(string nm, double prc, string Singer, type Type) : base(nm, prc)
         {
             singer = Singer;
-            type =Type;
+            type = Type;
+        }
+        public override void Print()
+        {
+            base.Print();
+            Console.Write(" | " + singer + " | " + type +  Environment.NewLine);
+
         }
     }
 }

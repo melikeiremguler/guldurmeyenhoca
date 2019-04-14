@@ -7,15 +7,23 @@ using System.Threading.Tasks;
 namespace oopProje
 {
     public enum Type { Actual, News, Sport, computer, technology }
-    class Magazine
+    class Magazine:Product
     {
         public Type type { get; set; }
         public string issue { get; set; }
        
-        public Magazine(string Issue, Type Type)
+
+
+        public Magazine(string nm, double prc, string Issue, Type Type) : base(nm, prc)
         {
             issue = Issue;
             type = Type;
+        }
+        public override void Print()
+        {
+            base.Print();
+            Console.Write(" | " + type + " | " + issue + Environment.NewLine);
+
         }
     }
 }
