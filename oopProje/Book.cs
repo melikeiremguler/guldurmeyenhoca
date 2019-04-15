@@ -15,7 +15,8 @@ namespace oopProje
         public int page { get; set; }
         public Image coverPagePicture { get; set; }
 
-     
+        public static int TotalBook { get; set; } = 0;
+
 
         public Book(string nm, double prc, int isbn, string Author, string Publisher, int Page, Image CoverPagePicture) : base(nm, prc)
         {
@@ -24,6 +25,11 @@ namespace oopProje
             publisher = Publisher;
             page = Page;
             coverPagePicture = CoverPagePicture;
+            
+        }
+        public int getTotalBook()
+        {
+            return TotalBook;
         }
         public override void Print()
         {

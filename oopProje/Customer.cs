@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace oopProje
 {
-    class Customer
+    class Customer:Observer
     {
         public int customerID { get; set; }
         public string name { get; set; }
@@ -24,15 +24,35 @@ namespace oopProje
         }
         public void printCustomerDetails()
         {
+            
+
+            //  Implemantasyoonu yapppppppppppppppppppp
+
 
         }
         public void saveCustomer()
         {
 
+
+            //  Implemantasyoonu yapppppppppppppppppppp
+
+
         }
         public void printCustomerPurchases()
         {
 
+
+            //  Implemantasyoonu yapppppppppppppppppppp
+
+
+        }
+
+        public override void Update()
+        {
+           
+            Console.WriteLine("Stok is changed.");
+            Console.ReadLine();
+        
         }
     }
 }

@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.btnBill = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmbFiltre = new System.Windows.Forms.ComboBox();
-            this.lbPruduct = new System.Windows.Forms.Label();
-            this.lbFilter = new System.Windows.Forms.Label();
             this.lbProductCount = new System.Windows.Forms.Label();
+            this.lbFilter = new System.Windows.Forms.Label();
+            this.lbPruduct = new System.Windows.Forms.Label();
+            this.cmbFiltre = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -49,45 +49,52 @@
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(127, 450);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(169, 554);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(0, 160);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(0, 189);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // btnBill
             // 
-            this.btnBill.Location = new System.Drawing.Point(0, 219);
+            this.btnBill.Location = new System.Drawing.Point(0, 270);
+            this.btnBill.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBill.Name = "btnBill";
-            this.btnBill.Size = new System.Drawing.Size(127, 23);
+            this.btnBill.Size = new System.Drawing.Size(169, 28);
             this.btnBill.TabIndex = 2;
             this.btnBill.Text = "Bill";
             this.btnBill.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(0, 233);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(169, 28);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 197);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 28);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // cmbProduct
             // 
             this.cmbProduct.FormattingEnabled = true;
-            this.cmbProduct.Location = new System.Drawing.Point(141, 20);
+            this.cmbProduct.Location = new System.Drawing.Point(188, 25);
+            this.cmbProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbProduct.Name = "cmbProduct";
-            this.cmbProduct.Size = new System.Drawing.Size(97, 21);
+            this.cmbProduct.Size = new System.Drawing.Size(128, 24);
             this.cmbProduct.TabIndex = 0;
             // 
             // groupBox2
@@ -98,55 +105,62 @@
             this.groupBox2.Controls.Add(this.cmbFiltre);
             this.groupBox2.Controls.Add(this.cmbProduct);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox2.Location = new System.Drawing.Point(127, 0);
+            this.groupBox2.Location = new System.Drawing.Point(169, 0);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(673, 41);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(898, 50);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
-            // cmbFiltre
+            // lbProductCount
             // 
-            this.cmbFiltre.FormattingEnabled = true;
-            this.cmbFiltre.Location = new System.Drawing.Point(340, 20);
-            this.cmbFiltre.Name = "cmbFiltre";
-            this.cmbFiltre.Size = new System.Drawing.Size(97, 21);
-            this.cmbFiltre.TabIndex = 1;
-            // 
-            // lbPruduct
-            // 
-            this.lbPruduct.AutoSize = true;
-            this.lbPruduct.Location = new System.Drawing.Point(43, 27);
-            this.lbPruduct.Name = "lbPruduct";
-            this.lbPruduct.Size = new System.Drawing.Size(44, 13);
-            this.lbPruduct.TabIndex = 2;
-            this.lbPruduct.Text = "Product";
+            this.lbProductCount.AutoSize = true;
+            this.lbProductCount.Location = new System.Drawing.Point(811, 33);
+            this.lbProductCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbProductCount.Name = "lbProductCount";
+            this.lbProductCount.Size = new System.Drawing.Size(16, 17);
+            this.lbProductCount.TabIndex = 4;
+            this.lbProductCount.Text = "0";
             // 
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
-            this.lbFilter.Location = new System.Drawing.Point(283, 27);
+            this.lbFilter.Location = new System.Drawing.Point(377, 33);
+            this.lbFilter.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFilter.Name = "lbFilter";
-            this.lbFilter.Size = new System.Drawing.Size(29, 13);
+            this.lbFilter.Size = new System.Drawing.Size(39, 17);
             this.lbFilter.TabIndex = 3;
             this.lbFilter.Text = "Filter";
             // 
-            // lbProductCount
+            // lbPruduct
             // 
-            this.lbProductCount.AutoSize = true;
-            this.lbProductCount.Location = new System.Drawing.Point(608, 27);
-            this.lbProductCount.Name = "lbProductCount";
-            this.lbProductCount.Size = new System.Drawing.Size(13, 13);
-            this.lbProductCount.TabIndex = 4;
-            this.lbProductCount.Text = "0";
+            this.lbPruduct.AutoSize = true;
+            this.lbPruduct.Location = new System.Drawing.Point(57, 33);
+            this.lbPruduct.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbPruduct.Name = "lbPruduct";
+            this.lbPruduct.Size = new System.Drawing.Size(57, 17);
+            this.lbPruduct.TabIndex = 2;
+            this.lbPruduct.Text = "Product";
+            // 
+            // cmbFiltre
+            // 
+            this.cmbFiltre.FormattingEnabled = true;
+            this.cmbFiltre.Location = new System.Drawing.Point(453, 25);
+            this.cmbFiltre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFiltre.Name = "cmbFiltre";
+            this.cmbFiltre.Size = new System.Drawing.Size(128, 24);
+            this.cmbFiltre.TabIndex = 1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);

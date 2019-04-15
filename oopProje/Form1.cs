@@ -21,5 +21,17 @@ namespace oopProje
         {
 
         }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Toplam ürün sayısını gösteriyo magazin + book + cd deneme yapıldı
+           /* string tt = ";";
+            Magazine p = new Magazine(tt, 1,tt,Type.Actual);
+            MusicCD m = new MusicCD(tt, 1, tt, type.Country);
+            Magazine pt = new Magazine(tt, 1, tt, Type.Actual);
+            MusicCD mt = new MusicCD(tt, 1, tt, type.Country);
+            int a= m.getTotal();
+            Console.WriteLine(a);*/
+        }
     }
 }

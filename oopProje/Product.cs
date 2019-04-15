@@ -8,18 +8,25 @@ namespace oopProje
 {
     class Product
     {
-        private static int TotalProduct = 0;
+        private List<Observer> observers = new List<Observer>();
+
+        public static int TotalProduct { get; set; } = 0;
         private int Id;
         private string Name;
         private double Price;
-
+        
         public Product(string nm, double prc)
         {
             Name = nm;
             Price = prc;
             Id = ++TotalProduct;
+            
         }
-
+        public int getTotal()
+        {
+            return TotalProduct;
+        }
+               
         public int getId()
         {
             return Id;
@@ -55,6 +62,28 @@ namespace oopProje
         {
             Console.Write("| " + getId() + " | " + getName() + " | " + getPrice());
 
+        }
+        public void Attach(Observer observer)
+        {
+            observers.Add(observer);
+        }
+
+        public void Detach(Observer observer)
+        {
+            observers.Remove(observer);
+        }
+
+        private void Notify()
+        {
+            // Herhangi bir değişiklik olduğunda gözlemleyicilerimizin Update metotunu tetikleterek istenilen aksiyonu gerçekleştirebiliriz. Örneğin: Kullanıcılara e-posta atmak gibi düşünebilirsiniz.
+            observers.ForEach(o => { o.Update(); });
+        }
+
+        public void ChangeStock()
+        {
+           // ... stok değiştirilme işlemleri
+            // Stok değiştirildiğinde gözlemcilerimize bildiriyoruz.
+            this.Notify();
         }
     }
 }

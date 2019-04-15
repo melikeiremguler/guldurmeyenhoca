@@ -24,17 +24,17 @@ namespace oopProje
         {
             Customer customer = new Customer(id, name, email, userName, password);
         }
-        public void addNewBook(int isbn, string Author, string Publisher, int Page, Image CoverPagePicture)
+        public void addNewBook(string nm, double prc, int isbn, string Author, string Publisher, int Page, Image CoverPagePicture)
         {
-            Book book = new Book(isbn, Author, Publisher, Page, CoverPagePicture);
+            Book book = new Book(nm,prc,isbn, Author, Publisher, Page, CoverPagePicture);
         }
-        public void addNewMagazine(string Issue,Type type)
+        public void addNewMagazine(string nm, double prc, string Issue, Type Type)
         {
-            Magazine magazine = new Magazine(Issue,type);
+            Magazine magazine = new Magazine(nm,prc,Issue,Type);
         }
-        public void addNewMusicCD(string singer,type type)
+        public void addNewMusicCD(string nm, double prc, string Singer, type Type)
         {
-            MusicCD musicCD = new MusicCD(singer, type);
+            MusicCD musicCD = new MusicCD(nm,prc,Singer, Type);
         }
 
     }
