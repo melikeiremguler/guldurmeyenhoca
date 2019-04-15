@@ -13,6 +13,7 @@ namespace oopProje
         public string email { get; set; }
         public string userName { get; set; }
         public string possword { get; set; }
+        public int TotalCustomer { get; set; } = 0;
         public Customer(int id,string Name,string Email,string Username,string Password)
         {
             customerID = id;
@@ -20,6 +21,7 @@ namespace oopProje
             email = Email;
             userName = Username;
             possword = Password;
+            TotalCustomer++;
 
         }
         public void printCustomerDetails()
