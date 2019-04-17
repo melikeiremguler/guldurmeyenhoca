@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace oopProje
 {
-    class Product
+   abstract class Product
     {
         private List<Observer> observers = new List<Observer>();
 
@@ -22,6 +22,9 @@ namespace oopProje
             Id = ++TotalProduct;
             
         }
+
+    
+
         public int getTotal()
         {
             return TotalProduct;

@@ -21,7 +21,16 @@ namespace oopProje
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string path = "Data source =sqlite.db";
+
+       
+            CustomerForm mycustomerform = new CustomerForm();
+           
+            mycustomerform.Show();
+            AdminForm adminForm = new AdminForm();
+
+            adminForm.Show();
+            /*
+            string path = "Data source =BookStore.db";
             SQLiteConnection baglantı = new SQLiteConnection(path);
             baglantı.Open();
             string sql = "insert into tblbook(id,name) values(@id,@name)";
@@ -32,7 +41,7 @@ namespace oopProje
             komutislet.ExecuteNonQuery();
             baglantı.Dispose();
             komutislet.Dispose();
-           
+           */
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -45,6 +54,11 @@ namespace oopProje
             MusicCD mt = new MusicCD(tt, 1, tt, type.Country);
             int a= m.getTotal();
             Console.WriteLine(a);*/
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+           
         }
     }
 }
