@@ -23,6 +23,7 @@ namespace BookStore
 
         private Database()
         {
+
             connection = new SQLiteConnection(path);
             sql_command = new SQLiteCommand();
         }

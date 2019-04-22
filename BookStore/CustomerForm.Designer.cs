@@ -370,7 +370,7 @@
             // 
             this.panel2.Location = new System.Drawing.Point(261, 188);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(810, 564);
+            this.panel2.Size = new System.Drawing.Size(905, 523);
             this.panel2.TabIndex = 13;
             // 
             // CustomerForm
