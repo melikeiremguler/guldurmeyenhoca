@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
-   public class Database
+    public class Database
     {
         private static string path = "Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3";
         private SQLiteConnection connection;
@@ -26,19 +26,19 @@ namespace BookStore
         public static Database get_instance()
         {
 
-            if ( database == null)
+            if (database == null)
             {
                 database = new Database();
-               
+
             }
             return database;
         }
 
         public void open_database()
         {
-           
+
             connection.Open();
-           
+
         }
 
         public void process_command(string sql_statement)
@@ -47,9 +47,9 @@ namespace BookStore
             sql_command.Connection = connection;
         }
 
-        public void add_value(string par,object value)
+        public void add_value(string par, object value)
         {
-            sql_command.Parameters.AddWithValue(par,value);
+            sql_command.Parameters.AddWithValue(par, value);
         }
 
         public bool execute_command()
@@ -64,29 +64,30 @@ namespace BookStore
             {
                 return false;
             }
-            
+
         }
-     
+
         public void read_value(string value)
         {
             connection.Open();
             sql_command.Connection = connection;
-            sql_command.CommandText = "Select * from "+value;
+            sql_command.CommandText = "Select * from " + value;
+
             using (SQLiteDataReader sdr = sql_command.ExecuteReader())
             {
-                
-               /* while (sdr.Read())
-                {
-                    Console.Write("{0} ", sdr["Id"]);
-                    Console.Write("{0} ", sdr["Name"]);
-                    Console.Write("{0} \n", sdr["Price"]);
-                  //  Console.Write("{0} \n", sdr["Image"]
-                 //  Console.Write("{0} \n", sdr["Type"]);
 
-                }*/
+                /* while (sdr.Read())
+                 {
+                     Console.Write("{0} ", sdr["Id"]);
+                     Console.Write("{0} ", sdr["Name"]);
+                     Console.Write("{0} \n", sdr["Price"]);
+                   //  Console.Write("{0} \n", sdr["Image"]
+                  //  Console.Write("{0} \n", sdr["Type"]);
+
+                 }*/
                 sdr.Close();
                 connection.Close();
-               
+
 
             }
 

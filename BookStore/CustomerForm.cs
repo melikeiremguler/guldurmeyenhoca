@@ -20,7 +20,8 @@ namespace BookStore
         }
         int t = 1, r = 6;
         private void CustomerForm_Load(object sender, EventArgs e)
-        {
+        {      
+
             Database data_base = Database.get_instance();
             data_base.read_value("BookTable");
 
@@ -66,8 +67,7 @@ namespace BookStore
             Database database = Database.get_instance();
 
             database.open_database();
-            database.read_value("BookTable");
-            while()
+            database.read_value();
 
 
         }
@@ -84,36 +84,7 @@ namespace BookStore
             //billForm.Show(); // formu gösterdik. Ancak buraya dikakt. ShowDialog(); olarak değil Show(); olarak açıyoruz.
             //billForm.Dock = DockStyle.Fill; // Açılan formun paneli doldurmasını sağladık.
             //billForm.BringToFront(); // formu panel içinde en öne getirdik
-<<<<<<< HEAD
-           
-        }
 
-        private void CustomerForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
-
-        private void lbPruduct_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void customerpanel_Paint(object sender, PaintEventArgs e)
-        {
-           
-=======
-
->>>>>>> 5db6209ebe1597b81ec6a7f757b0f045b2272432
         }
 
 
@@ -146,7 +117,6 @@ namespace BookStore
         {
             Database data_base = Database.get_instance();
             data_base.read_value("BookTable");
-
         }
 
         void OpenForm(Form Openform)
