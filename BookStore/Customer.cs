@@ -29,7 +29,7 @@ namespace BookStore
         public List<Customer> read_customer()
         {
             Database database = Database.get_instance();
-            database.read_value("UserTable");
+            CustumerList = database.read_customer("UserTable"); //okunan list çekilir
 
             return CustumerList;
         }
@@ -47,7 +47,7 @@ namespace BookStore
         public void printCustomerDetails(int cutomerID)
         {
             Customer customer;
-            CustumerList = read_customer();
+            CustumerList = read_customer(); //customer okuma fonsiyonunda okuma işlemi yapılır
             customer = customer_search(CustumerList, customerID);
 
             //cout kısmı ekle artık nere yazılcak bu detail ben bilmiyom

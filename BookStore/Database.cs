@@ -27,6 +27,10 @@ namespace BookStore
             sql_command = new SQLiteCommand();
         }
         public List<Book> BookList = new List<Book>();
+        public List<Customer> CustomerList = new List<Customer>();
+        public List<MusicCD> MusicCDList = new List<MusicCD>();
+        public List<Magazine> MagazineList = new List<Magazine>();
+
         public static Database get_instance()
         {
             
@@ -66,7 +70,7 @@ namespace BookStore
             sql_command.Parameters.Add(customer.email);
             sql_command.Parameters.Add(customer.userName);
             sql_command.Parameters.Add(customer.possword);
-            sql_command.Parameters.Add(customer.TotalCustomer);
+          //  sql_command.Parameters.Add(customer.TotalCustomer);
            
 
         }
@@ -82,7 +86,7 @@ namespace BookStore
             sql_command.Parameters.Add(book.author);
             sql_command.Parameters.Add(book.publisher);
             sql_command.Parameters.Add(book.page);
-            sql_command.Parameters.Add(book.getTotalBook());
+          //  sql_command.Parameters.Add(book.getTotalBook());
 
         }
         public void add_magazine(string sql_statement, Magazine magazine)
@@ -95,7 +99,7 @@ namespace BookStore
             sql_command.Parameters.Add(magazine.image);
             sql_command.Parameters.Add(magazine.issue);
             sql_command.Parameters.Add(magazine.type);
-            sql_command.Parameters.Add(magazine.getTotalMagazine());
+          //  sql_command.Parameters.Add(magazine.getTotalMagazine());
 
         }
         public void add_musiccd(string sql_statement, MusicCD musicCD)
@@ -108,7 +112,7 @@ namespace BookStore
             sql_command.Parameters.Add(musicCD.image);
             sql_command.Parameters.Add(musicCD.singer);
             sql_command.Parameters.Add(musicCD.type);
-            sql_command.Parameters.Add(musicCD.getTotalCd());
+          //  sql_command.Parameters.Add(musicCD.getTotalCd());
 
         }
 
@@ -127,40 +131,98 @@ namespace BookStore
 
         }
 
-        public void read_value(string value)
+        public List<Book> read_book(string value)
         {
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
-
-
                 string stm = "SELECT * FROM " + value;
-
-
                 using (sql_command = new SQLiteCommand(stm, connection))
                 {
-
                     using (SQLiteDataReader sdr = sql_command.ExecuteReader())
                     {
-
                         while (sdr.Read())
                         {
-
                             Book mybook = new Book(sdr.GetInt32(0),sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null);
                             BookList.Add(mybook);
-
-
                         }
                         sdr.Close();
                         connection.Close();
-
                     }
                 }
-
                 connection.Close();
             }
+            return BookList;
 
-
+        }
+        public List<Customer> read_customer(string value)
+        {
+            using (connection = new SQLiteConnection(path))
+            {
+                connection.Open();
+                string stm = "SELECT * FROM " + value;
+                using (sql_command = new SQLiteCommand(stm, connection))
+                {
+                    using (SQLiteDataReader sdr = sql_command.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            Customer mycustomer = new Customer(sdr.GetInt32(0), sdr.GetString(1), sdr.GetString(2), sdr.GetString(4), sdr.GetString(5));
+                            CustomerList.Add(mycustomer);
+                        }
+                        sdr.Close();
+                        connection.Close();
+                    }
+                }
+                connection.Close();
+            }
+            return CustomerList;
+        }
+        public List<MusicCD> read_musiccd(string value)
+        {
+            using (connection = new SQLiteConnection(path))
+            {
+                connection.Open();
+                string stm = "SELECT * FROM " + value;
+                using (sql_command = new SQLiteCommand(stm, connection))
+                {
+                    using (SQLiteDataReader sdr = sql_command.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), sdr.GetChar(5));
+                            MusicCDList.Add(mymusicCD);
+                        }
+                        sdr.Close();
+                        connection.Close();
+                    }
+                }
+                connection.Close();
+            }
+            return MusicCDList;
+        }
+        public List<Magazine> read_magazine(string value)
+        {
+            using (connection = new SQLiteConnection(path))
+            {
+                connection.Open();
+                string stm = "SELECT * FROM " + value;
+                using (sql_command = new SQLiteCommand(stm, connection))
+                {
+                    using (SQLiteDataReader sdr = sql_command.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, sdr.GetString(4), sdr.GetChar(5));
+                            MagazineList.Add(mymagazine);
+                        }
+                        sdr.Close();
+                        connection.Close();
+                    }
+                }
+                connection.Close();
+            }
+            return MagazineList;
         }
         public void close_database()
         {
