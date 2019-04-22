@@ -67,7 +67,7 @@ namespace BookStore
             Database database = Database.get_instance();
 
             database.open_database();
-            database.read_value();
+            database.read_value("BookTable");
 
 
         }

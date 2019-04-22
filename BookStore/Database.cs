@@ -41,15 +41,70 @@ namespace BookStore
 
         }
 
-        public void process_command(string sql_statement)
+        private void process_command(string sql_statement)
         {
             sql_command.CommandText = sql_statement;
             sql_command.Connection = connection;
         }
 
-        public void add_value(string par, object value)
+        public void add_value(string param, object value, string sql_statement)  //string sql_statement = INSERT INTO table'ın adı
         {
-            sql_command.Parameters.AddWithValue(par, value);
+            process_command(sql_statement);
+            sql_command.Parameters.AddWithValue(param, value);
+        }
+        public void add_customer(string sql_statement, Customer customer)
+        {
+            process_command(sql_statement);
+      
+            sql_command.Parameters.Add(customer.customerID);
+            sql_command.Parameters.Add(customer.name);
+            sql_command.Parameters.Add(customer.email);
+            sql_command.Parameters.Add(customer.userName);
+            sql_command.Parameters.Add(customer.possword);
+            sql_command.Parameters.Add(customer.TotalCustomer);
+           
+
+        }
+        public void add_book(string sql_statement, Book book)
+        {
+            process_command(sql_statement);
+
+            sql_command.Parameters.Add(book.getId());
+            sql_command.Parameters.Add(book.getName());
+            sql_command.Parameters.Add(book.getPrice());
+            sql_command.Parameters.Add(book.image);
+            sql_command.Parameters.Add(book.ISBN);
+            sql_command.Parameters.Add(book.author);
+            sql_command.Parameters.Add(book.publisher);
+            sql_command.Parameters.Add(book.page);
+            sql_command.Parameters.Add(book.getTotalBook());
+
+        }
+        public void add_magazine(string sql_statement, Magazine magazine)
+        {
+            process_command(sql_statement);
+
+            sql_command.Parameters.Add(magazine.getId());
+            sql_command.Parameters.Add(magazine.getName());
+            sql_command.Parameters.Add(magazine.getPrice());
+            sql_command.Parameters.Add(magazine.image);
+            sql_command.Parameters.Add(magazine.issue);
+            sql_command.Parameters.Add(magazine.type);
+            sql_command.Parameters.Add(magazine.getTotalMagazine());
+
+        }
+        public void add_musiccd(string sql_statement, MusicCD musicCD)
+        {
+            process_command(sql_statement);
+
+            sql_command.Parameters.Add(musicCD.getId());
+            sql_command.Parameters.Add(musicCD.getName());
+            sql_command.Parameters.Add(musicCD.getPrice());
+            sql_command.Parameters.Add(musicCD.image);
+            sql_command.Parameters.Add(musicCD.singer);
+            sql_command.Parameters.Add(musicCD.type);
+            sql_command.Parameters.Add(musicCD.getTotalCd());
+
         }
 
         public bool execute_command()
@@ -76,7 +131,7 @@ namespace BookStore
             using (SQLiteDataReader sdr = sql_command.ExecuteReader())
             {
 
-                /* while (sdr.Read())
+                /* while (sdr.Read()) //Control kodu
                  {
                      Console.Write("{0} ", sdr["Id"]);
                      Console.Write("{0} ", sdr["Name"]);

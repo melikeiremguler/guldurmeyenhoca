@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-    class Customer:Observer
+   public class Customer:Observer
     {
         public int customerID { get; set; }
         public string name { get; set; }
@@ -24,27 +25,51 @@ namespace BookStore
             TotalCustomer++;
 
         }
-        public void printCustomerDetails()
+        List<Customer> CustumerList = new List<Customer>();
+        public List<Customer> read_customer()
         {
+            Database database = Database.get_instance();
+            database.read_value("UserTable");
+
+            return CustumerList;
+        }
+        public Customer customer_search(List<Customer> customers, int searchID)
+        {
+            foreach (Customer customer in customers)
+            {
+                if (customer.customerID == searchID)
+                {
+                    return customer;
+                }
+            }
+            return null;
+        }
+        public void printCustomerDetails(int cutomerID)
+        {
+            Customer customer;
+            CustumerList = read_customer();
+            customer = customer_search(CustumerList, customerID);
+
+            //cout kısmı ekle artık nere yazılcak bu detail ben bilmiyom
+
             
-
-            //  Implemantasyoonu yapppppppppppppppppppp
-
 
         }
         public void saveCustomer()
         {
+            //textboxtan al ardından
+            // Customer newCustomer= new Customer(//paremetreleri textboxdan al ); de
+            //  Database database = Database.get_instance();
+            // database.add_customer("INSERT INTO UserTable", newCustomer);//INSERT INTO UserTable(id,name,..)gibe de olabilir kontrol edilmeli!!
 
-
-            //  Implemantasyoonu yapppppppppppppppppppp
 
 
         }
         public void printCustomerPurchases()
         {
 
-
-            //  Implemantasyoonu yapppppppppppppppppppp
+            //sqlite dan çekilcek
+            
 
 
         }

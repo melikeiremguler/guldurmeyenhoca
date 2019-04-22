@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BookStore
 {
    
-        abstract class Observer
+       public abstract class Observer
         {
             //Değişimde haber gider
             public abstract void Update();

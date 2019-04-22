@@ -20,7 +20,10 @@ namespace BookStore
             itemsToPurchase = items;
 
         }
-        public void printProducts() { }
+        public void printProducts()
+        {
+            
+        }
         public void addProduct(ItemToPurchase item)
         {
             itemsToPurchase.Add(item);
