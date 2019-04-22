@@ -21,6 +21,9 @@ namespace BookStore
         int t = 1, r = 6;
         private void CustomerForm_Load(object sender, EventArgs e)
         {
+            Database data_base = Database.get_instance();
+            data_base.read_value("BookTable");
+
             this.IsMdiContainer = true;
 
             reklam1picturebox.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -63,7 +66,8 @@ namespace BookStore
             Database database= Database.get_instance();
     
             database.open_database();
-            database.read_value();
+            database.read_value("BookTable");
+            while()
 
         
         }
@@ -105,7 +109,7 @@ namespace BookStore
 
         private void customerpanel_Paint(object sender, PaintEventArgs e)
         {
-
+           
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -130,6 +134,13 @@ namespace BookStore
 
         private void chancePasswordBtn_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void HomeBtn_Click(object sender, EventArgs e)
+        {
+            Database data_base = Database.get_instance();
+            data_base.read_value("BookTable");
 
         }
 

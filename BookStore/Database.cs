@@ -7,11 +7,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace BookStore
 {
-    class Database
+   public class Database
     {
-        private static string path = "Data source = BookStore.db";
+        private static string path = "Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3";
         private SQLiteConnection connection;
         private SQLiteCommand sql_command;
         private static Database database;
@@ -66,26 +67,28 @@ namespace BookStore
             
         }
      
-        public void read_value()
+        public void read_value(string value)
         {
-            string sql = "Select * from BookTable";
-
-
-            process_command(sql);
-
-
-
-            SQLiteDataReader rdr = sql_command.ExecuteReader();
-
-            do
+            connection.Open();
+            sql_command.Connection = connection;
+            sql_command.CommandText = "Select * from "+value;
+            using (SQLiteDataReader sdr = sql_command.ExecuteReader())
             {
-                rdr.Read();
-                Console.WriteLine(rdr);
+                
+               /* while (sdr.Read())
+                {
+                    Console.Write("{0} ", sdr["Id"]);
+                    Console.Write("{0} ", sdr["Name"]);
+                    Console.Write("{0} \n", sdr["Price"]);
+                  //  Console.Write("{0} \n", sdr["Image"]
+                 //  Console.Write("{0} \n", sdr["Type"]);
 
-            } while (rdr.NextResult());
+                }*/
+                sdr.Close();
+                connection.Close();
+               
 
-
-
+            }
 
 
         }

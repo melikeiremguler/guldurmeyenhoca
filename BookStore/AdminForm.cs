@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SQLite;
 
 namespace BookStore
 {
@@ -42,6 +43,12 @@ namespace BookStore
 
         private void lbPruduct_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void magazineBtn_Click(object sender, EventArgs e)
+        {
+           
 
         }
 
