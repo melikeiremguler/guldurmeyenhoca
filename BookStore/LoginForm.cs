@@ -15,10 +15,11 @@ namespace BookStore
 
         private bool mouseDown;
         private Point lastLocation;
-
-        public LoginForm()
+        CustomerForm ths;
+        public LoginForm(CustomerForm frm)
         {
             InitializeComponent();
+            ths = frm; //customer formundaki toolları kullanmamızı sağlar.
         }
 
         private void exit_lbl_Click(object sender, EventArgs e)
@@ -53,10 +54,40 @@ namespace BookStore
 
         }
 
-        private void login_button_Click(object sender, EventArgs e)
+        public void login_button_Click(object sender, EventArgs e)
         {
-            Program.call_Main(true);
-            this.Close();
+            if(user_control())
+            {
+                ths.chancePasswordBtn.Visible = true;
+                ths.creditcardBtn.Visible = true;
+                ths.SettingBtn.Visible = true;
+                ths.btnLogin.Text ="LOGOUT"; //customer adı login buttonuna eklenir 
+                ths.lbHosgeldin.Text = "HOŞGELDİN";
+                ths.lbUserName.Text = username_txtbox.Text.ToUpper();
+                this.Close();
+            }
+            else
+            {
+                lbWarring.ForeColor = Color.Red;
+                lbWarring.Text = "YOUR POSSWORD/USERNAME IS WRONG";
+            }
+           
         }
+        public bool user_control()
+        {
+            if (username_txtbox.Text == "tiv" && password_txtbox.Text == "tiv")
+            {
+
+                return true;
+
+            }
+            else
+            {
+               
+                return false;
+            }
+        }
+
+       
     }
 }

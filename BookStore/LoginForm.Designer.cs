@@ -38,6 +38,7 @@
             this.username_lbl = new System.Windows.Forms.Label();
             this.password_lbl = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
+            this.lbWarring = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logo_picturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             this.password_txtbox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.password_txtbox.Location = new System.Drawing.Point(48, 284);
             this.password_txtbox.Name = "password_txtbox";
+            this.password_txtbox.PasswordChar = '*';
             this.password_txtbox.Size = new System.Drawing.Size(213, 19);
             this.password_txtbox.TabIndex = 3;
             // 
@@ -141,12 +143,21 @@
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);
             // 
+            // lbWarring
+            // 
+            this.lbWarring.AutoSize = true;
+            this.lbWarring.Location = new System.Drawing.Point(29, 402);
+            this.lbWarring.Name = "lbWarring";
+            this.lbWarring.Size = new System.Drawing.Size(0, 13);
+            this.lbWarring.TabIndex = 9;
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.lbWarring);
             this.Controls.Add(this.exit_lbl);
             this.Controls.Add(this.login_button);
             this.Controls.Add(this.logo_picturebox);
@@ -178,5 +189,6 @@
         private System.Windows.Forms.Button login_button;
         private System.Windows.Forms.PictureBox logo_picturebox;
         private System.Windows.Forms.Label exit_lbl;
+        private System.Windows.Forms.Label lbWarring;
     }
 }
