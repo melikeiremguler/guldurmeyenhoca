@@ -24,7 +24,7 @@ namespace BookStore
 
             Database data_base = Database.get_instance();
             data_base.read_value("BookTable");
-            panel2.ResetText();
+            panel2.Controls.Clear();
             int i = 0;
             for (int j = 0; j < data_base.BookList.Count; j++)
             {
@@ -77,19 +77,7 @@ namespace BookStore
 
         }
 
-<<<<<<< HEAD
-        private void bookBtn_Click(object sender, EventArgs e)
-        {
-            Database database = Database.get_instance();
-
-            database.open_database();
-            database.read_value("BookTable");
-
-
-        }
-=======
       
->>>>>>> 4cd6dc87670d09d883970ff563e5ae470d93c539
 
         private void billBtn_Click(object sender, EventArgs e)
         {
@@ -136,10 +124,26 @@ namespace BookStore
         {
             Database data_base = Database.get_instance();
             data_base.read_value("BookTable");
+            panel2.Controls.Clear();
+            int i = 0;
+            for (int j = 0; j < data_base.BookList.Count; j++)
+            {
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = new System.Drawing.Point(120 + (j * 50), 120);
+                pictureBox1.Name = "pictureBox" + j;
+                pictureBox1.Size = new System.Drawing.Size(200 * j, 200);
+                pictureBox1.ImageLocation = Application.StartupPath + @"\reklamimage\" + j + ".jpg";
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                //  pictureBox1.BackColor = Color.Honeydew;
+                pictureBox1.BackColor = Color.Black;
+                panel2.Controls.Add(pictureBox1);
+
+            }
         }
 
         private void bookBtn_Click(object sender, EventArgs e)
         {
+            panel2.Controls.Clear();
 
             Database database = Database.get_instance();
             database.BookList.Clear();

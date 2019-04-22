@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-<<<<<<< HEAD
-    public class Book:Product
-=======
+
+
    public class Book:Product
->>>>>>> 4cd6dc87670d09d883970ff563e5ae470d93c539
+
     {
         public int ISBN { get; set; }
         public string author { get; set; }
@@ -20,7 +19,7 @@ namespace BookStore
         public static int TotalBook { get; set; } = 0;
 
 
-        public Book(int id,string nm, double prc, Image CoverPagePicture,int isbn, string Author, string Publisher, int Page) : base(id,nm, prc,CoverPagePicture)
+        public Book(int id,string nm, double prc, int isbn, string Author, string Publisher, int Page, Image CoverPagePicture) : base(id,nm, prc,CoverPagePicture)
         {
             ISBN = isbn;
             author = Author;

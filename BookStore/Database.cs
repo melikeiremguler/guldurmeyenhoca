@@ -133,17 +133,9 @@ namespace BookStore
             {
                 connection.Open();
 
-<<<<<<< HEAD
-                /* while (sdr.Read()) //Control kodu
-                 {
-                     Console.Write("{0} ", sdr["Id"]);
-                     Console.Write("{0} ", sdr["Name"]);
-                     Console.Write("{0} \n", sdr["Price"]);
-                   //  Console.Write("{0} \n", sdr["Image"]
-                  //  Console.Write("{0} \n", sdr["Type"]);
-=======
+
                 string stm = "SELECT * FROM " + value;
->>>>>>> 4cd6dc87670d09d883970ff563e5ae470d93c539
+
 
                 using (sql_command = new SQLiteCommand(stm, connection))
                 {
@@ -154,7 +146,7 @@ namespace BookStore
                         while (sdr.Read())
                         {
 
-                            Book mybook = new Book(sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null);
+                            Book mybook = new Book(sdr.GetInt32(0),sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null);
                             BookList.Add(mybook);
 
 
