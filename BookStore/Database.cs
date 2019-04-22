@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
 using System.Data.SQLite;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,6 +13,7 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+
     public class Database
     {
         private static string path = "Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3";
@@ -22,9 +26,10 @@ namespace BookStore
             connection = new SQLiteConnection(path);
             sql_command = new SQLiteCommand();
         }
-
+        public List<Book> BookList = new List<Book>();
         public static Database get_instance()
         {
+            
 
             if (database == null)
             {
@@ -124,13 +129,11 @@ namespace BookStore
 
         public void read_value(string value)
         {
-            connection.Open();
-            sql_command.Connection = connection;
-            sql_command.CommandText = "Select * from " + value;
-
-            using (SQLiteDataReader sdr = sql_command.ExecuteReader())
+            using (connection = new SQLiteConnection(path))
             {
+                connection.Open();
 
+<<<<<<< HEAD
                 /* while (sdr.Read()) //Control kodu
                  {
                      Console.Write("{0} ", sdr["Id"]);
@@ -138,12 +141,31 @@ namespace BookStore
                      Console.Write("{0} \n", sdr["Price"]);
                    //  Console.Write("{0} \n", sdr["Image"]
                   //  Console.Write("{0} \n", sdr["Type"]);
+=======
+                string stm = "SELECT * FROM " + value;
+>>>>>>> 4cd6dc87670d09d883970ff563e5ae470d93c539
 
-                 }*/
-                sdr.Close();
+                using (sql_command = new SQLiteCommand(stm, connection))
+                {
+
+                    using (SQLiteDataReader sdr = sql_command.ExecuteReader())
+                    {
+
+                        while (sdr.Read())
+                        {
+
+                            Book mybook = new Book(sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null);
+                            BookList.Add(mybook);
+
+
+                        }
+                        sdr.Close();
+                        connection.Close();
+
+                    }
+                }
+
                 connection.Close();
-
-
             }
 
 

@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
+<<<<<<< HEAD
     public class Book:Product
+=======
+   public class Book:Product
+>>>>>>> 4cd6dc87670d09d883970ff563e5ae470d93c539
     {
         public int ISBN { get; set; }
         public string author { get; set; }
