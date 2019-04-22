@@ -5,13 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStore
-{
-<<<<<<< HEAD
+namespace BookStore { 
+
     public class Product
-=======
-     public class Product
->>>>>>> 4cd6dc87670d09d883970ff563e5ae470d93c539
+
     {
         private List<Observer> observers = new List<Observer>();
 

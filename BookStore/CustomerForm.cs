@@ -29,10 +29,10 @@ namespace BookStore
             for (int j = 0; j < data_base.BookList.Count; j++)
             {
                 PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new System.Drawing.Point(120 + (j * 50), 120);
+                pictureBox1.Location = new Point(200 *(j*5), 200);
                 pictureBox1.Name = "pictureBox" + j;
                 pictureBox1.Size = new System.Drawing.Size(200 * j, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\reklamimage\" + j + ".jpg";
+                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 //  pictureBox1.BackColor = Color.Honeydew;
                 pictureBox1.BackColor = Color.Black;
@@ -132,7 +132,7 @@ namespace BookStore
                 pictureBox1.Location = new System.Drawing.Point(120 + (j * 50), 120);
                 pictureBox1.Name = "pictureBox" + j;
                 pictureBox1.Size = new System.Drawing.Size(200 * j, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\reklamimage\" + j + ".jpg";
+                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 //  pictureBox1.BackColor = Color.Honeydew;
                 pictureBox1.BackColor = Color.Black;
@@ -149,20 +149,20 @@ namespace BookStore
             database.BookList.Clear();
             database.read_value("BookTable");
 
-
-            int i = 0;
                 for (int j = 0; j < database.BookList.Count; j++)
                 {
+               
                 PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new System.Drawing.Point(120+(j*50), 120);
+                pictureBox1.Location = new System.Drawing.Point(120 + (j * 50), 120);
+         
                 pictureBox1.Name = "pictureBox"+j;
-                pictureBox1.Size = new System.Drawing.Size(200*j, 200);
+                pictureBox1.Size = new System.Drawing.Size(200, 200);
                 pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" +j+".jpg";
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 //  pictureBox1.BackColor = Color.Honeydew;
                 pictureBox1.BackColor = Color.Black;
                 panel2.Controls.Add(pictureBox1);
-                
+              
                 }
             
         }

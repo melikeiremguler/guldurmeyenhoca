@@ -24,7 +24,7 @@ namespace BookStore
         }
         public void addNewBook(int id,string nm, double prc, Image CoverPagePicture, int isbn, string Author, string Publisher, int Page)
         {
-            Book book = new Book(id,nm,prc, CoverPagePicture, isbn, Author, Publisher, Page);
+            Book book = new Book(id,nm,prc, isbn, Author, Publisher, Page, CoverPagePicture);
             Database database = Database.get_instance();
             database.add_book("INSERT INTO BookTable", book);
         }
