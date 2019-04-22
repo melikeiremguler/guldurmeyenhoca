@@ -25,9 +25,9 @@ namespace BookStore
             CustomerForm mycustomerform = new CustomerForm();
 
             mycustomerform.Show();
-            AdminForm adminForm = new AdminForm();
+          
 
-            adminForm.Show();
+          
           
 
             //Database database = Database.get_instance();

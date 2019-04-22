@@ -30,15 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomerForm));
-            this.customerpanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.HomeBtn = new System.Windows.Forms.Button();
-            this.bookBtn = new System.Windows.Forms.Button();
-            this.magazineBtn = new System.Windows.Forms.Button();
-            this.billBtn = new System.Windows.Forms.Button();
-            this.creditcardBtn = new System.Windows.Forms.Button();
-            this.SettingBtn = new System.Windows.Forms.Button();
-            this.chancePasswordBtn = new System.Windows.Forms.Button();
-            this.musiccdBtn = new System.Windows.Forms.Button();
             this.lbFilter = new System.Windows.Forms.Label();
             this.lbPruduct = new System.Windows.Forms.Label();
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
@@ -70,7 +61,19 @@
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.customerpanel.SuspendLayout();
+            this.customerpanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.HomeBtn = new System.Windows.Forms.Button();
+            this.bookBtn = new System.Windows.Forms.Button();
+            this.magazineBtn = new System.Windows.Forms.Button();
+            this.musiccdBtn = new System.Windows.Forms.Button();
+            this.billBtn = new System.Windows.Forms.Button();
+            this.btnLogin = new System.Windows.Forms.Button();
+            this.creditcardBtn = new System.Windows.Forms.Button();
+            this.chancePasswordBtn = new System.Windows.Forms.Button();
+            this.SettingBtn = new System.Windows.Forms.Button();
+            this.lbHosgeldin = new System.Windows.Forms.Label();
+            this.lbUserName = new System.Windows.Forms.Label();
             this.searchgroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reklam1picturebox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reklam2picturebox)).BeginInit();
@@ -85,156 +88,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.customerpanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // customerpanel
-            // 
-            this.customerpanel.AutoSize = true;
-            this.customerpanel.BackColor = System.Drawing.Color.Honeydew;
-            this.customerpanel.Controls.Add(this.HomeBtn);
-            this.customerpanel.Controls.Add(this.bookBtn);
-            this.customerpanel.Controls.Add(this.magazineBtn);
-            this.customerpanel.Controls.Add(this.musiccdBtn);
-            this.customerpanel.Controls.Add(this.billBtn);
-            this.customerpanel.Controls.Add(this.creditcardBtn);
-            this.customerpanel.Controls.Add(this.chancePasswordBtn);
-            this.customerpanel.Controls.Add(this.SettingBtn);
-            this.customerpanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customerpanel.Location = new System.Drawing.Point(0, 0);
-            this.customerpanel.Margin = new System.Windows.Forms.Padding(2);
-            this.customerpanel.Name = "customerpanel";
-            this.customerpanel.Size = new System.Drawing.Size(963, 688);
-            this.customerpanel.TabIndex = 7;
-            this.customerpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.customerpanel_Paint);
-            // 
-            // HomeBtn
-            // 
-            this.HomeBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.HomeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeBtn.BackgroundImage")));
-            this.HomeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.HomeBtn.Location = new System.Drawing.Point(2, 2);
-            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.Size = new System.Drawing.Size(92, 123);
-            this.HomeBtn.TabIndex = 5;
-            this.HomeBtn.Text = "HOME";
-            this.HomeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.HomeBtn.UseVisualStyleBackColor = false;
-            // 
-            // bookBtn
-            // 
-            this.bookBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.bookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bookBtn.BackgroundImage")));
-            this.bookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bookBtn.Location = new System.Drawing.Point(98, 2);
-            this.bookBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.bookBtn.Name = "bookBtn";
-            this.bookBtn.Size = new System.Drawing.Size(92, 123);
-            this.bookBtn.TabIndex = 6;
-            this.bookBtn.Text = "BOOK";
-            this.bookBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.bookBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bookBtn.UseVisualStyleBackColor = false;
-            this.bookBtn.Click += new System.EventHandler(this.bookBtn_Click);
-            // 
-            // magazineBtn
-            // 
-            this.magazineBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.magazineBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("magazineBtn.BackgroundImage")));
-            this.magazineBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.magazineBtn.Location = new System.Drawing.Point(194, 2);
-            this.magazineBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.magazineBtn.Name = "magazineBtn";
-            this.magazineBtn.Size = new System.Drawing.Size(92, 123);
-            this.magazineBtn.TabIndex = 7;
-            this.magazineBtn.Text = "MAGAZINE";
-            this.magazineBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.magazineBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.magazineBtn.UseVisualStyleBackColor = false;
-            // 
-            // billBtn
-            // 
-            this.billBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.billBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("billBtn.BackgroundImage")));
-            this.billBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.billBtn.Location = new System.Drawing.Point(386, 2);
-            this.billBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.billBtn.Name = "billBtn";
-            this.billBtn.Size = new System.Drawing.Size(92, 123);
-            this.billBtn.TabIndex = 12;
-            this.billBtn.Text = "SHOPPING CART";
-            this.billBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.billBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.billBtn.UseVisualStyleBackColor = false;
-            this.billBtn.Click += new System.EventHandler(this.billBtn_Click);
-            // 
-            // creditcardBtn
-            // 
-            this.creditcardBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.creditcardBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("creditcardBtn.BackgroundImage")));
-            this.creditcardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.creditcardBtn.Location = new System.Drawing.Point(482, 2);
-            this.creditcardBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.creditcardBtn.Name = "creditcardBtn";
-            this.creditcardBtn.Size = new System.Drawing.Size(92, 123);
-            this.creditcardBtn.TabIndex = 11;
-            this.creditcardBtn.Text = "CREDIT CARD";
-            this.creditcardBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.creditcardBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.creditcardBtn.UseVisualStyleBackColor = false;
-            // 
-            // SettingBtn
-            // 
-            this.SettingBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SettingBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingBtn.BackgroundImage")));
-            this.SettingBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SettingBtn.Location = new System.Drawing.Point(674, 2);
-            this.SettingBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.SettingBtn.Name = "SettingBtn";
-            this.SettingBtn.Size = new System.Drawing.Size(92, 123);
-            this.SettingBtn.TabIndex = 9;
-            this.SettingBtn.Text = "SETTINGS";
-            this.SettingBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.SettingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.SettingBtn.UseVisualStyleBackColor = false;
-            // 
-            // chancePasswordBtn
-            // 
-            this.chancePasswordBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.chancePasswordBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chancePasswordBtn.BackgroundImage")));
-            this.chancePasswordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chancePasswordBtn.Location = new System.Drawing.Point(578, 2);
-            this.chancePasswordBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.chancePasswordBtn.Name = "chancePasswordBtn";
-            this.chancePasswordBtn.Size = new System.Drawing.Size(92, 123);
-            this.chancePasswordBtn.TabIndex = 10;
-            this.chancePasswordBtn.Text = "CHANGE PASSWORD";
-            this.chancePasswordBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.chancePasswordBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.chancePasswordBtn.UseVisualStyleBackColor = false;
-            this.chancePasswordBtn.Click += new System.EventHandler(this.chancePasswordBtn_Click);
-            // 
-            // musiccdBtn
-            // 
-            this.musiccdBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.musiccdBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("musiccdBtn.BackgroundImage")));
-            this.musiccdBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.musiccdBtn.Location = new System.Drawing.Point(290, 2);
-            this.musiccdBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.musiccdBtn.Name = "musiccdBtn";
-            this.musiccdBtn.Size = new System.Drawing.Size(92, 123);
-            this.musiccdBtn.TabIndex = 8;
-            this.musiccdBtn.Text = "MUSIC CD";
-            this.musiccdBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.musiccdBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.musiccdBtn.UseVisualStyleBackColor = false;
             // 
             // lbFilter
             // 
             this.lbFilter.AutoSize = true;
             this.lbFilter.BackColor = System.Drawing.Color.SeaShell;
-            this.lbFilter.Location = new System.Drawing.Point(10, 86);
+            this.lbFilter.Location = new System.Drawing.Point(10, 77);
             this.lbFilter.Name = "lbFilter";
             this.lbFilter.Size = new System.Drawing.Size(29, 13);
             this.lbFilter.TabIndex = 11;
@@ -244,18 +106,16 @@
             // 
             this.lbPruduct.AutoSize = true;
             this.lbPruduct.BackColor = System.Drawing.Color.SeaShell;
-            this.lbPruduct.Location = new System.Drawing.Point(10, 54);
+            this.lbPruduct.Location = new System.Drawing.Point(10, 50);
             this.lbPruduct.Name = "lbPruduct";
             this.lbPruduct.Size = new System.Drawing.Size(44, 13);
             this.lbPruduct.TabIndex = 10;
             this.lbPruduct.Text = "Product";
-            this.lbPruduct.Click += new System.EventHandler(this.lbPruduct_Click);
             // 
             // cmbFiltre
             // 
-            this.cmbFiltre.Enabled = false;
             this.cmbFiltre.FormattingEnabled = true;
-            this.cmbFiltre.Location = new System.Drawing.Point(75, 81);
+            this.cmbFiltre.Location = new System.Drawing.Point(75, 69);
             this.cmbFiltre.Name = "cmbFiltre";
             this.cmbFiltre.Size = new System.Drawing.Size(109, 21);
             this.cmbFiltre.TabIndex = 9;
@@ -268,7 +128,7 @@
             "BOOK",
             "MAGAZİNE",
             "MUSİC CD"});
-            this.cmbProduct.Location = new System.Drawing.Point(75, 51);
+            this.cmbProduct.Location = new System.Drawing.Point(75, 42);
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(109, 21);
             this.cmbProduct.TabIndex = 8;
@@ -283,17 +143,17 @@
             this.searchgroupBox.Controls.Add(this.lbPruduct);
             this.searchgroupBox.Controls.Add(this.cmbFiltre);
             this.searchgroupBox.Controls.Add(this.cmbProduct);
-            this.searchgroupBox.Location = new System.Drawing.Point(2, 135);
+            this.searchgroupBox.Location = new System.Drawing.Point(2, 152);
             this.searchgroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchgroupBox.Name = "searchgroupBox";
             this.searchgroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.searchgroupBox.Size = new System.Drawing.Size(189, 135);
+            this.searchgroupBox.Size = new System.Drawing.Size(189, 123);
             this.searchgroupBox.TabIndex = 12;
             this.searchgroupBox.TabStop = false;
             // 
             // searchBtn
             // 
-            this.searchBtn.Location = new System.Drawing.Point(106, 111);
+            this.searchBtn.Location = new System.Drawing.Point(99, 95);
             this.searchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(56, 19);
@@ -303,7 +163,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 17);
+            this.textBox1.Location = new System.Drawing.Point(9, 17);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 20);
@@ -565,23 +425,211 @@
             this.label2.TabIndex = 13;
             this.label2.Text = "label2";
             // 
+            // customerpanel
+            // 
+            this.customerpanel.AutoSize = true;
+            this.customerpanel.BackColor = System.Drawing.Color.Honeydew;
+            this.customerpanel.Controls.Add(this.panel1);
+            this.customerpanel.Controls.Add(this.searchgroupBox);
+            this.customerpanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.customerpanel.Location = new System.Drawing.Point(0, 0);
+            this.customerpanel.Margin = new System.Windows.Forms.Padding(2);
+            this.customerpanel.Name = "customerpanel";
+            this.customerpanel.Size = new System.Drawing.Size(1022, 688);
+            this.customerpanel.TabIndex = 7;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.panel1.Controls.Add(this.lbUserName);
+            this.panel1.Controls.Add(this.lbHosgeldin);
+            this.panel1.Controls.Add(this.HomeBtn);
+            this.panel1.Controls.Add(this.bookBtn);
+            this.panel1.Controls.Add(this.magazineBtn);
+            this.panel1.Controls.Add(this.musiccdBtn);
+            this.panel1.Controls.Add(this.billBtn);
+            this.panel1.Controls.Add(this.btnLogin);
+            this.panel1.Controls.Add(this.creditcardBtn);
+            this.panel1.Controls.Add(this.chancePasswordBtn);
+            this.panel1.Controls.Add(this.SettingBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1015, 144);
+            this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // HomeBtn
+            // 
+            this.HomeBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.HomeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeBtn.BackgroundImage")));
+            this.HomeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.HomeBtn.Location = new System.Drawing.Point(2, 8);
+            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.HomeBtn.Name = "HomeBtn";
+            this.HomeBtn.Size = new System.Drawing.Size(92, 123);
+            this.HomeBtn.TabIndex = 14;
+            this.HomeBtn.Text = "HOME";
+            this.HomeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.HomeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.HomeBtn.UseVisualStyleBackColor = false;
+            // 
+            // bookBtn
+            // 
+            this.bookBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.bookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bookBtn.BackgroundImage")));
+            this.bookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.bookBtn.Location = new System.Drawing.Point(98, 8);
+            this.bookBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.bookBtn.Name = "bookBtn";
+            this.bookBtn.Size = new System.Drawing.Size(92, 123);
+            this.bookBtn.TabIndex = 15;
+            this.bookBtn.Text = "BOOK";
+            this.bookBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.bookBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.bookBtn.UseVisualStyleBackColor = false;
+            // 
+            // magazineBtn
+            // 
+            this.magazineBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.magazineBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("magazineBtn.BackgroundImage")));
+            this.magazineBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.magazineBtn.Location = new System.Drawing.Point(191, 8);
+            this.magazineBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.magazineBtn.Name = "magazineBtn";
+            this.magazineBtn.Size = new System.Drawing.Size(92, 123);
+            this.magazineBtn.TabIndex = 16;
+            this.magazineBtn.Text = "MAGAZINE";
+            this.magazineBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.magazineBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.magazineBtn.UseVisualStyleBackColor = false;
+            // 
+            // musiccdBtn
+            // 
+            this.musiccdBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.musiccdBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("musiccdBtn.BackgroundImage")));
+            this.musiccdBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.musiccdBtn.Location = new System.Drawing.Point(287, 8);
+            this.musiccdBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.musiccdBtn.Name = "musiccdBtn";
+            this.musiccdBtn.Size = new System.Drawing.Size(92, 123);
+            this.musiccdBtn.TabIndex = 17;
+            this.musiccdBtn.Text = "MUSIC CD";
+            this.musiccdBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.musiccdBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.musiccdBtn.UseVisualStyleBackColor = false;
+            // 
+            // billBtn
+            // 
+            this.billBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.billBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("billBtn.BackgroundImage")));
+            this.billBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.billBtn.Location = new System.Drawing.Point(383, 8);
+            this.billBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.billBtn.Name = "billBtn";
+            this.billBtn.Size = new System.Drawing.Size(92, 123);
+            this.billBtn.TabIndex = 21;
+            this.billBtn.Text = "CART";
+            this.billBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.billBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.billBtn.UseVisualStyleBackColor = false;
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogin.BackgroundImage")));
+            this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnLogin.Location = new System.Drawing.Point(479, 8);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(92, 123);
+            this.btnLogin.TabIndex = 22;
+            this.btnLogin.Text = "LOGIN";
+            this.btnLogin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.btnLogin.UseVisualStyleBackColor = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // creditcardBtn
+            // 
+            this.creditcardBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.creditcardBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("creditcardBtn.BackgroundImage")));
+            this.creditcardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.creditcardBtn.Location = new System.Drawing.Point(575, 8);
+            this.creditcardBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.creditcardBtn.Name = "creditcardBtn";
+            this.creditcardBtn.Size = new System.Drawing.Size(92, 123);
+            this.creditcardBtn.TabIndex = 20;
+            this.creditcardBtn.Text = "CREDIT CARD";
+            this.creditcardBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.creditcardBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.creditcardBtn.UseVisualStyleBackColor = false;
+            this.creditcardBtn.Visible = false;
+            // 
+            // chancePasswordBtn
+            // 
+            this.chancePasswordBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.chancePasswordBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chancePasswordBtn.BackgroundImage")));
+            this.chancePasswordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.chancePasswordBtn.Location = new System.Drawing.Point(671, 8);
+            this.chancePasswordBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.chancePasswordBtn.Name = "chancePasswordBtn";
+            this.chancePasswordBtn.Size = new System.Drawing.Size(92, 123);
+            this.chancePasswordBtn.TabIndex = 19;
+            this.chancePasswordBtn.Text = "CHANGE PASSWORD";
+            this.chancePasswordBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.chancePasswordBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.chancePasswordBtn.UseVisualStyleBackColor = false;
+            this.chancePasswordBtn.Visible = false;
+            // 
+            // SettingBtn
+            // 
+            this.SettingBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SettingBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingBtn.BackgroundImage")));
+            this.SettingBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SettingBtn.Location = new System.Drawing.Point(767, 8);
+            this.SettingBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.SettingBtn.Name = "SettingBtn";
+            this.SettingBtn.Size = new System.Drawing.Size(92, 123);
+            this.SettingBtn.TabIndex = 18;
+            this.SettingBtn.Text = "SETTINGS";
+            this.SettingBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.SettingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.SettingBtn.UseVisualStyleBackColor = false;
+            this.SettingBtn.Visible = false;
+            // 
+            // lbHosgeldin
+            // 
+            this.lbHosgeldin.AutoSize = true;
+            this.lbHosgeldin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbHosgeldin.Location = new System.Drawing.Point(889, 51);
+            this.lbHosgeldin.Name = "lbHosgeldin";
+            this.lbHosgeldin.Size = new System.Drawing.Size(0, 18);
+            this.lbHosgeldin.TabIndex = 23;
+            // 
+            // lbUserName
+            // 
+            this.lbUserName.AutoSize = true;
+            this.lbUserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbUserName.Location = new System.Drawing.Point(889, 83);
+            this.lbUserName.Name = "lbUserName";
+            this.lbUserName.Size = new System.Drawing.Size(0, 13);
+            this.lbUserName.TabIndex = 24;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(963, 688);
+            this.ClientSize = new System.Drawing.Size(1022, 688);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.reklam2picturebox);
             this.Controls.Add(this.reklam1picturebox);
-            this.Controls.Add(this.searchgroupBox);
             this.Controls.Add(this.customerpanel);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomerForm";
             this.Text = "BookStore";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CustomerForm_FormClosing);
             this.Load += new System.EventHandler(this.CustomerForm_Load);
-            this.customerpanel.ResumeLayout(false);
             this.searchgroupBox.ResumeLayout(false);
             this.searchgroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reklam1picturebox)).EndInit();
@@ -598,21 +646,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.customerpanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.FlowLayoutPanel customerpanel;
-        private System.Windows.Forms.Button bookBtn;
-        private System.Windows.Forms.Button magazineBtn;
-        private System.Windows.Forms.Button musiccdBtn;
-        private System.Windows.Forms.Button SettingBtn;
-        private System.Windows.Forms.Button chancePasswordBtn;
-        private System.Windows.Forms.Button creditcardBtn;
-        private System.Windows.Forms.Button billBtn;
         private System.Windows.Forms.Label lbFilter;
         private System.Windows.Forms.Label lbPruduct;
         private System.Windows.Forms.ComboBox cmbFiltre;
@@ -623,7 +665,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button HomeBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -645,5 +686,18 @@
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel customerpanel;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button HomeBtn;
+        private System.Windows.Forms.Button bookBtn;
+        private System.Windows.Forms.Button magazineBtn;
+        private System.Windows.Forms.Button musiccdBtn;
+        private System.Windows.Forms.Button billBtn;
+        public System.Windows.Forms.Button btnLogin;
+        public System.Windows.Forms.Button creditcardBtn;
+        public System.Windows.Forms.Button chancePasswordBtn;
+        public System.Windows.Forms.Button SettingBtn;
+        public System.Windows.Forms.Label lbHosgeldin;
+        public System.Windows.Forms.Label lbUserName;
     }
 }

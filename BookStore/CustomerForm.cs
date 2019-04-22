@@ -26,7 +26,7 @@ namespace BookStore
             reklam1picturebox.SizeMode = PictureBoxSizeMode.StretchImage;
             reklam2picturebox.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            reklam2picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" +  "6.jpg";
+            reklam2picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" + "6.jpg";
             reklam1picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" + "1.jpg";
 
         }
@@ -38,7 +38,7 @@ namespace BookStore
 
         private void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -53,24 +53,24 @@ namespace BookStore
             {
                 r = 1;
             }
-            reklam1picturebox.ImageLocation =Application.StartupPath + @"\reklamimage\" + t + ".jpg";
+            reklam1picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" + t + ".jpg";
             reklam2picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" + r + ".jpg";
-            
+
         }
 
         private void bookBtn_Click(object sender, EventArgs e)
         {
-            Database database= Database.get_instance();
-    
+            Database database = Database.get_instance();
+
             database.open_database();
             database.read_value();
 
-        
+
         }
 
         private void billBtn_Click(object sender, EventArgs e)
         {
-     
+
             //panel1.Controls.Clear(); // Panel'in içini temizliyoruz..
             //panel1.Visible = true;
             //BillForm billForm = new BillForm();
@@ -80,57 +80,33 @@ namespace BookStore
             //billForm.Show(); // formu gösterdik. Ancak buraya dikakt. ShowDialog(); olarak değil Show(); olarak açıyoruz.
             //billForm.Dock = DockStyle.Fill; // Açılan formun paneli doldurmasını sağladık.
             //billForm.BringToFront(); // formu panel içinde en öne getirdik
-           
-        }
-
-        private void CustomerForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
 
         }
 
-        private void lbPruduct_Click(object sender, EventArgs e)
+
+
+        private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (btnLogin.Text == "LOGIN")
+            {
+                LoginForm login = new LoginForm(this);
+                login.Show();
+            }
+            else
+            {
+                btnLogin.Text = "LOGIN";
+                chancePasswordBtn.Visible = false;
+                creditcardBtn.Visible = false;
+                creditcardBtn.Visible = false;
+                SettingBtn.Visible = false;
+            }
+
 
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void customerpanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void chancePasswordBtn_Click(object sender, EventArgs e)
-        {
-
+            
         }
 
         void OpenForm(Form Openform)
@@ -154,7 +130,7 @@ namespace BookStore
                 Openform.Show(); // Form2'yi açar
             }
 
-           
+
         }
     }
 }
