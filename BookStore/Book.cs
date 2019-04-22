@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-    class Book:Product
+   public class Book:Product
     {
         public int ISBN { get; set; }
         public string author { get; set; }

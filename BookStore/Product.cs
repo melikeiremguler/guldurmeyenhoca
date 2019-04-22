@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-    class Product
+     public class Product
     {
         private List<Observer> observers = new List<Observer>();
 

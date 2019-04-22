@@ -24,6 +24,21 @@ namespace BookStore
 
             Database data_base = Database.get_instance();
             data_base.read_value("BookTable");
+            panel2.ResetText();
+            int i = 0;
+            for (int j = 0; j < data_base.BookList.Count; j++)
+            {
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = new System.Drawing.Point(120 + (j * 50), 120);
+                pictureBox1.Name = "pictureBox" + j;
+                pictureBox1.Size = new System.Drawing.Size(200 * j, 200);
+                pictureBox1.ImageLocation = Application.StartupPath + @"\reklamimage\" + j + ".jpg";
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                //  pictureBox1.BackColor = Color.Honeydew;
+                pictureBox1.BackColor = Color.Black;
+                panel2.Controls.Add(pictureBox1);
+
+            }
 
             this.IsMdiContainer = true;
 
@@ -62,15 +77,7 @@ namespace BookStore
 
         }
 
-        private void bookBtn_Click(object sender, EventArgs e)
-        {
-            Database database = Database.get_instance();
-
-            database.open_database();
-            database.read_value();
-
-
-        }
+      
 
         private void billBtn_Click(object sender, EventArgs e)
         {
@@ -117,6 +124,36 @@ namespace BookStore
         {
             Database data_base = Database.get_instance();
             data_base.read_value("BookTable");
+        }
+
+        private void bookBtn_Click(object sender, EventArgs e)
+        {
+
+            Database database = Database.get_instance();
+            database.BookList.Clear();
+            database.read_value("BookTable");
+
+
+            int i = 0;
+                for (int j = 0; j < database.BookList.Count; j++)
+                {
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = new System.Drawing.Point(120+(j*50), 120);
+                pictureBox1.Name = "pictureBox"+j;
+                pictureBox1.Size = new System.Drawing.Size(200*j, 200);
+                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" +j+".jpg";
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                //  pictureBox1.BackColor = Color.Honeydew;
+                pictureBox1.BackColor = Color.Black;
+                panel2.Controls.Add(pictureBox1);
+                
+                }
+            
+        }
+
+        private void reklam1picturebox_Click(object sender, EventArgs e)
+        {
+
         }
 
         void OpenForm(Form Openform)
