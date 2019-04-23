@@ -61,7 +61,7 @@
             // 
             // AdminPanel
             // 
-            this.AdminPanel.BackColor = System.Drawing.Color.SandyBrown;
+            this.AdminPanel.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.AdminPanel.Controls.Add(this.panelyaziLbl);
             this.AdminPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.AdminPanel.Location = new System.Drawing.Point(0, 0);
@@ -83,7 +83,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.SandyBrown;
+            this.panel1.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.panel1.Controls.Add(this.StokBtn);
             this.panel1.Controls.Add(this.AddBtn);
             this.panel1.Controls.Add(this.customerBtn);
@@ -97,15 +97,16 @@
             this.panel1.Location = new System.Drawing.Point(0, 80);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(988, 106);
+            this.panel1.Size = new System.Drawing.Size(988, 119);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // StokBtn
             // 
-            this.StokBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.StokBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.StokBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("StokBtn.BackgroundImage")));
             this.StokBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.StokBtn.Location = new System.Drawing.Point(581, -16);
+            this.StokBtn.Location = new System.Drawing.Point(585, -16);
             this.StokBtn.Margin = new System.Windows.Forms.Padding(2);
             this.StokBtn.Name = "StokBtn";
             this.StokBtn.Size = new System.Drawing.Size(94, 123);
@@ -117,10 +118,10 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.AddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("AddBtn.BackgroundImage")));
             this.AddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.AddBtn.Location = new System.Drawing.Point(483, -16);
+            this.AddBtn.Location = new System.Drawing.Point(489, -16);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(2);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(94, 123);
@@ -129,13 +130,14 @@
             this.AddBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.AddBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.AddBtn.UseVisualStyleBackColor = false;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             // 
             // customerBtn
             // 
-            this.customerBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.customerBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.customerBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("customerBtn.BackgroundImage")));
             this.customerBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.customerBtn.Location = new System.Drawing.Point(385, -16);
+            this.customerBtn.Location = new System.Drawing.Point(393, -16);
             this.customerBtn.Margin = new System.Windows.Forms.Padding(2);
             this.customerBtn.Name = "customerBtn";
             this.customerBtn.Size = new System.Drawing.Size(94, 123);
@@ -147,10 +149,10 @@
             // 
             // SettingBtn
             // 
-            this.SettingBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SettingBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.SettingBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingBtn.BackgroundImage")));
             this.SettingBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SettingBtn.Location = new System.Drawing.Point(680, -16);
+            this.SettingBtn.Location = new System.Drawing.Point(681, -16);
             this.SettingBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SettingBtn.Name = "SettingBtn";
             this.SettingBtn.Size = new System.Drawing.Size(94, 123);
@@ -162,13 +164,13 @@
             // 
             // chancePasswordBtn
             // 
-            this.chancePasswordBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chancePasswordBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.chancePasswordBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chancePasswordBtn.BackgroundImage")));
             this.chancePasswordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chancePasswordBtn.Location = new System.Drawing.Point(778, -16);
+            this.chancePasswordBtn.Location = new System.Drawing.Point(777, -16);
             this.chancePasswordBtn.Margin = new System.Windows.Forms.Padding(2);
             this.chancePasswordBtn.Name = "chancePasswordBtn";
-            this.chancePasswordBtn.Size = new System.Drawing.Size(124, 123);
+            this.chancePasswordBtn.Size = new System.Drawing.Size(94, 123);
             this.chancePasswordBtn.TabIndex = 18;
             this.chancePasswordBtn.Text = "CHANGE PASSWORD";
             this.chancePasswordBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -177,13 +179,13 @@
             // 
             // HomeBtn
             // 
-            this.HomeBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.HomeBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.HomeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeBtn.BackgroundImage")));
             this.HomeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.HomeBtn.Location = new System.Drawing.Point(9, -11);
+            this.HomeBtn.Location = new System.Drawing.Point(9, -13);
             this.HomeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HomeBtn.Name = "HomeBtn";
-            this.HomeBtn.Size = new System.Drawing.Size(92, 117);
+            this.HomeBtn.Size = new System.Drawing.Size(94, 123);
             this.HomeBtn.TabIndex = 13;
             this.HomeBtn.Text = "HOME";
             this.HomeBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -192,13 +194,13 @@
             // 
             // bookBtn
             // 
-            this.bookBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bookBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.bookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bookBtn.BackgroundImage")));
             this.bookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.bookBtn.Location = new System.Drawing.Point(106, -11);
+            this.bookBtn.Location = new System.Drawing.Point(105, -13);
             this.bookBtn.Margin = new System.Windows.Forms.Padding(2);
             this.bookBtn.Name = "bookBtn";
-            this.bookBtn.Size = new System.Drawing.Size(92, 117);
+            this.bookBtn.Size = new System.Drawing.Size(94, 123);
             this.bookBtn.TabIndex = 14;
             this.bookBtn.Text = "BOOK";
             this.bookBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -207,13 +209,13 @@
             // 
             // magazineBtn
             // 
-            this.magazineBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.magazineBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.magazineBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("magazineBtn.BackgroundImage")));
             this.magazineBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.magazineBtn.Location = new System.Drawing.Point(202, -11);
+            this.magazineBtn.Location = new System.Drawing.Point(201, -16);
             this.magazineBtn.Margin = new System.Windows.Forms.Padding(2);
             this.magazineBtn.Name = "magazineBtn";
-            this.magazineBtn.Size = new System.Drawing.Size(93, 117);
+            this.magazineBtn.Size = new System.Drawing.Size(94, 123);
             this.magazineBtn.TabIndex = 15;
             this.magazineBtn.Text = "MAGAZINE";
             this.magazineBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -222,13 +224,13 @@
             // 
             // musiccdBtn
             // 
-            this.musiccdBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.musiccdBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.musiccdBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("musiccdBtn.BackgroundImage")));
             this.musiccdBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.musiccdBtn.Location = new System.Drawing.Point(300, -11);
+            this.musiccdBtn.Location = new System.Drawing.Point(297, -13);
             this.musiccdBtn.Margin = new System.Windows.Forms.Padding(2);
             this.musiccdBtn.Name = "musiccdBtn";
-            this.musiccdBtn.Size = new System.Drawing.Size(80, 117);
+            this.musiccdBtn.Size = new System.Drawing.Size(94, 120);
             this.musiccdBtn.TabIndex = 16;
             this.musiccdBtn.Text = "MUSIC CD";
             this.musiccdBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -237,7 +239,7 @@
             // 
             // reklam2picturebox
             // 
-            this.reklam2picturebox.Location = new System.Drawing.Point(7, 522);
+            this.reklam2picturebox.Location = new System.Drawing.Point(0, 552);
             this.reklam2picturebox.Margin = new System.Windows.Forms.Padding(2);
             this.reklam2picturebox.Name = "reklam2picturebox";
             this.reklam2picturebox.Size = new System.Drawing.Size(191, 187);
@@ -246,7 +248,7 @@
             // 
             // reklam1picturebox
             // 
-            this.reklam1picturebox.Location = new System.Drawing.Point(8, 331);
+            this.reklam1picturebox.Location = new System.Drawing.Point(0, 361);
             this.reklam1picturebox.Margin = new System.Windows.Forms.Padding(2);
             this.reklam1picturebox.Name = "reklam1picturebox";
             this.reklam1picturebox.Size = new System.Drawing.Size(191, 187);
@@ -255,14 +257,14 @@
             // 
             // searchgroupBox
             // 
-            this.searchgroupBox.BackColor = System.Drawing.Color.SandyBrown;
+            this.searchgroupBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.searchgroupBox.Controls.Add(this.searchBtn);
             this.searchgroupBox.Controls.Add(this.textBox1);
             this.searchgroupBox.Controls.Add(this.lbFilter);
             this.searchgroupBox.Controls.Add(this.lbPruduct);
             this.searchgroupBox.Controls.Add(this.cmbFiltre);
             this.searchgroupBox.Controls.Add(this.cmbProduct);
-            this.searchgroupBox.Location = new System.Drawing.Point(9, 191);
+            this.searchgroupBox.Location = new System.Drawing.Point(2, 212);
             this.searchgroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchgroupBox.Name = "searchgroupBox";
             this.searchgroupBox.Padding = new System.Windows.Forms.Padding(2);
@@ -341,8 +343,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(988, 609);
+            this.ClientSize = new System.Drawing.Size(988, 741);
             this.Controls.Add(this.reklam2picturebox);
             this.Controls.Add(this.reklam1picturebox);
             this.Controls.Add(this.searchgroupBox);

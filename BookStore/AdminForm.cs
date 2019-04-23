@@ -45,6 +45,16 @@ namespace BookStore
 
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
             this.IsMdiContainer = true;
