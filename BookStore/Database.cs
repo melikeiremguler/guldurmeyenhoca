@@ -235,13 +235,10 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-<<<<<<< HEAD
-                           MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), type.Romance);
-                            MusicCDList.Add(mymusicCD);
-=======
+
                            MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), (MusicCD.Type)sdr.GetInt32(5));
                            MusicCDList.Add(mymusicCD);
->>>>>>> 5260cbe4d73ef341848f4653415e0b7f12dcaf1d
+
                         }
                         sdr.Close();
                         connection.Close();
@@ -263,13 +260,10 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-<<<<<<< HEAD
-                           Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, sdr.GetString(5),Type.Actual);
-                           MagazineList.Add(mymagazine);
-=======
-                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, sdr.GetString(4),(Magazine.Type)sdr.GetInt32(5));
+
+                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null,(Magazine.Type)sdr.GetInt32(4), sdr.GetString(5));
                           MagazineList.Add(mymagazine);
->>>>>>> 5260cbe4d73ef341848f4653415e0b7f12dcaf1d
+
                         }
                         sdr.Close();
                         connection.Close();
