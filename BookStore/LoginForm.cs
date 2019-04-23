@@ -16,6 +16,7 @@ namespace BookStore
         private bool mouseDown;
         private Point lastLocation;
         CustomerForm ths;
+        AdminForm adf;
         public LoginForm(CustomerForm frm)
         {
             InitializeComponent();
@@ -56,15 +57,27 @@ namespace BookStore
 
         public void login_button_Click(object sender, EventArgs e)
         {
-            if(user_control())
+            if(User_control())
             {
-                ths.chancePasswordBtn.Visible = true;
-                ths.creditcardBtn.Visible = true;
-                ths.SettingBtn.Visible = true;
-                ths.btnLogin.Text ="LOGOUT"; //customer adı login buttonuna eklenir 
-                ths.lbHosgeldin.Text = "HOŞGELDİN";
-                ths.lbUserName.Text = username_txtbox.Text.ToUpper();
-                this.Close();
+                if(username_txtbox.Text == "tiv" && password_txtbox.Text == "tiv")
+                {
+                    ths.Visible = false;
+                    adf = new AdminForm();
+                    adf.Show();
+                    this.Close();
+                    
+                }
+                else
+                {
+                    ths.chancePasswordBtn.Visible = true;
+                    ths.creditcardBtn.Visible = true;
+                    ths.SettingBtn.Visible = true;
+                    ths.btnLogin.Text = "LOGOUT"; //customer adı login buttonuna eklenir 
+                    ths.lbHosgeldin.Text = "HOŞGELDİN";
+                    ths.lbUserName.Text = username_txtbox.Text.ToUpper();
+                    this.Close();
+                }
+               
             }
             else
             {
@@ -73,21 +86,32 @@ namespace BookStore
             }
            
         }
-        public bool user_control()
+        public bool User_control()
         {
-            if (username_txtbox.Text == "tiv" && password_txtbox.Text == "tiv")
+            Database data_base_ = Database.get_instance();
+            data_base_.CustomerList.Clear();
+            data_base_.read_customer("UserTable");
+            for (int i = 0; i < data_base_.CustomerList.Count; i++)
             {
+                if (username_txtbox.Text == data_base_.CustomerList[i].userName && password_txtbox.Text == data_base_.CustomerList[i].password)
+                {
 
-                return true;
+                    return true;
 
-            }
-            else
-            {
+                }
                
-                return false;
+
             }
+        
+          
+                return false;
+            
+
         }
 
-       
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

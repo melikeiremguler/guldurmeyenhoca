@@ -13,15 +13,18 @@ namespace BookStore
         public string name { get; set; }
         public string email { get; set; }
         public string userName { get; set; }
-        public string possword { get; set; }
+        
+        public string password { get; set; }
+        public string Address { get; set; }
         public int TotalCustomer { get; set; } = 0;
-        public Customer(int id,string Name,string Email,string Username,string Password)
+        public Customer(int id,string Name,string Email,string Username,string Password,string address)
         {
             customerID = id;
             name = Name;
             email = Email;
             userName = Username;
-            possword = Password;
+            password = Password;
+            Address = address;
             TotalCustomer++;
 
         }
