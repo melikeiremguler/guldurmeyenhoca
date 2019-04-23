@@ -17,7 +17,7 @@ namespace BookStore
 
         public enum Type { Actual, News, Sport, computer, technology }
 
-        public Magazine(int id,string nm,double prc, Image img, string Issue, Type Type) : base(id,nm, prc,img)
+        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue) : base(id,nm, prc,img)
         {
             issue = Issue;
             type = Type;
