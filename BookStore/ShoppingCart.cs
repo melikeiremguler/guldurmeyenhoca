@@ -13,14 +13,17 @@ namespace BookStore
         public ArrayList itemsToPurchase { get; set; }
         public double paymentAmount { get; set; }
         public enum paymentType { cash, creditcard }
-        public ShoppingCart(int id,ArrayList items,double amount) //contructor
+        public ShoppingCart(int id,ArrayList items,double amount) //constructor
         {
             customerID = id;
             paymentAmount = amount;
             itemsToPurchase = items;
 
         }
-        public void printProducts() { }
+        public void printProducts()
+        {
+            
+        }
         public void addProduct(ItemToPurchase item)
         {
             itemsToPurchase.Add(item);

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace BookStore
 {
     public enum Type { Actual, News, Sport, computer, technology }
-    class Magazine:Product
+    public class Magazine:Product
     {
         public Type type { get; set; }
         public string issue { get; set; }
@@ -15,10 +16,11 @@ namespace BookStore
         public static int TotalMagazine{ get; set; } = 0;
 
 
-        public Magazine(string nm, double prc, string Issue, Type Type) : base(nm, prc)
+        public Magazine(int id,string nm,double prc, Image img, string Issue, Type Type) : base(id,nm, prc,img)
         {
             issue = Issue;
             type = Type;
+            TotalMagazine++;
         }
         public override void Print()
         {

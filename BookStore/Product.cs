@@ -1,30 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookStore
-{
-     public class Product
+namespace BookStore { 
+
+    public class Product
+
     {
         private List<Observer> observers = new List<Observer>();
 
-        public static int TotalProduct { get; set; } = 0;
+        public static int idcounter { get; set; } = 0; //eğer kodda bi şey patlarsa total ile ilgili olabilir
         private int Id;
         private string Name;
         private double Price;
+        public Image image { get; set; }
         
-        public Product(string nm, double prc)
+        public Product(int id,string nm, double prc,Image img)
         {
             Name = nm;
             Price = prc;
-            Id = ++TotalProduct;
+            Id = ++idcounter;
+            image = img;
             
         }
         public int getTotal()
         {
-            return TotalProduct;
+            return idcounter;
         }
                
         public int getId()

@@ -24,7 +24,7 @@ namespace BookStore
 
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
-            data_base_.read_value("BookTable");
+            data_base_.read_book("BookTable");
             panel2.Controls.Clear();
 
 
@@ -68,6 +68,7 @@ namespace BookStore
 
             reklam2picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" + "6.jpg";
             reklam1picturebox.ImageLocation = Application.StartupPath + @"\reklamimage\" + "1.jpg";
+
 
         }
 
@@ -143,67 +144,17 @@ namespace BookStore
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
+
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
-            data_base_.read_value("BookTable");
+            data_base_.read_book("BookTable");
             panel2.Controls.Clear();
 
 
             for (int j = 1; j <= data_base_.BookList.Count; j++)
             {
                 PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 210);
-
-                pictureBox1.Size = new System.Drawing.Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                 pictureBox1.BackColor = Color.Honeydew;
-               // pictureBox1.BackColor = Color.Black;
-                panel2.Controls.Add(pictureBox1);
-               
-                Label lb = new Label();
-                lb.AutoSize = true;
-                lb.Text = data_base_.BookList[j - 1].getName()+"\n" + data_base_.BookList[j - 1].author;
-                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                lb.Location = labelp;
-                panel2.Controls.Add(lb);
-
-                Button btn = new Button();
-                btn.Text = "SEPETE EKLE";
-                btn.Size = new Size(100, 70);
-                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                btn.Click += yeniolusturulanButonlarinClickOlayi;
-                btn.BackColor = Color.DarkSeaGreen;
-                panel2.Controls.Add(btn);
-
-                pictureBox1.Name = "pictureBox" + j + 10;
-                btn.Name="btn"+j;
-
-
-            }
-
-        }
-
-        private void yeniolusturulanButonlarinClickOlayi(object sender, EventArgs e)
-        {
-            Button tıklananButtonNesnesi = (sender as Button);
-
-
-        }
-
-        private void bookBtn_Click(object sender, EventArgs e)
-        {
-           
-            Database data_base_ = Database.get_instance();
-            data_base_.BookList.Clear();
-            data_base_.read_value("BookTable");
-            panel2.Controls.Clear();
-
-
-            for (int j = 1; j <= data_base_.BookList.Count; j++)
-            {
-                PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 210);
+                pictureBox1.Location = new Point(180 * j, 80);
 
                 pictureBox1.Size = new System.Drawing.Size(170, 200);
                 pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
@@ -235,9 +186,152 @@ namespace BookStore
 
         }
 
+        public void yeniolusturulanButonlarinClickOlayi(object sender, EventArgs e)
+        {
+            Button tıklananButtonNesnesi = (sender as Button);
+
+        }
+
+
+        private void bookBtn_Click(object sender, EventArgs e)
+        {
+
+
+            Database data_base_ = Database.get_instance();
+            data_base_.BookList.Clear();
+            data_base_.read_book("BookTable");
+            panel2.Controls.Clear();
+
+
+            for (int j = 1; j <= data_base_.BookList.Count; j++)
+            {
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = new Point(180 * j, 80);
+
+                pictureBox1.Size = new System.Drawing.Size(170, 200);
+                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.BackColor = Color.Honeydew;
+                // pictureBox1.BackColor = Color.Black;
+                panel2.Controls.Add(pictureBox1);
+
+                Label lb = new Label();
+                lb.AutoSize = true;
+                lb.Text = data_base_.BookList[j - 1].getName() + "\n" + data_base_.BookList[j - 1].author;
+                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                lb.Location = labelp;
+                panel2.Controls.Add(lb);
+
+                Button btn = new Button();
+                btn.Text = "SEPETE EKLE";
+                btn.Size = new Size(100, 70);
+                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
+                btn.Click += yeniolusturulanButonlarinClickOlayi;
+                btn.BackColor = Color.DarkSeaGreen;
+                panel2.Controls.Add(btn);
+
+                pictureBox1.Name = "pictureBox" + j + 10;
+                btn.Name = "btn" + j;
+
+
+            }
+
+
+        }
+
+
+
+
+
+
         private void reklam1picturebox_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void magazineBtn_Click(object sender, EventArgs e)
+        {
+
+            Database data_base_ = Database.get_instance();
+            data_base_.MagazineList.Clear();
+            data_base_.read_magazine("MagazineTable");
+            panel2.Controls.Clear();
+
+
+            for (int j = 1; j <= data_base_.MagazineList.Count; j++)
+            {
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = new Point(180 * j, 80);
+
+                pictureBox1.Size = new System.Drawing.Size(170, 200);
+                pictureBox1.ImageLocation = Application.StartupPath + @"\Magazine\" + j + ".jpg";
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.BackColor = Color.Honeydew;
+                // pictureBox1.BackColor = Color.Black;
+                panel2.Controls.Add(pictureBox1);
+
+                Label lb = new Label();
+                lb.AutoSize = true;
+                lb.Text = data_base_.MagazineList[j - 1].getName() + "\n" +data_base_.MagazineList[j - 1].issue;
+                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                lb.Location = labelp;
+                panel2.Controls.Add(lb);
+
+                Button btn = new Button();
+                btn.Text = "SEPETE EKLE";
+                btn.Size = new Size(100, 70);
+                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
+                btn.Click += yeniolusturulanButonlarinClickOlayi;
+                btn.BackColor = Color.DarkSeaGreen;
+                panel2.Controls.Add(btn);
+
+                pictureBox1.Name = "pictureBox" + j + 10;
+                btn.Name = "btn" + j;
+
+
+            }
+        }
+
+        private void musiccdBtn_Click(object sender, EventArgs e)
+        {
+            Database data_base_ = Database.get_instance();
+            data_base_.MusicCDList.Clear();
+            data_base_.read_musiccd("MusicCDTable");
+            panel2.Controls.Clear();
+
+
+            for (int j = 1; j <= data_base_.MusicCDList.Count; j++)
+            {
+                PictureBox pictureBox1 = new PictureBox();
+                pictureBox1.Location = new Point(180 * j, 80);
+
+                pictureBox1.Size = new System.Drawing.Size(170, 200);
+                pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + j + ".jpg";
+                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                pictureBox1.BackColor = Color.Honeydew;
+                // pictureBox1.BackColor = Color.Black;
+                panel2.Controls.Add(pictureBox1);
+
+                Label lb = new Label();
+                lb.AutoSize = true;
+                lb.Text = data_base_.MusicCDList[j - 1].getName() + "\n" + data_base_.MusicCDList[j - 1].singer;
+                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                lb.Location = labelp;
+                panel2.Controls.Add(lb);
+
+                Button btn = new Button();
+                btn.Text = "SEPETE EKLE";
+                btn.Size = new Size(100, 70);
+                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
+                btn.Click += yeniolusturulanButonlarinClickOlayi;
+                btn.BackColor = Color.DarkSeaGreen;
+                panel2.Controls.Add(btn);
+
+                pictureBox1.Name = "pictureBox" + j + 10;
+                btn.Name = "btn" + j;
+
+
+            }
         }
 
         void OpenForm(Form Openform)

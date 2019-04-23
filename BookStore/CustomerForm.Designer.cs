@@ -271,6 +271,7 @@
             this.magazineBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.magazineBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.magazineBtn.UseVisualStyleBackColor = false;
+            this.magazineBtn.Click += new System.EventHandler(this.magazineBtn_Click);
             // 
             // musiccdBtn
             // 
@@ -286,6 +287,7 @@
             this.musiccdBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.musiccdBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.musiccdBtn.UseVisualStyleBackColor = false;
+            this.musiccdBtn.Click += new System.EventHandler(this.musiccdBtn_Click);
             // 
             // billBtn
             // 
