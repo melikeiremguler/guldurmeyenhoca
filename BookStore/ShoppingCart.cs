@@ -26,10 +26,17 @@ namespace BookStore
         }
         public void addProduct(ItemToPurchase item)
         {
+            Database database = Database.get_instance();
+           
             itemsToPurchase.Add(item);
+           
+              database.add_shoppingcart("INSERT INTO ShoppingCartTable", item.product.getName());
+            
         }
         public void removeProduct( ItemToPurchase item)
         {
+            //Database database = Database.get_instance();
+     
             itemsToPurchase.Remove(item);
         }
         public void placeOrder() { }//fatura gönderme

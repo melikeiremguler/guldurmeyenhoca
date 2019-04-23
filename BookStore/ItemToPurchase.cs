@@ -9,9 +9,9 @@ namespace BookStore
     class ItemToPurchase
     {
         
-        public string product { get; set; }
+        public Product product { get; set; }
         public int quantity { get; set; }
-        public ItemToPurchase(string Product,int Quantity)
+        public ItemToPurchase(Product Product,int Quantity)
         {
             product = Product;
             quantity = Quantity;

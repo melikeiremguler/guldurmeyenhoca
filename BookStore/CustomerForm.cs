@@ -22,9 +22,14 @@ namespace BookStore
         private void CustomerForm_Load(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
             data_base_.read_book("BookTable");
+=======
+            Database data_base = Database.get_instance();
+            data_base.read_book("BookTable");
+>>>>>>> 5260cbe4d73ef341848f4653415e0b7f12dcaf1d
             panel2.Controls.Clear();
 
 
@@ -144,10 +149,15 @@ namespace BookStore
 
         private void HomeBtn_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
             data_base_.read_book("BookTable");
+=======
+            Database data_base = Database.get_instance();
+           data_base.read_book("BookTable");
+>>>>>>> 5260cbe4d73ef341848f4653415e0b7f12dcaf1d
             panel2.Controls.Clear();
 
 
@@ -202,6 +212,12 @@ namespace BookStore
             data_base_.read_book("BookTable");
             panel2.Controls.Clear();
 
+<<<<<<< HEAD
+=======
+            Database database = Database.get_instance();
+            database.BookList.Clear();
+            database.read_book("BookTable");
+>>>>>>> 5260cbe4d73ef341848f4653415e0b7f12dcaf1d
 
             for (int j = 1; j <= data_base_.BookList.Count; j++)
             {

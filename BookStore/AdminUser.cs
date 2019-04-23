@@ -28,15 +28,15 @@ namespace BookStore
             Database database = Database.get_instance();
             database.add_book("INSERT INTO BookTable", book);
         }
-        public void addNewMagazine(int id, string nm, double prc, Image img, string Issue, Type Type)
+        public void addNewMagazine(int id, string nm, double prc, Image img, string Issue,Magazine.Type type)
         {
-            Magazine magazine = new Magazine(id,nm,prc,img,Issue,Type);
+            Magazine magazine = new Magazine(id,nm,prc,img,Issue,type);
             Database database = Database.get_instance();
             database.add_magazine("INSERT INTO MagazineTable", magazine);
         } 
-        public void addNewMusicCD(int id,string nm, double prc ,Image img,string Singer, type Type)
+        public void addNewMusicCD(int id,string nm, double prc ,Image img,string Singer, MusicCD.Type type)
         {
-            MusicCD musicCD = new MusicCD(id,nm,prc,img,Singer, Type);
+            MusicCD musicCD = new MusicCD(id,nm,prc,img,Singer,type);
             Database database = Database.get_instance();
             database.add_musiccd("INSERT INTO UserTable", musicCD);
         }
