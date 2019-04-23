@@ -28,9 +28,13 @@ namespace BookStore
             Database database = Database.get_instance();
             database.add_book("INSERT INTO BookTable", book);
         }
-        public void addNewMagazine(int id, string nm, double prc, Image img, string Issue,Magazine.Type type)
+        public void addNewMagazine(int id, string nm, double prc, Image img, Magazine.Type type, string Issue)
         {
+<<<<<<< HEAD
             Magazine magazine = new Magazine(id,nm,prc,img, type,Issue);
+=======
+            Magazine magazine = new Magazine(id,nm,prc,img,type, Issue);
+>>>>>>> ab1d3055f42952554f661907e8d872f9b4d63a99
             Database database = Database.get_instance();
             database.add_magazine("INSERT INTO MagazineTable", magazine);
         } 
