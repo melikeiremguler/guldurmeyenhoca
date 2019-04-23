@@ -23,7 +23,7 @@ namespace BookStore
         {      
 
             Database data_base = Database.get_instance();
-            data_base.read_value("BookTable");
+            data_base.read_book("BookTable");
             panel2.Controls.Clear();
             int i = 0;
             for (int j = 0; j < data_base.BookList.Count; j++)
@@ -123,7 +123,7 @@ namespace BookStore
         private void HomeBtn_Click(object sender, EventArgs e)
         {
             Database data_base = Database.get_instance();
-            data_base.read_value("BookTable");
+           data_base.read_book("BookTable");
             panel2.Controls.Clear();
             int i = 0;
             for (int j = 0; j < data_base.BookList.Count; j++)
@@ -147,7 +147,7 @@ namespace BookStore
 
             Database database = Database.get_instance();
             database.BookList.Clear();
-            database.read_value("BookTable");
+            database.read_book("BookTable");
 
                 for (int j = 0; j < database.BookList.Count; j++)
                 {

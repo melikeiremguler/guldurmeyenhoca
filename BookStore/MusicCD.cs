@@ -7,18 +7,19 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-    public enum type { Romance, HardRock, Country }
+   
     public class MusicCD:Product
     {
+        public enum Type { Romance, HardRock, Country }
         public String singer { get; set; }
-        public type type { get; set; }
+        public Type type { get; set; }
 
         public static int TotalCD { get; set; } = 0;
 
-        public MusicCD(int id,string nm,double prc, Image img , string Singer, type Type) : base(id,nm, prc,img)
+        public MusicCD(int id,string nm,double prc, Image img , string Singer, Type type) : base(id,nm, prc,img)
         {
             singer = Singer;
-            type = Type;
+            this.type = type;
             TotalCD++;
         }
         public override void Print()

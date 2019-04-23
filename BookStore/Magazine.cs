@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-    public enum Type { Actual, News, Sport, computer, technology }
+  
     public class Magazine:Product
     {
         public Type type { get; set; }
@@ -15,6 +15,7 @@ namespace BookStore
 
         public static int TotalMagazine{ get; set; } = 0;
 
+        public enum Type { Actual, News, Sport, computer, technology }
 
         public Magazine(int id,string nm,double prc, Image img, string Issue, Type Type) : base(id,nm, prc,img)
         {

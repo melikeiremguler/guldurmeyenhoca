@@ -70,8 +70,16 @@ namespace BookStore
             sql_command.Parameters.Add(customer.email);
             sql_command.Parameters.Add(customer.userName);
             sql_command.Parameters.Add(customer.possword);
-          //  sql_command.Parameters.Add(customer.TotalCustomer);
-           
+            //  sql_command.Parameters.Add(customer.TotalCustomer);
+            try
+            {
+                sql_command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
 
         }
         public void add_book(string sql_statement, Book book)
@@ -86,7 +94,15 @@ namespace BookStore
             sql_command.Parameters.Add(book.author);
             sql_command.Parameters.Add(book.publisher);
             sql_command.Parameters.Add(book.page);
-          //  sql_command.Parameters.Add(book.getTotalBook());
+            //  sql_command.Parameters.Add(book.getTotalBook());
+            try
+            {
+                sql_command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
         }
         public void add_magazine(string sql_statement, Magazine magazine)
@@ -99,7 +115,15 @@ namespace BookStore
             sql_command.Parameters.Add(magazine.image);
             sql_command.Parameters.Add(magazine.issue);
             sql_command.Parameters.Add(magazine.type);
-          //  sql_command.Parameters.Add(magazine.getTotalMagazine());
+            //  sql_command.Parameters.Add(magazine.getTotalMagazine());
+            try
+            {
+                sql_command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
         }
         public void add_musiccd(string sql_statement, MusicCD musicCD)
@@ -112,8 +136,29 @@ namespace BookStore
             sql_command.Parameters.Add(musicCD.image);
             sql_command.Parameters.Add(musicCD.singer);
             sql_command.Parameters.Add(musicCD.type);
-          //  sql_command.Parameters.Add(musicCD.getTotalCd());
+            //  sql_command.Parameters.Add(musicCD.getTotalCd());
+            try
+            {
+                sql_command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
 
+        }
+        public void add_shoppingcart(string sql_statement, string productName)
+        {
+            process_command(sql_statement);
+            sql_command.Parameters.Add(productName+',');
+            try
+            {
+                sql_command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public bool execute_command()
@@ -153,7 +198,6 @@ namespace BookStore
                 connection.Close();
             }
             return BookList;
-
         }
         public List<Customer> read_customer(string value)
         {
@@ -190,8 +234,8 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), sdr.GetChar(5));
-                            MusicCDList.Add(mymusicCD);
+                           MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), (MusicCD.Type)sdr.GetInt32(5));
+                           MusicCDList.Add(mymusicCD);
                         }
                         sdr.Close();
                         connection.Close();
@@ -213,8 +257,8 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, sdr.GetString(4), sdr.GetChar(5));
-                            MagazineList.Add(mymagazine);
+                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, sdr.GetString(4),(Magazine.Type)sdr.GetInt32(5));
+                          MagazineList.Add(mymagazine);
                         }
                         sdr.Close();
                         connection.Close();
@@ -224,6 +268,7 @@ namespace BookStore
             }
             return MagazineList;
         }
+
         public void close_database()
         {
             sql_command.Dispose();
