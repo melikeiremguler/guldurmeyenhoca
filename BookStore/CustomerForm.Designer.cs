@@ -182,6 +182,7 @@
             this.customerpanel.Name = "customerpanel";
             this.customerpanel.Size = new System.Drawing.Size(1363, 847);
             this.customerpanel.TabIndex = 7;
+            this.customerpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.customerpanel_Paint);
             // 
             // panel1
             // 

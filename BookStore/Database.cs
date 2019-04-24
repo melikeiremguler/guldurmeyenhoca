@@ -70,7 +70,8 @@ namespace BookStore
             sql_command.Parameters.Add(customer.name);
             sql_command.Parameters.Add(customer.email);
             sql_command.Parameters.Add(customer.userName);
-            sql_command.Parameters.Add(customer.possword);
+            sql_command.Parameters.Add(customer.password);
+            sql_command.Parameters.Add(customer.Address);
             //  sql_command.Parameters.Add(customer.TotalCustomer);
             try
             {
@@ -212,7 +213,7 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            Customer mycustomer = new Customer(sdr.GetInt32(0), sdr.GetString(1), sdr.GetString(2), sdr.GetString(4), sdr.GetString(5));
+                            Customer mycustomer = new Customer(sdr.GetInt32(0), sdr.GetString(1), sdr.GetString(2), sdr.GetString(3), sdr.GetString(4), sdr.GetString(5));
                             CustomerList.Add(mycustomer);
                         }
                         sdr.Close();
@@ -261,6 +262,10 @@ namespace BookStore
                         while (sdr.Read())
                         {
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f926ae50b8597325d9ca5b5353effb34b09b108c
                           Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, (Magazine.Type)sdr.GetInt32(4), sdr.GetString(5));
 
                           MagazineList.Add(mymagazine);
