@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,12 +14,14 @@ namespace BookStore
 {
     public partial class CustomerForm : Form
     {
-
+        int t = 1, r = 6;
+        private ArrayList shopping_cart;
         public CustomerForm()
         {
             InitializeComponent();
+            shopping_cart = new ArrayList();
         }
-        int t = 1, r = 6;
+        
         private void CustomerForm_Load(object sender, EventArgs e)
         {
 
@@ -59,7 +62,7 @@ namespace BookStore
 
                 pictureBox1.Name = "pictureBox" + j + 10;
                 btn.Name = "btn" + j;
-
+                lb.Name = "lb" + j;
 
             }
 
@@ -174,7 +177,7 @@ namespace BookStore
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 panel2.Controls.Add(lb);
-
+               
                 Button btn = new Button();
                 btn.Text = "SEPETE EKLE";
                 btn.Size = new Size(100, 70);
@@ -185,7 +188,7 @@ namespace BookStore
 
                 pictureBox1.Name = "pictureBox" + j + 10;
                 btn.Name = "btn" + j;
-
+                lb.Name = "lb" + j;
 
             }
 
@@ -194,6 +197,22 @@ namespace BookStore
         public void yeniolusturulanButonlarinClickOlayi(object sender, EventArgs e)
         {
             Button tıklananButtonNesnesi = (sender as Button);
+
+            string button_name = tıklananButtonNesnesi.Name;
+            string temp = button_name.Remove(0, 3);
+            string label_name = "lb" + temp;
+            
+            //to call related label
+            Control label = this.Controls.Find(label_name,true).FirstOrDefault() as Label;
+             
+            if (label != null)
+            {
+                
+            }
+            //ShoppingCart shopping_cart = new ShoppingCart();
+
+
+
 
         }
 
@@ -226,6 +245,7 @@ namespace BookStore
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 panel2.Controls.Add(lb);
+                
 
                 Button btn = new Button();
                 btn.Text = "SEPETE EKLE";
@@ -237,7 +257,7 @@ namespace BookStore
 
                 pictureBox1.Name = "pictureBox" + j + 10;
                 btn.Name = "btn" + j;
-
+                lb.Name = "lb" + j;
 
             }
 
@@ -292,7 +312,7 @@ namespace BookStore
 
                 pictureBox1.Name = "pictureBox" + j + 10;
                 btn.Name = "btn" + j;
-
+                lb.Name = "lb" + j;
 
             }
         }
@@ -334,7 +354,7 @@ namespace BookStore
 
                 pictureBox1.Name = "pictureBox" + j + 10;
                 btn.Name = "btn" + j;
-
+                lb.Name = "lb" + j;
 
             }
         }

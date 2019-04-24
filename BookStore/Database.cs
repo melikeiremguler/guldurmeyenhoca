@@ -149,9 +149,10 @@ namespace BookStore
             }
 
         }
-        public void add_shoppingcart(string sql_statement, string productName)
+        public void add_shoppingcart(string sql_statement, int customerId,string productName)
         {
             process_command(sql_statement);
+            sql_command.Parameters.Add(customerId);
             sql_command.Parameters.Add(productName+',');
             try
             {
