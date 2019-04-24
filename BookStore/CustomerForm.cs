@@ -21,7 +21,7 @@ namespace BookStore
             InitializeComponent();
             shopping_cart = new ArrayList();
         }
-        
+
         private void CustomerForm_Load(object sender, EventArgs e)
         {
 
@@ -79,8 +79,8 @@ namespace BookStore
 
         private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-            
+
+
         }
 
         private void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace BookStore
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 panel2.Controls.Add(lb);
-               
+
                 Button btn = new Button();
                 btn.Text = "SEPETE EKLE";
                 btn.Size = new Size(100, 70);
@@ -201,13 +201,13 @@ namespace BookStore
             string button_name = tıklananButtonNesnesi.Name;
             string temp = button_name.Remove(0, 3);
             string label_name = "lb" + temp;
-            
+
             //to call related label
-            Control label = this.Controls.Find(label_name,true).FirstOrDefault() as Label;
-             
+            Control label = this.Controls.Find(label_name, true).FirstOrDefault() as Label;
+
             if (label != null)
             {
-                
+
             }
             //ShoppingCart shopping_cart = new ShoppingCart();
 
@@ -245,7 +245,7 @@ namespace BookStore
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 panel2.Controls.Add(lb);
-                
+
 
                 Button btn = new Button();
                 btn.Text = "SEPETE EKLE";
@@ -261,13 +261,7 @@ namespace BookStore
 
             }
 
-
         }
-
-
-
-
-
 
         private void reklam1picturebox_Click(object sender, EventArgs e)
         {
@@ -297,7 +291,7 @@ namespace BookStore
 
                 Label lb = new Label();
                 lb.AutoSize = true;
-                lb.Text = data_base_.MagazineList[j - 1].getName() + "\n" +data_base_.MagazineList[j - 1].issue;
+                lb.Text = data_base_.MagazineList[j - 1].getName() + "\n" + data_base_.MagazineList[j - 1].issue;
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 panel2.Controls.Add(lb);

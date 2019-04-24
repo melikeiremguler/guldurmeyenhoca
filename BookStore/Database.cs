@@ -64,8 +64,9 @@ namespace BookStore
         }
         public void add_customer(string sql_statement, Customer customer)
         {
-            process_command(sql_statement);
-      
+            //process_command(sql_statement);
+            SQLiteCommand sql_command = new SQLiteCommand(sql_statement, connection);
+
             sql_command.Parameters.Add(customer.customerID);
             sql_command.Parameters.Add(customer.name);
             sql_command.Parameters.Add(customer.email);
@@ -84,70 +85,98 @@ namespace BookStore
 
 
         }
-        public void add_book(string sql_statement, Book book)
+        public void add_book(string sql_statement,Book book)
         {
-            process_command(sql_statement);
 
-            sql_command.Parameters.Add(book.getId());
-            sql_command.Parameters.Add(book.getName());
-            sql_command.Parameters.Add(book.getPrice());
-            sql_command.Parameters.Add(book.image);
-            sql_command.Parameters.Add(book.ISBN);
-            sql_command.Parameters.Add(book.author);
-            sql_command.Parameters.Add(book.publisher);
-            sql_command.Parameters.Add(book.page);
-            //  sql_command.Parameters.Add(book.getTotalBook());
-            try
-            {
-                sql_command.ExecuteNonQuery();
+            using (SQLiteConnection connection = new SQLiteConnection(path))
+            {             
+
+                SQLiteCommand sql_command = new SQLiteCommand();
+                sql_command.CommandText = sql_statement;
+          
+                sql_command.Connection = connection;  //bağlantı kuruluyor.
+                sql_command.Parameters.AddWithValue("@Id", book.getId());
+                sql_command.Parameters.AddWithValue("@Name", book.getName());
+                sql_command.Parameters.AddWithValue("@Price", book.getPrice());
+                sql_command.Parameters.AddWithValue("@Image", "Book");
+                sql_command.Parameters.AddWithValue("@ISBN", book.ISBN);
+                sql_command.Parameters.AddWithValue("@Author", book.author);
+                sql_command.Parameters.AddWithValue("@Publisher", book.publisher);
+                sql_command.Parameters.AddWithValue("@Page", book.page);
+               
+                connection.Open();
+
+                try
+                {
+                    sql_command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+
+                connection.Close();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+               
 
         }
         public void add_magazine(string sql_statement, Magazine magazine)
         {
-            process_command(sql_statement);
-
-            sql_command.Parameters.Add(magazine.getId());
-            sql_command.Parameters.Add(magazine.getName());
-            sql_command.Parameters.Add(magazine.getPrice());
-            sql_command.Parameters.Add(magazine.image);
-            sql_command.Parameters.Add(magazine.issue);
-            sql_command.Parameters.Add(magazine.type);
-            //  sql_command.Parameters.Add(magazine.getTotalMagazine());
-            try
+             using(SQLiteConnection connection = new SQLiteConnection(path))
             {
-                sql_command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+                SQLiteCommand sql_command = new SQLiteCommand();
+                sql_command.CommandText = sql_statement;
 
+                sql_command.Connection = connection;  //bağlantı kuruluyor.
+                sql_command.Parameters.AddWithValue("@Id",magazine.getId());
+                sql_command.Parameters.AddWithValue("@Name", magazine.getName());
+                sql_command.Parameters.AddWithValue("@Price", magazine.getPrice());
+                sql_command.Parameters.AddWithValue("@Image", magazine.image);
+                sql_command.Parameters.AddWithValue("@Type", magazine.type);
+                sql_command.Parameters.AddWithValue("@Issue", magazine.issue);
+                connection.Open(); //connnection açılır.
+                try
+                {
+                    sql_command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+                connection.Close();
+            }
         }
         public void add_musiccd(string sql_statement, MusicCD musicCD)
         {
-            process_command(sql_statement);
 
-            sql_command.Parameters.Add(musicCD.getId());
-            sql_command.Parameters.Add(musicCD.getName());
-            sql_command.Parameters.Add(musicCD.getPrice());
-            sql_command.Parameters.Add(musicCD.image);
-            sql_command.Parameters.Add(musicCD.singer);
-            sql_command.Parameters.Add(musicCD.type);
-            //  sql_command.Parameters.Add(musicCD.getTotalCd());
-            try
+            using (SQLiteConnection connection = new SQLiteConnection(path))
             {
-                sql_command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+                SQLiteCommand sql_command = new SQLiteCommand();
+                sql_command.CommandText = sql_statement;
 
+                sql_command.Connection = connection;    //bağlantı kuruluyor.
+                sql_command.Parameters.AddWithValue("@Id",musicCD.getId());
+                sql_command.Parameters.AddWithValue("@Name",musicCD.getName());
+                sql_command.Parameters.AddWithValue("@Price",musicCD.getPrice());
+                sql_command.Parameters.AddWithValue("@Image",musicCD.image);
+                sql_command.Parameters.AddWithValue("@Singer",musicCD.singer);
+                sql_command.Parameters.AddWithValue("@Type",musicCD.type);
+                connection.Open(); //connnection açılır.
+
+                try
+                {
+                    sql_command.ExecuteNonQuery();
+                    MessageBox.Show("Production has been added");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Production could not be added");
+                    throw new Exception(ex.Message);
+                    
+                }
+                connection.Close();
+            }
         }
         public void add_shoppingcart(string sql_statement, int customerId,string productName)
         {
@@ -204,6 +233,7 @@ namespace BookStore
         }
         public List<Customer> read_customer(string value)
         {
+            CustomerList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -227,6 +257,7 @@ namespace BookStore
         }
         public List<MusicCD> read_musiccd(string value)
         {
+            MusicCDList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -252,6 +283,7 @@ namespace BookStore
         }
         public List<Magazine> read_magazine(string value)
         {
+            MagazineList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();

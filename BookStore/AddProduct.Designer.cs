@@ -53,7 +53,7 @@
             this.lbSinger = new System.Windows.Forms.Label();
             this.lbPage = new System.Windows.Forms.Label();
             this.lbPublisher = new System.Windows.Forms.Label();
-            this.lbAuther = new System.Windows.Forms.Label();
+            this.lbAuthor = new System.Windows.Forms.Label();
             this.lbMagTyp = new System.Windows.Forms.Label();
             this.lbIssue = new System.Windows.Forms.Label();
             this.txtIssue = new System.Windows.Forms.TextBox();
@@ -160,6 +160,7 @@
             this.btnDowload.TabIndex = 11;
             this.btnDowload.Text = "Dowload";
             this.btnDowload.UseVisualStyleBackColor = false;
+            this.btnDowload.Click += new System.EventHandler(this.btnDowload_Click);
             // 
             // btnBookAdd
             // 
@@ -200,12 +201,6 @@
             // 
             this.cmbMagTyp.Enabled = false;
             this.cmbMagTyp.FormattingEnabled = true;
-            this.cmbMagTyp.Items.AddRange(new object[] {
-            "Actual",
-            "News",
-            "Sport",
-            "Computer",
-            "Technology"});
             this.cmbMagTyp.Location = new System.Drawing.Point(316, 182);
             this.cmbMagTyp.Name = "cmbMagTyp";
             this.cmbMagTyp.Size = new System.Drawing.Size(121, 21);
@@ -215,10 +210,6 @@
             // 
             this.cmbMucTyp.Enabled = false;
             this.cmbMucTyp.FormattingEnabled = true;
-            this.cmbMucTyp.Items.AddRange(new object[] {
-            "Romance",
-            "Hard Rock",
-            "Country"});
             this.cmbMucTyp.Location = new System.Drawing.Point(316, 216);
             this.cmbMucTyp.Name = "cmbMucTyp";
             this.cmbMucTyp.Size = new System.Drawing.Size(121, 21);
@@ -310,14 +301,14 @@
             this.lbPublisher.TabIndex = 21;
             this.lbPublisher.Text = "Publisher";
             // 
-            // lbAuther
+            // lbAuthor
             // 
-            this.lbAuther.AutoSize = true;
-            this.lbAuther.Location = new System.Drawing.Point(9, 111);
-            this.lbAuther.Name = "lbAuther";
-            this.lbAuther.Size = new System.Drawing.Size(38, 13);
-            this.lbAuther.TabIndex = 22;
-            this.lbAuther.Text = "Auther";
+            this.lbAuthor.AutoSize = true;
+            this.lbAuthor.Location = new System.Drawing.Point(9, 111);
+            this.lbAuthor.Name = "lbAuthor";
+            this.lbAuthor.Size = new System.Drawing.Size(38, 13);
+            this.lbAuthor.TabIndex = 22;
+            this.lbAuthor.Text = "Author";
             // 
             // lbMagTyp
             // 
@@ -362,7 +353,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.groupBox3.Controls.Add(this.lbIssue);
-            this.groupBox3.Controls.Add(this.lbAuther);
+            this.groupBox3.Controls.Add(this.lbAuthor);
             this.groupBox3.Controls.Add(this.lbPublisher);
             this.groupBox3.Controls.Add(this.lbPage);
             this.groupBox3.Controls.Add(this.lbSinger);
@@ -438,7 +429,7 @@
         private System.Windows.Forms.Label lbSinger;
         private System.Windows.Forms.Label lbPage;
         private System.Windows.Forms.Label lbPublisher;
-        private System.Windows.Forms.Label lbAuther;
+        private System.Windows.Forms.Label lbAuthor;
         private System.Windows.Forms.Label lbMagTyp;
         private System.Windows.Forms.Label lbIssue;
         private System.Windows.Forms.TextBox txtIssue;
