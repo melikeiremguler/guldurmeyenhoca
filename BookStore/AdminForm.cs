@@ -52,7 +52,8 @@ namespace BookStore
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
         }
 
         private void AdminForm_Load(object sender, EventArgs e)

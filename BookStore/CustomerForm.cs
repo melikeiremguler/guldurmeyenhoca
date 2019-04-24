@@ -22,10 +22,6 @@ namespace BookStore
         private void CustomerForm_Load(object sender, EventArgs e)
         {
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ab1d3055f42952554f661907e8d872f9b4d63a99
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
             data_base_.read_book("BookTable");
@@ -209,10 +205,7 @@ namespace BookStore
             data_base_.read_book("BookTable");
             panel2.Controls.Clear();
 
-<<<<<<< HEAD
-=======
-   
->>>>>>> ab1d3055f42952554f661907e8d872f9b4d63a99
+
 
             for (int j = 1; j <= data_base_.BookList.Count; j++)
             {
