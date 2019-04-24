@@ -73,7 +73,7 @@ namespace BookStore
             Double price = (Double)Int32.Parse(txtPrice.Text);
             int ISBN = Int32.Parse(txtIsbn.Text);
             int page = Int32.Parse(txtPage.Text);
-          //  admin.addNewBook(0, txtName.Text, price, pcbImage.Image, ISBN, txtAuther.Text, txtPublisher.Text, page);
+            //admin.addNewBook(0, txtName.Text, price, pcbImage.Image, ISBN, txtAuther.Text, txtPublisher.Text, page);
 
             
         }

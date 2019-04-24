@@ -149,9 +149,10 @@ namespace BookStore
             }
 
         }
-        public void add_shoppingcart(string sql_statement, string productName)
+        public void add_shoppingcart(string sql_statement, int customerId,string productName)
         {
             process_command(sql_statement);
+            sql_command.Parameters.Add(customerId);
             sql_command.Parameters.Add(productName+',');
             try
             {
@@ -262,10 +263,6 @@ namespace BookStore
                         while (sdr.Read())
                         {
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f926ae50b8597325d9ca5b5353effb34b09b108c
                           Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, (Magazine.Type)sdr.GetInt32(4), sdr.GetString(5));
 
                           MagazineList.Add(mymagazine);
