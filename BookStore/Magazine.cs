@@ -23,11 +23,13 @@ namespace BookStore
 
 
 
-        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue,int stok) : base(id,nm, prc,img)
+        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue,int stok) : base(nm, prc,img)
         {
             issue = Issue;
             type = Type;
             Stok = stok;
+            id = TotalMagazine;
+            setId(id);
             TotalMagazine++;
         }
         public override void Print()

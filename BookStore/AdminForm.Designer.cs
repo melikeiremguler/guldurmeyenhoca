@@ -46,7 +46,7 @@
             this.reklam1picturebox = new System.Windows.Forms.PictureBox();
             this.searchgroupBox = new System.Windows.Forms.GroupBox();
             this.searchBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Searchtxt = new System.Windows.Forms.TextBox();
             this.lbFilter = new System.Windows.Forms.Label();
             this.lbPruduct = new System.Windows.Forms.Label();
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
@@ -266,7 +266,7 @@
             // 
             this.searchgroupBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.searchgroupBox.Controls.Add(this.searchBtn);
-            this.searchgroupBox.Controls.Add(this.textBox1);
+            this.searchgroupBox.Controls.Add(this.Searchtxt);
             this.searchgroupBox.Controls.Add(this.lbFilter);
             this.searchgroupBox.Controls.Add(this.lbPruduct);
             this.searchgroupBox.Controls.Add(this.cmbFiltre);
@@ -288,15 +288,16 @@
             this.searchBtn.TabIndex = 16;
             this.searchBtn.Text = "SEARCH";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
-            // textBox1
+            // Searchtxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(11, 34);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 22);
-            this.textBox1.TabIndex = 15;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.Searchtxt.Location = new System.Drawing.Point(11, 34);
+            this.Searchtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Searchtxt.Name = "Searchtxt";
+            this.Searchtxt.Size = new System.Drawing.Size(207, 22);
+            this.Searchtxt.TabIndex = 15;
+            this.Searchtxt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbFilter
             // 
@@ -323,7 +324,6 @@
             // 
             // cmbFiltre
             // 
-            this.cmbFiltre.Enabled = false;
             this.cmbFiltre.FormattingEnabled = true;
             this.cmbFiltre.Location = new System.Drawing.Point(72, 101);
             this.cmbFiltre.Margin = new System.Windows.Forms.Padding(4);
@@ -343,6 +343,7 @@
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(144, 24);
             this.cmbProduct.TabIndex = 8;
+            this.cmbProduct.SelectedIndexChanged += new System.EventHandler(this.cmbProduct_SelectedIndexChanged);
             // 
             // timer1
             // 
@@ -400,7 +401,7 @@
         private System.Windows.Forms.PictureBox reklam1picturebox;
         private System.Windows.Forms.GroupBox searchgroupBox;
         private System.Windows.Forms.Button searchBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Searchtxt;
         private System.Windows.Forms.Label lbFilter;
         private System.Windows.Forms.Label lbPruduct;
         private System.Windows.Forms.ComboBox cmbFiltre;

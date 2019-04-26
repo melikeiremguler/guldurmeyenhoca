@@ -36,7 +36,7 @@
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.searchgroupBox = new System.Windows.Forms.GroupBox();
             this.searchBtn = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Searchtxt = new System.Windows.Forms.TextBox();
             this.reklam1picturebox = new System.Windows.Forms.PictureBox();
             this.reklam2picturebox = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -111,7 +111,7 @@
             // 
             this.searchgroupBox.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.searchgroupBox.Controls.Add(this.searchBtn);
-            this.searchgroupBox.Controls.Add(this.textBox1);
+            this.searchgroupBox.Controls.Add(this.Searchtxt);
             this.searchgroupBox.Controls.Add(this.lbFilter);
             this.searchgroupBox.Controls.Add(this.lbPruduct);
             this.searchgroupBox.Controls.Add(this.cmbFiltre);
@@ -133,14 +133,15 @@
             this.searchBtn.TabIndex = 16;
             this.searchBtn.Text = "SEARCH";
             this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
-            // textBox1
+            // Searchtxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 21);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 22);
-            this.textBox1.TabIndex = 15;
+            this.Searchtxt.Location = new System.Drawing.Point(12, 21);
+            this.Searchtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Searchtxt.Name = "Searchtxt";
+            this.Searchtxt.Size = new System.Drawing.Size(207, 22);
+            this.Searchtxt.TabIndex = 15;
             // 
             // reklam1picturebox
             // 
@@ -180,7 +181,7 @@
             this.customerpanel.Location = new System.Drawing.Point(0, 0);
             this.customerpanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.customerpanel.Name = "customerpanel";
-            this.customerpanel.Size = new System.Drawing.Size(1428, 877);
+            this.customerpanel.Size = new System.Drawing.Size(1349, 877);
             this.customerpanel.TabIndex = 7;
             this.customerpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.customerpanel_Paint);
             // 
@@ -304,6 +305,7 @@
             this.billBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.billBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.billBtn.UseVisualStyleBackColor = false;
+            this.billBtn.Click += new System.EventHandler(this.billBtn_Click_1);
             // 
             // btnLogin
             // 
@@ -384,7 +386,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Menu;
-            this.ClientSize = new System.Drawing.Size(1428, 877);
+            this.ClientSize = new System.Drawing.Size(1349, 877);
             this.Controls.Add(this.reklam2picturebox);
             this.Controls.Add(this.reklam1picturebox);
             this.Controls.Add(this.customerpanel);
@@ -415,7 +417,7 @@
         private System.Windows.Forms.PictureBox reklam2picturebox;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button searchBtn;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Searchtxt;
         private System.Windows.Forms.FlowLayoutPanel customerpanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button HomeBtn;

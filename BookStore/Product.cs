@@ -12,23 +12,23 @@ namespace BookStore {
     {
         private List<Observer> observers = new List<Observer>();
 
-        public static int idcounter { get; set; } = 0; //eğer kodda bi şey patlarsa total ile ilgili olabilir
+        public static int TotalProduct { get; set; } = 0; //eğer kodda bi şey patlarsa total ile ilgili olabilir
         private int Id;
         private string Name;
         private double Price;
         public Image image { get; set; }
         
-        public Product(int id,string nm, double prc,Image img)
+        public Product(string nm, double prc,Image img)
         {
             Name = nm;
             Price = prc;
-            Id = ++idcounter;
+            TotalProduct++;
             image = img;
             
         }
         public int getTotal()
         {
-            return idcounter;
+            return TotalProduct;
         }
                
         public int getId()

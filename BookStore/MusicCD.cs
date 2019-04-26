@@ -16,11 +16,13 @@ namespace BookStore
         public int Stok { get; set; }
         public static int TotalCD { get; set; } = 0;
 
-        public MusicCD(int id,string nm,double prc, Image img , string Singer, Type type,int stok) : base(id,nm, prc,img)
+        public MusicCD(int id,string nm,double prc, Image img , string Singer, Type type,int stok) : base(nm, prc,img)
         {
             singer = Singer;
             this.type = type;
             Stok = stok;
+            id = TotalCD;
+            setId(id);
             TotalCD++;
         }
         public override void Print()
