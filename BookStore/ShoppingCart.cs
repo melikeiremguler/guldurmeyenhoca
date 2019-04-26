@@ -30,7 +30,7 @@ namespace BookStore
            
             itemsToPurchase.Add(item);
            
-              database.add_shoppingcart("INSERT INTO ShoppingCartTable", item.product.getName());
+            database.add_shoppingcart("INSERT INTO ShoppingCartTable",customerID, item.product.getName());
             
         }
         public void removeProduct( ItemToPurchase item)

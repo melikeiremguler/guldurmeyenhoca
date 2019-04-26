@@ -17,6 +17,7 @@ namespace BookStore
         private Point lastLocation;
         CustomerForm ths;
         AdminForm adf;
+        public static int current_customer_id = -1;
         public LoginForm(CustomerForm frm)
         {
             InitializeComponent();
@@ -82,7 +83,7 @@ namespace BookStore
             else
             {
                 lbWarring.ForeColor = Color.Red;
-                lbWarring.Text = "YOUR POSSWORD/USERNAME IS WRONG";
+                lbWarring.Text = "YOUR PASSWORD/USERNAME IS WRONG";
             }
            
         }
@@ -95,17 +96,12 @@ namespace BookStore
             {
                 if (username_txtbox.Text == data_base_.CustomerList[i].userName && password_txtbox.Text == data_base_.CustomerList[i].password)
                 {
-
+                    current_customer_id = data_base_.CustomerList[i].customerID;
                     return true;
-
                 }
-               
 
-            }
-        
-          
-                return false;
-            
+            }          
+            return false;
 
         }
 

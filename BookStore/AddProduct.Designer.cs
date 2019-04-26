@@ -28,241 +28,384 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lbName = new System.Windows.Forms.Label();
+            this.lbPrice = new System.Windows.Forms.Label();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtIsbn = new System.Windows.Forms.TextBox();
+            this.txtPublisher = new System.Windows.Forms.TextBox();
+            this.txtAuther = new System.Windows.Forms.TextBox();
+            this.txtPage = new System.Windows.Forms.TextBox();
+            this.txtSinger = new System.Windows.Forms.TextBox();
+            this.pcbImage = new System.Windows.Forms.PictureBox();
+            this.lbMuTyp = new System.Windows.Forms.Label();
+            this.btnDowload = new System.Windows.Forms.Button();
+            this.btnBookAdd = new System.Windows.Forms.Button();
+            this.btnMagAdd = new System.Windows.Forms.Button();
+            this.btnMucAdd = new System.Windows.Forms.Button();
+            this.cmbMagTyp = new System.Windows.Forms.ComboBox();
+            this.cmbMucTyp = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.rdbMucAdd = new System.Windows.Forms.RadioButton();
+            this.rdbMagAdd = new System.Windows.Forms.RadioButton();
+            this.rdbBookAdd = new System.Windows.Forms.RadioButton();
+            this.lbIsbn = new System.Windows.Forms.Label();
+            this.lbSinger = new System.Windows.Forms.Label();
+            this.lbPage = new System.Windows.Forms.Label();
+            this.lbPublisher = new System.Windows.Forms.Label();
+            this.lbAuther = new System.Windows.Forms.Label();
+            this.lbMagTyp = new System.Windows.Forms.Label();
+            this.lbIssue = new System.Windows.Forms.Label();
+            this.txtIssue = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtName
             // 
-            this.textBox1.Location = new System.Drawing.Point(113, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtName.Location = new System.Drawing.Point(113, 39);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 0;
             // 
-            // label1
+            // lbName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.lbName.AutoSize = true;
+            this.lbName.Location = new System.Drawing.Point(9, 9);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(35, 13);
+            this.lbName.TabIndex = 1;
+            this.lbName.Text = "Name";
             // 
-            // label2
+            // lbPrice
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.lbPrice.AutoSize = true;
+            this.lbPrice.Location = new System.Drawing.Point(9, 43);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(31, 13);
+            this.lbPrice.TabIndex = 2;
+            this.lbPrice.Text = "Price";
             // 
-            // textBox2
+            // txtPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(113, 92);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 3;
+            this.txtPrice.Location = new System.Drawing.Point(113, 73);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(100, 20);
+            this.txtPrice.TabIndex = 3;
             // 
-            // textBox3
+            // txtIsbn
             // 
-            this.textBox3.Location = new System.Drawing.Point(113, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 4;
+            this.txtIsbn.Location = new System.Drawing.Point(113, 107);
+            this.txtIsbn.Name = "txtIsbn";
+            this.txtIsbn.Size = new System.Drawing.Size(100, 20);
+            this.txtIsbn.TabIndex = 4;
             // 
-            // textBox4
+            // txtPublisher
             // 
-            this.textBox4.Location = new System.Drawing.Point(113, 204);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 5;
+            this.txtPublisher.Location = new System.Drawing.Point(113, 175);
+            this.txtPublisher.Name = "txtPublisher";
+            this.txtPublisher.Size = new System.Drawing.Size(100, 20);
+            this.txtPublisher.TabIndex = 5;
             // 
-            // textBox5
+            // txtAuther
             // 
-            this.textBox5.Location = new System.Drawing.Point(113, 163);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 6;
+            this.txtAuther.Location = new System.Drawing.Point(113, 141);
+            this.txtAuther.Name = "txtAuther";
+            this.txtAuther.Size = new System.Drawing.Size(100, 20);
+            this.txtAuther.TabIndex = 6;
             // 
-            // textBox6
+            // txtPage
             // 
-            this.textBox6.Location = new System.Drawing.Point(113, 230);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 7;
+            this.txtPage.Location = new System.Drawing.Point(113, 209);
+            this.txtPage.Name = "txtPage";
+            this.txtPage.Size = new System.Drawing.Size(100, 20);
+            this.txtPage.TabIndex = 7;
             // 
-            // textBox7
+            // txtSinger
             // 
-            this.textBox7.Location = new System.Drawing.Point(113, 256);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 8;
+            this.txtSinger.Enabled = false;
+            this.txtSinger.Location = new System.Drawing.Point(113, 243);
+            this.txtSinger.Name = "txtSinger";
+            this.txtSinger.Size = new System.Drawing.Size(100, 20);
+            this.txtSinger.TabIndex = 8;
             // 
-            // pictureBox1
+            // pcbImage
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(352, 64);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.pcbImage.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pcbImage.Location = new System.Drawing.Point(316, 39);
+            this.pcbImage.Name = "pcbImage";
+            this.pcbImage.Size = new System.Drawing.Size(121, 83);
+            this.pcbImage.TabIndex = 9;
+            this.pcbImage.TabStop = false;
             // 
-            // label3
+            // lbMuTyp
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(352, 128);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 13);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "label3";
+            this.lbMuTyp.AutoSize = true;
+            this.lbMuTyp.Location = new System.Drawing.Point(262, 224);
+            this.lbMuTyp.Name = "lbMuTyp";
+            this.lbMuTyp.Size = new System.Drawing.Size(31, 13);
+            this.lbMuTyp.TabIndex = 10;
+            this.lbMuTyp.Text = "Type";
             // 
-            // button1
+            // btnDowload
             // 
-            this.button1.Location = new System.Drawing.Point(415, 128);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDowload.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnDowload.Location = new System.Drawing.Point(339, 138);
+            this.btnDowload.Name = "btnDowload";
+            this.btnDowload.Size = new System.Drawing.Size(75, 23);
+            this.btnDowload.TabIndex = 11;
+            this.btnDowload.Text = "Dowload";
+            this.btnDowload.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnBookAdd
             // 
-            this.button2.Location = new System.Drawing.Point(55, 336);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnBookAdd.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnBookAdd.Location = new System.Drawing.Point(6, 30);
+            this.btnBookAdd.Name = "btnBookAdd";
+            this.btnBookAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnBookAdd.TabIndex = 12;
+            this.btnBookAdd.Text = "Book ";
+            this.btnBookAdd.UseVisualStyleBackColor = false;
+            this.btnBookAdd.Click += new System.EventHandler(this.btnBookAdd_Click);
             // 
-            // button3
+            // btnMagAdd
             // 
-            this.button3.Location = new System.Drawing.Point(152, 336);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnMagAdd.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnMagAdd.Location = new System.Drawing.Point(100, 30);
+            this.btnMagAdd.Name = "btnMagAdd";
+            this.btnMagAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnMagAdd.TabIndex = 13;
+            this.btnMagAdd.Text = "Magazine ";
+            this.btnMagAdd.UseVisualStyleBackColor = false;
+            this.btnMagAdd.Visible = false;
+            this.btnMagAdd.Click += new System.EventHandler(this.btnMagAdd_Click);
             // 
-            // button4
+            // btnMucAdd
             // 
-            this.button4.Location = new System.Drawing.Point(245, 336);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnMucAdd.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.btnMucAdd.Location = new System.Drawing.Point(191, 30);
+            this.btnMucAdd.Name = "btnMucAdd";
+            this.btnMucAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnMucAdd.TabIndex = 14;
+            this.btnMucAdd.Text = "MucicCD ";
+            this.btnMucAdd.UseVisualStyleBackColor = false;
+            this.btnMucAdd.Visible = false;
+            this.btnMucAdd.Click += new System.EventHandler(this.btnMucAdd_Click);
             // 
-            // comboBox1
+            // cmbMagTyp
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(265, 190);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 15;
+            this.cmbMagTyp.Enabled = false;
+            this.cmbMagTyp.FormattingEnabled = true;
+            this.cmbMagTyp.Items.AddRange(new object[] {
+            "Actual",
+            "News",
+            "Sport",
+            "Computer",
+            "Technology"});
+            this.cmbMagTyp.Location = new System.Drawing.Point(316, 182);
+            this.cmbMagTyp.Name = "cmbMagTyp";
+            this.cmbMagTyp.Size = new System.Drawing.Size(121, 21);
+            this.cmbMagTyp.TabIndex = 15;
             // 
-            // comboBox2
+            // cmbMucTyp
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(265, 230);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 16;
+            this.cmbMucTyp.Enabled = false;
+            this.cmbMucTyp.FormattingEnabled = true;
+            this.cmbMucTyp.Items.AddRange(new object[] {
+            "Romance",
+            "Hard Rock",
+            "Country"});
+            this.cmbMucTyp.Location = new System.Drawing.Point(316, 216);
+            this.cmbMucTyp.Name = "cmbMucTyp";
+            this.cmbMucTyp.Size = new System.Drawing.Size(121, 21);
+            this.cmbMucTyp.TabIndex = 16;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.radioButton3);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(563, 58);
+            this.groupBox1.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.groupBox1.Controls.Add(this.rdbMucAdd);
+            this.groupBox1.Controls.Add(this.rdbMagAdd);
+            this.groupBox1.Controls.Add(this.rdbBookAdd);
+            this.groupBox1.Location = new System.Drawing.Point(502, 39);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 115);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Eklemek İstenilen Ürün";
             // 
-            // radioButton1
+            // rdbMucAdd
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(16, 20);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rdbMucAdd.AutoSize = true;
+            this.rdbMucAdd.Location = new System.Drawing.Point(16, 70);
+            this.rdbMucAdd.Name = "rdbMucAdd";
+            this.rdbMucAdd.Size = new System.Drawing.Size(68, 17);
+            this.rdbMucAdd.TabIndex = 2;
+            this.rdbMucAdd.TabStop = true;
+            this.rdbMucAdd.Text = "MusicCD";
+            this.rdbMucAdd.UseVisualStyleBackColor = true;
+            this.rdbMucAdd.CheckedChanged += new System.EventHandler(this.rdbMucAdd_CheckedChanged);
             // 
-            // radioButton2
+            // rdbMagAdd
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(16, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rdbMagAdd.AutoSize = true;
+            this.rdbMagAdd.Location = new System.Drawing.Point(16, 44);
+            this.rdbMagAdd.Name = "rdbMagAdd";
+            this.rdbMagAdd.Size = new System.Drawing.Size(71, 17);
+            this.rdbMagAdd.TabIndex = 1;
+            this.rdbMagAdd.TabStop = true;
+            this.rdbMagAdd.Text = "Magazine";
+            this.rdbMagAdd.UseVisualStyleBackColor = true;
+            this.rdbMagAdd.CheckedChanged += new System.EventHandler(this.rdbMagAdd_CheckedChanged);
             // 
-            // radioButton3
+            // rdbBookAdd
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(16, 70);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.rdbBookAdd.AutoSize = true;
+            this.rdbBookAdd.Checked = true;
+            this.rdbBookAdd.Location = new System.Drawing.Point(16, 20);
+            this.rdbBookAdd.Name = "rdbBookAdd";
+            this.rdbBookAdd.Size = new System.Drawing.Size(50, 17);
+            this.rdbBookAdd.TabIndex = 0;
+            this.rdbBookAdd.TabStop = true;
+            this.rdbBookAdd.Text = "Book";
+            this.rdbBookAdd.UseVisualStyleBackColor = true;
+            this.rdbBookAdd.CheckedChanged += new System.EventHandler(this.rdbBookAdd_CheckedChanged);
+            // 
+            // lbIsbn
+            // 
+            this.lbIsbn.AutoSize = true;
+            this.lbIsbn.Location = new System.Drawing.Point(9, 77);
+            this.lbIsbn.Name = "lbIsbn";
+            this.lbIsbn.Size = new System.Drawing.Size(32, 13);
+            this.lbIsbn.TabIndex = 18;
+            this.lbIsbn.Text = "ISBN";
+            // 
+            // lbSinger
+            // 
+            this.lbSinger.AutoSize = true;
+            this.lbSinger.Location = new System.Drawing.Point(9, 213);
+            this.lbSinger.Name = "lbSinger";
+            this.lbSinger.Size = new System.Drawing.Size(37, 13);
+            this.lbSinger.TabIndex = 19;
+            this.lbSinger.Text = "Singer";
+            // 
+            // lbPage
+            // 
+            this.lbPage.AutoSize = true;
+            this.lbPage.Location = new System.Drawing.Point(9, 179);
+            this.lbPage.Name = "lbPage";
+            this.lbPage.Size = new System.Drawing.Size(32, 13);
+            this.lbPage.TabIndex = 20;
+            this.lbPage.Text = "Page";
+            // 
+            // lbPublisher
+            // 
+            this.lbPublisher.AutoSize = true;
+            this.lbPublisher.Location = new System.Drawing.Point(9, 145);
+            this.lbPublisher.Name = "lbPublisher";
+            this.lbPublisher.Size = new System.Drawing.Size(50, 13);
+            this.lbPublisher.TabIndex = 21;
+            this.lbPublisher.Text = "Publisher";
+            // 
+            // lbAuther
+            // 
+            this.lbAuther.AutoSize = true;
+            this.lbAuther.Location = new System.Drawing.Point(9, 111);
+            this.lbAuther.Name = "lbAuther";
+            this.lbAuther.Size = new System.Drawing.Size(38, 13);
+            this.lbAuther.TabIndex = 22;
+            this.lbAuther.Text = "Auther";
+            // 
+            // lbMagTyp
+            // 
+            this.lbMagTyp.AutoSize = true;
+            this.lbMagTyp.Location = new System.Drawing.Point(262, 190);
+            this.lbMagTyp.Name = "lbMagTyp";
+            this.lbMagTyp.Size = new System.Drawing.Size(31, 13);
+            this.lbMagTyp.TabIndex = 23;
+            this.lbMagTyp.Text = "Type";
+            // 
+            // lbIssue
+            // 
+            this.lbIssue.AutoSize = true;
+            this.lbIssue.Location = new System.Drawing.Point(9, 247);
+            this.lbIssue.Name = "lbIssue";
+            this.lbIssue.Size = new System.Drawing.Size(32, 13);
+            this.lbIssue.TabIndex = 24;
+            this.lbIssue.Text = "Issue";
+            // 
+            // txtIssue
+            // 
+            this.txtIssue.Enabled = false;
+            this.txtIssue.Location = new System.Drawing.Point(113, 277);
+            this.txtIssue.Name = "txtIssue";
+            this.txtIssue.Size = new System.Drawing.Size(100, 20);
+            this.txtIssue.TabIndex = 25;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.groupBox2.Controls.Add(this.btnBookAdd);
+            this.groupBox2.Controls.Add(this.btnMagAdd);
+            this.groupBox2.Controls.Add(this.btnMucAdd);
+            this.groupBox2.Location = new System.Drawing.Point(451, 277);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(282, 68);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "EKLE";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.groupBox3.Controls.Add(this.lbIssue);
+            this.groupBox3.Controls.Add(this.lbAuther);
+            this.groupBox3.Controls.Add(this.lbPublisher);
+            this.groupBox3.Controls.Add(this.lbPage);
+            this.groupBox3.Controls.Add(this.lbSinger);
+            this.groupBox3.Controls.Add(this.lbIsbn);
+            this.groupBox3.Controls.Add(this.lbPrice);
+            this.groupBox3.Controls.Add(this.lbName);
+            this.groupBox3.Location = new System.Drawing.Point(23, 39);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(75, 275);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
             // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtIssue);
+            this.Controls.Add(this.lbMagTyp);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.cmbMucTyp);
+            this.Controls.Add(this.cmbMagTyp);
+            this.Controls.Add(this.btnDowload);
+            this.Controls.Add(this.lbMuTyp);
+            this.Controls.Add(this.pcbImage);
+            this.Controls.Add(this.txtSinger);
+            this.Controls.Add(this.txtPage);
+            this.Controls.Add(this.txtAuther);
+            this.Controls.Add(this.txtPublisher);
+            this.Controls.Add(this.txtIsbn);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtName);
             this.Name = "AddProduct";
             this.Text = "AddProduct";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.AddProduct_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbImage)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,26 +413,36 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label lbName;
+        private System.Windows.Forms.Label lbPrice;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtIsbn;
+        private System.Windows.Forms.TextBox txtPublisher;
+        private System.Windows.Forms.TextBox txtAuther;
+        private System.Windows.Forms.TextBox txtPage;
+        private System.Windows.Forms.TextBox txtSinger;
+        private System.Windows.Forms.PictureBox pcbImage;
+        private System.Windows.Forms.Label lbMuTyp;
+        private System.Windows.Forms.Button btnDowload;
+        private System.Windows.Forms.Button btnBookAdd;
+        private System.Windows.Forms.Button btnMagAdd;
+        private System.Windows.Forms.Button btnMucAdd;
+        private System.Windows.Forms.ComboBox cmbMagTyp;
+        private System.Windows.Forms.ComboBox cmbMucTyp;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton rdbMucAdd;
+        private System.Windows.Forms.RadioButton rdbMagAdd;
+        private System.Windows.Forms.RadioButton rdbBookAdd;
+        private System.Windows.Forms.Label lbIsbn;
+        private System.Windows.Forms.Label lbSinger;
+        private System.Windows.Forms.Label lbPage;
+        private System.Windows.Forms.Label lbPublisher;
+        private System.Windows.Forms.Label lbAuther;
+        private System.Windows.Forms.Label lbMagTyp;
+        private System.Windows.Forms.Label lbIssue;
+        private System.Windows.Forms.TextBox txtIssue;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

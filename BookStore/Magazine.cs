@@ -15,12 +15,16 @@ namespace BookStore
 
         public static int TotalMagazine{ get; set; } = 0;
 
+        public int Stok { get; set; }
+
         public enum Type { Actual, News, Sport, computer, technology }
 
-        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue) : base(id,nm, prc,img)
+
+        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue,int stok) : base(id,nm, prc,img)
         {
             issue = Issue;
             type = Type;
+            Stok = stok;
             TotalMagazine++;
         }
         public override void Print()

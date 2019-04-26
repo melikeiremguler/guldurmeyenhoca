@@ -19,6 +19,7 @@ namespace BookStore
         private static string path = "Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3";
         private SQLiteConnection connection;
         private SQLiteCommand sql_command;
+        
         private static Database database;
 
         private Database()
@@ -61,6 +62,21 @@ namespace BookStore
         {
             process_command(sql_statement);
             sql_command.Parameters.AddWithValue(param, value);
+        }
+       
+        public void update_value(string param1, object value, string sql_statement)  //string sql_statement = INSERT INTO table'ın adı
+        {
+            process_command(sql_statement);
+            sql_command.Parameters.AddWithValue(param1, value);
+            try
+            {
+                sql_command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
         }
         public void add_customer(string sql_statement, Customer customer)
         {
@@ -149,9 +165,10 @@ namespace BookStore
             }
 
         }
-        public void add_shoppingcart(string sql_statement, string productName)
+        public void add_shoppingcart(string sql_statement, int customerId,string productName)
         {
             process_command(sql_statement);
+            sql_command.Parameters.Add(customerId);
             sql_command.Parameters.Add(productName+',');
             try
             {
@@ -177,7 +194,7 @@ namespace BookStore
             }
 
         }
-
+       
         public List<Book> read_book(string value)
         {
             using (connection = new SQLiteConnection(path))
@@ -190,7 +207,7 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            Book mybook = new Book(sdr.GetInt32(0),sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null);
+                            Book mybook = new Book(sdr.GetInt32(0),sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null,sdr.GetInt32(8));
                             BookList.Add(mybook);
                         }
                         sdr.Close();
@@ -237,7 +254,7 @@ namespace BookStore
                         while (sdr.Read())
                         {
 
-                           MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), (MusicCD.Type)sdr.GetInt32(5));
+                           MusicCD mymusicCD = new MusicCD(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null , sdr.GetString(4), (MusicCD.Type)sdr.GetInt32(5),sdr.GetInt32(6));
                            MusicCDList.Add(mymusicCD);
 
                         }
@@ -262,8 +279,7 @@ namespace BookStore
                         while (sdr.Read())
                         {
 
-
-                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, (Magazine.Type)sdr.GetInt32(4), sdr.GetString(5));
+                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, (Magazine.Type)sdr.GetInt32(4), sdr.GetString(5),sdr.GetInt32(6));
 
                           MagazineList.Add(mymagazine);
 

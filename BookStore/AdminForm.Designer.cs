@@ -115,6 +115,7 @@
             this.StokBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.StokBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.StokBtn.UseVisualStyleBackColor = false;
+            this.StokBtn.Click += new System.EventHandler(this.StokBtn_Click);
             // 
             // AddBtn
             // 
@@ -177,6 +178,7 @@
             this.chancePasswordBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.chancePasswordBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.chancePasswordBtn.UseVisualStyleBackColor = false;
+            this.chancePasswordBtn.Click += new System.EventHandler(this.chancePasswordBtn_Click);
             // 
             // HomeBtn
             // 
@@ -324,7 +326,7 @@
             this.cmbFiltre.Enabled = false;
             this.cmbFiltre.FormattingEnabled = true;
             this.cmbFiltre.Location = new System.Drawing.Point(72, 101);
-            this.cmbFiltre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFiltre.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFiltre.Name = "cmbFiltre";
             this.cmbFiltre.Size = new System.Drawing.Size(144, 24);
             this.cmbFiltre.TabIndex = 9;
@@ -337,7 +339,7 @@
             "MAGAZİNE",
             "MUSİC CD"});
             this.cmbProduct.Location = new System.Drawing.Point(72, 63);
-            this.cmbProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbProduct.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(144, 24);
             this.cmbProduct.TabIndex = 8;

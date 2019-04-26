@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,9 @@ namespace BookStore
             InitializeComponent();
         }
         int t = 1, r = 6;
-        CustomerForm csf;
+        DataGridView dgvstok;
+
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             t++;
@@ -52,7 +55,8 @@ namespace BookStore
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-
+            AddProduct addProduct = new AddProduct();
+            addProduct.Show();
         }
 
         private void HomeBtn_Click(object sender, EventArgs e)
@@ -83,25 +87,16 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-                Button btn = new Button();
-                btn.Text = "SEPETE EKLE";
-                btn.Size = new Size(100, 70);
-                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                btn.Click += yeniolusturulanButonlarinClickOlayi;
-                btn.BackColor = Color.DarkSeaGreen;
-                AdminprintPanel.Controls.Add(btn);
+               
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-                btn.Name = "btn" + j;
+              
 
 
             }
         }
 
-        private void yeniolusturulanButonlarinClickOlayi(object sender, EventArgs e)
-        {
-            Button tıklananButtonNesnesi = (sender as Button);
-        }
+       
 
         private void bookBtn_Click(object sender, EventArgs e)
         {
@@ -130,16 +125,10 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-                Button btn = new Button();
-                btn.Text = "SEPETE EKLE";
-                btn.Size = new Size(100, 70);
-                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                btn.Click += yeniolusturulanButonlarinClickOlayi;
-                btn.BackColor = Color.DarkSeaGreen;
-                AdminprintPanel.Controls.Add(btn);
+                
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-                btn.Name = "btn" + j;
+               
 
 
             }
@@ -172,16 +161,10 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-                Button btn = new Button();
-                btn.Text = "SEPETE EKLE";
-                btn.Size = new Size(100, 70);
-                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                btn.Click += yeniolusturulanButonlarinClickOlayi;
-                btn.BackColor = Color.DarkSeaGreen;
-                AdminprintPanel.Controls.Add(btn);
+           
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-                btn.Name = "btn" + j;
+               
 
 
             }
@@ -214,16 +197,10 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-                Button btn = new Button();
-                btn.Text = "SEPETE EKLE";
-                btn.Size = new Size(100, 70);
-                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                btn.Click += yeniolusturulanButonlarinClickOlayi;
-                btn.BackColor = Color.DarkSeaGreen;
-                AdminprintPanel.Controls.Add(btn);
+                
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-                btn.Name = "btn" + j;
+           
 
 
             }
@@ -258,6 +235,244 @@ namespace BookStore
 
         }
 
+        private void StokBtn_Click(object sender, EventArgs e)
+        {
+            Database database = Database.get_instance();
+            database.BookList.Clear();
+            database.MagazineList.Clear();
+            database.MusicCDList.Clear();
+            database.read_book("BookTable");
+            database.read_magazine("MagazineTable");
+            database.read_musiccd("MusicCDTable");
+
+            AdminprintPanel.Controls.Clear();
+
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Tür", typeof(string)), new DataColumn("Id", typeof(Int32)), new DataColumn("Name", typeof(string)), new DataColumn("Stok", typeof(Int32)) });
+            for (int i = 0; i < database.BookList.Count; i++)
+            {
+                dt.Rows.Add("BOOK",database.BookList[i].ISBN,database.BookList[i].getName(),database.BookList[i].Stok);
+            }
+            for (int i = 0; i < database.MagazineList.Count; i++)
+            {
+                dt.Rows.Add("MAGAZINE",database.MagazineList[i].getId(), database.MagazineList[i].getName(), database.MagazineList[i].Stok);
+            }
+            for (int i = 0; i < database.MusicCDList.Count; i++)
+            {
+                dt.Rows.Add("MUSİCCD",database.MusicCDList[i].getId(), database.MusicCDList[i].getName(), database.MusicCDList[i].Stok);
+            }
+            dgvstok = new DataGridView();
+            dgvstok.AutoSize = true;
+
+            Point p = new Point(100, 70);
+            dgvstok.BackgroundColor = Color.Honeydew;
+            dgvstok.Location = p;
+            dgvstok.DataSource = dt;
+           // dgvstok.ReadOnly = true;
+            AdminprintPanel.Controls.Add(dgvstok);
+
+            Button btn = new Button();
+            btn.Text = "UPDATE";
+            btn.Size = new Size(100, 70);
+            btn.Location = new Point(dgvstok.Location.X + dgvstok.Width / 3, dgvstok.Location.Y + 400);
+            btn.Click += yeniolusturulanButonlarinClickOlayi_ChangeStock;
+            btn.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(btn);
+
+        }
+
+        private void yeniolusturulanButonlarinClickOlayi_ChangeStock(object sender, EventArgs e)
+        {
+            Database database = Database.get_instance();
+            database.BookList.Clear();
+            database.MagazineList.Clear();
+            database.MusicCDList.Clear();
+            database.read_book("BookTable");
+            database.read_magazine("MagazineTable");
+            database.read_musiccd("MusicCDTable");
+            int tempid = -1;
+            int newstock=0;
+            int k = 0;
+            int j = 0;
+            int p = 0;
+            for (int i = 0; i < database.BookList.Count; i++)
+            {
+                if (i >p && (i - p) <= database.MagazineList.Count)
+                {
+                    k++;
+                }
+                if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.MagazineList[k].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.MagazineList[k].Stok )
+                {
+                    tempid = database.MagazineList[k].getId();
+                    newstock = Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString());
+                    
+                   
+                }
+               else if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.BookList[p].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.BookList[p].Stok )
+                {
+                    tempid = Convert.ToInt32(dgvstok.Rows[i].Cells[1].Value.ToString());
+                    newstock = Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString());
+                   
+                }
+                else if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.MusicCDList[j].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.MusicCDList[j].Stok )
+                {
+                    tempid = Convert.ToInt32(dgvstok.Rows[i].Cells[1].Value.ToString());
+                    newstock = Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString());
+                   
+                }
+                if (i < database.BookList.Count)
+                {
+                    p++;
+                }
+               
+                if (i >= database.BookList.Count && (i - p) >= database.MagazineList.Count&&(i-(p+k))<database.MusicCDList.Count)
+                {
+                    j++;
+                }
+            }
+            
+           
+            using (SQLiteConnection con = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
+            {
+                try
+                {
+                    SQLiteCommand cmd = new SQLiteCommand();
+                    cmd.CommandText = @"Update BookTable Set Stock=@Stock Where Id= "+tempid;
+                    cmd.Connection = con;
+                    cmd.Parameters.Add(new SQLiteParameter("@Stock", newstock));
+                    con.Open();
+                    int i = cmd.ExecuteNonQuery();
+                    if (i == 1)
+                    {
+                        MessageBox.Show("user update");
+                    }
+                    else
+                    {
+                        MessageBox.Show("user not update");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+          //  for (int i = 0; i < database.BookList[i].getTotal(); i++)
+          //  {
+           //   if(Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.BookList[i].Stok)
+            //    {
+             //       database.update_value("@Stock", Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()), "UPDATE BookTable set Stock=@Stock WHERE Name = " + database.BookList[i].getName());
+              //  }
+           // }
+        }
+        TextBox AvaiblePasword;
+        TextBox NewPassword;
+        Label MessageLbl;
+        private void chancePasswordBtn_Click(object sender, EventArgs e)
+        {
+            Database database = Database.get_instance();
+            database.CustomerList.Clear();
+            database.read_customer("UserTable");
+
+            AdminprintPanel.Controls.Clear();
+
+            Label AvaiblePasswordLbl = new Label();
+            AvaiblePasswordLbl.Text = "Avaible Password";
+            AvaiblePasswordLbl.Size = new Size(100, 70);
+            AvaiblePasswordLbl.Location = new Point(100, 50);
+           // Eskisifrelbl.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(AvaiblePasswordLbl);
+
+            AvaiblePasword = new TextBox();
+            AvaiblePasword.Size = new Size(100, 70);
+            AvaiblePasword.Location = new Point(300, 50 );
+            AvaiblePasword.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(AvaiblePasword);
+
+            Label NewPasswordlbl = new Label();
+            NewPasswordlbl.Text = "New Password";
+            NewPasswordlbl.Size = new Size(100, 70);
+            NewPasswordlbl.Location = new Point(100,150);
+           // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
+           AdminprintPanel.Controls.Add(NewPasswordlbl);
+
+            NewPassword = new TextBox();
+            NewPassword.Size = new Size(100, 70);
+            NewPassword.Location = new Point(300,150);
+            NewPassword.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(NewPassword);
+
+            Button PasswordBtn = new Button();
+            PasswordBtn.Text = "Change Password";
+            PasswordBtn.Size = new Size(100, 70);
+            PasswordBtn.Location = new Point(300,250);
+            PasswordBtn.Click += yeniolusturulanButonlarinClickOlayi_ChangePassword;
+            PasswordBtn.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(PasswordBtn);
+
+           MessageLbl = new Label();
+            MessageLbl.Text = "";
+            MessageLbl.Size = new Size(100, 70);
+            MessageLbl.Location = new Point(100, 250);
+            // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(MessageLbl);
+
+
+        }
+
+        private void yeniolusturulanButonlarinClickOlayi_ChangePassword(object sender, EventArgs e)
+        {
+
+            string truepassword="";
+            string NewPasswordtxt = NewPassword.Text;
+            Database database = Database.get_instance();
+            database.CustomerList.Clear();
+            database.read_customer("UserTable");
+            for(int i = 0; i < database.CustomerList.Count; i++)
+            {
+                if (database.CustomerList[i].userName == "tiv")
+                {
+                    truepassword = database.CustomerList[i].password;
+                }
+            }
+            if (AvaiblePasword.Text == truepassword)
+            {
+                using (SQLiteConnection con = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
+                {
+                    try
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand();
+                        cmd.CommandText = @"Update UserTable Set Password=@Password Where Id= 5";
+                        cmd.Connection = con;
+                        cmd.Parameters.Add(new SQLiteParameter("@Password", NewPasswordtxt));
+                        con.Open();
+                        int i = cmd.ExecuteNonQuery();
+                        if (i == 1)
+                        {
+                           MessageLbl.Text="Password Change";
+                        }
+                        else
+                        {
+                            MessageBox.Show("A" +
+                                "Password Not Change");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+               
+            }
+            else
+            {
+                MessageLbl.Text = "Avaible Password Text is wrong !";
+            }
+
+
+
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
             Database data_base_ = Database.get_instance();
@@ -285,17 +500,10 @@ namespace BookStore
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
-
-                Button btn = new Button();
-                btn.Text = "SEPETE EKLE";
-                btn.Size = new Size(100, 70);
-                btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                btn.Click += yeniolusturulanButonlarinClickOlayi;
-                btn.BackColor = Color.DarkSeaGreen;
-                AdminprintPanel.Controls.Add(btn);
+                
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-                btn.Name = "btn" + j;
+                
 
 
             }

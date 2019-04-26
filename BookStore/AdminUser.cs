@@ -22,23 +22,23 @@ namespace BookStore
             Database database = Database.get_instance();
             database.add_customer("INSERT INTO UserTable", customer);
         }
-        public void addNewBook(int id,string nm, double prc, Image CoverPagePicture, int isbn, string Author, string Publisher, int Page)
+        public void addNewBook(int id,string nm, double prc, Image CoverPagePicture, int isbn, string Author, string Publisher, int Page,int stok)
         {
-            Book book = new Book(id,nm,prc, isbn, Author, Publisher, Page, CoverPagePicture);
+            Book book = new Book(id,nm,prc, isbn, Author, Publisher, Page, CoverPagePicture,stok);
             Database database = Database.get_instance();
             database.add_book("INSERT INTO BookTable", book);
         }
-        public void addNewMagazine(int id, string nm, double prc, Image img, Magazine.Type type, string Issue)
+        public void addNewMagazine(int id, string nm, double prc, Image img, Magazine.Type type, string Issue,int stok)
         {
 
-            Magazine magazine = new Magazine(id,nm,prc,img, type,Issue);
+            Magazine magazine = new Magazine(id,nm,prc,img, type,Issue,stok);
 
             Database database = Database.get_instance();
             database.add_magazine("INSERT INTO MagazineTable", magazine);
         } 
-        public void addNewMusicCD(int id,string nm, double prc ,Image img,string Singer, MusicCD.Type type)
+        public void addNewMusicCD(int id,string nm, double prc ,Image img,string Singer, MusicCD.Type type,int stok)
         {
-            MusicCD musicCD = new MusicCD(id,nm,prc,img,Singer,type);
+            MusicCD musicCD = new MusicCD(id,nm,prc,img,Singer,type,stok);
             Database database = Database.get_instance();
             database.add_musiccd("INSERT INTO UserTable", musicCD);
         }
