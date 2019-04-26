@@ -87,16 +87,16 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-               
+
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-              
+
 
 
             }
         }
 
-       
+
 
         private void bookBtn_Click(object sender, EventArgs e)
         {
@@ -125,10 +125,10 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-                
+
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-               
+
 
 
             }
@@ -161,10 +161,10 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-           
+
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-               
+
 
 
             }
@@ -197,10 +197,10 @@ namespace BookStore
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
 
-                
+
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-           
+
 
 
             }
@@ -217,7 +217,7 @@ namespace BookStore
             database.CustomerList.Clear();
             database.read_customer("UserTable");
             AdminprintPanel.Controls.Clear();
-            
+
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[6] { new DataColumn("Id", typeof(Int32)), new DataColumn("Name", typeof(string)), new DataColumn("Email", typeof(String)), new DataColumn("UserName", typeof(String)), new DataColumn("Passwword", typeof(String)), new DataColumn("Address", typeof(string)) });
             for (int i = 0; i < database.CustomerList.Count; i++)
@@ -226,11 +226,12 @@ namespace BookStore
             }
             DataGridView dgv = new DataGridView();
             dgv.AutoSize = true;
-            
-            Point p = new Point(50,100);
+
+            Point p = new Point(50, 100);
             dgv.BackgroundColor = Color.Honeydew;
             dgv.Location = p;
             dgv.DataSource = dt;
+            dgv.ReadOnly = true;
             AdminprintPanel.Controls.Add(dgv);
 
         }
@@ -251,15 +252,15 @@ namespace BookStore
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Tür", typeof(string)), new DataColumn("Id", typeof(Int32)), new DataColumn("Name", typeof(string)), new DataColumn("Stok", typeof(Int32)) });
             for (int i = 0; i < database.BookList.Count; i++)
             {
-                dt.Rows.Add("BOOK",database.BookList[i].ISBN,database.BookList[i].getName(),database.BookList[i].Stok);
+                dt.Rows.Add("BOOK", database.BookList[i].ISBN, database.BookList[i].getName(), database.BookList[i].Stok);
             }
             for (int i = 0; i < database.MagazineList.Count; i++)
             {
-                dt.Rows.Add("MAGAZINE",database.MagazineList[i].getId(), database.MagazineList[i].getName(), database.MagazineList[i].Stok);
+                dt.Rows.Add("MAGAZINE", database.MagazineList[i].getId(), database.MagazineList[i].getName(), database.MagazineList[i].Stok);
             }
             for (int i = 0; i < database.MusicCDList.Count; i++)
             {
-                dt.Rows.Add("MUSİCCD",database.MusicCDList[i].getId(), database.MusicCDList[i].getName(), database.MusicCDList[i].Stok);
+                dt.Rows.Add("MUSİCCD", database.MusicCDList[i].getId(), database.MusicCDList[i].getName(), database.MusicCDList[i].Stok);
             }
             dgvstok = new DataGridView();
             dgvstok.AutoSize = true;
@@ -268,7 +269,7 @@ namespace BookStore
             dgvstok.BackgroundColor = Color.Honeydew;
             dgvstok.Location = p;
             dgvstok.DataSource = dt;
-           // dgvstok.ReadOnly = true;
+            // dgvstok.ReadOnly = true;
             AdminprintPanel.Controls.Add(dgvstok);
 
             Button btn = new Button();
@@ -291,53 +292,61 @@ namespace BookStore
             database.read_magazine("MagazineTable");
             database.read_musiccd("MusicCDTable");
             int tempid = -1;
-            int newstock=0;
-            int k = 0;
-            int j = 0;
-            int p = 0;
+            int newstock = 0;
+            int k = database.BookList.Count;
+            int j = database.MusicCDList.Count+ database.BookList.Count;
+            int control = -1;
             for (int i = 0; i < database.BookList.Count; i++)
             {
-                if (i >p && (i - p) <= database.MagazineList.Count)
-                {
-                    k++;
-                }
-                if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.MagazineList[k].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.MagazineList[k].Stok )
-                {
-                    tempid = database.MagazineList[k].getId();
-                    newstock = Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString());
-                    
-                   
-                }
-               else if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.BookList[p].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.BookList[p].Stok )
+
+                if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.BookList[i].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.BookList[i].Stok)
                 {
                     tempid = Convert.ToInt32(dgvstok.Rows[i].Cells[1].Value.ToString());
                     newstock = Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString());
-                   
+                    control = 1;
                 }
-                else if (dgvstok.Rows[i].Cells[2].Value.ToString() == database.MusicCDList[j].getName() && Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.MusicCDList[j].Stok )
-                {
-                    tempid = Convert.ToInt32(dgvstok.Rows[i].Cells[1].Value.ToString());
-                    newstock = Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString());
-                   
-                }
-                if (i < database.BookList.Count)
-                {
-                    p++;
-                }
-               
-                if (i >= database.BookList.Count && (i - p) >= database.MagazineList.Count&&(i-(p+k))<database.MusicCDList.Count)
-                {
-                    j++;
-                }
+
             }
-            
-           
+            for(int i = 0; i < database.MagazineList.Count; i++)
+            {
+                if (dgvstok.Rows[k].Cells[2].Value.ToString() == database.MagazineList[i].getName() && Convert.ToInt32(dgvstok.Rows[k].Cells[3].Value.ToString()) != database.MagazineList[i].Stok)
+                {
+                    tempid = i;
+                    newstock = Convert.ToInt32(dgvstok.Rows[k].Cells[3].Value.ToString());
+                    control = 2;
+                }
+                k++;
+            }
+            for (int i = 0; i < database.MusicCDList.Count; i++)
+            {
+                if (dgvstok.Rows[j].Cells[2].Value.ToString() == database.MusicCDList[i].getName() && Convert.ToInt32(dgvstok.Rows[j].Cells[3].Value.ToString()) != database.MusicCDList[i].Stok)
+                {
+                    tempid = i;
+                    newstock = Convert.ToInt32(dgvstok.Rows[j].Cells[3].Value.ToString());
+                    control = 3;
+                }
+                j++;
+            }
+
+
             using (SQLiteConnection con = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
             {
                 try
                 {
                     SQLiteCommand cmd = new SQLiteCommand();
-                    cmd.CommandText = @"Update BookTable Set Stock=@Stock Where Id= "+tempid;
+                    if (control == 1)
+                    {
+                        cmd.CommandText = @"Update BookTable Set Stock=@Stock Where Id= " + tempid;
+                    }
+                   else  if (control == 2)
+                    {
+                        cmd.CommandText = @"Update MagazineTable Set Stock=@Stock Where Id= " + tempid;
+                    }
+                    else if (control == 3)
+                    {
+                        cmd.CommandText = @"Update MusicCDTable Set Stock=@Stock Where Id= " + tempid;
+                    }
+
                     cmd.Connection = con;
                     cmd.Parameters.Add(new SQLiteParameter("@Stock", newstock));
                     con.Open();
@@ -351,19 +360,19 @@ namespace BookStore
                         MessageBox.Show("user not update");
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
 
-          //  for (int i = 0; i < database.BookList[i].getTotal(); i++)
-          //  {
-           //   if(Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.BookList[i].Stok)
+            //  for (int i = 0; i < database.BookList[i].getTotal(); i++)
+            //  {
+            //   if(Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()) != database.BookList[i].Stok)
             //    {
-             //       database.update_value("@Stock", Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()), "UPDATE BookTable set Stock=@Stock WHERE Name = " + database.BookList[i].getName());
-              //  }
-           // }
+            //       database.update_value("@Stock", Convert.ToInt32(dgvstok.Rows[i].Cells[3].Value.ToString()), "UPDATE BookTable set Stock=@Stock WHERE Name = " + database.BookList[i].getName());
+            //  }
+            // }
         }
         TextBox AvaiblePasword;
         TextBox NewPassword;
@@ -380,37 +389,37 @@ namespace BookStore
             AvaiblePasswordLbl.Text = "Avaible Password";
             AvaiblePasswordLbl.Size = new Size(100, 70);
             AvaiblePasswordLbl.Location = new Point(100, 50);
-           // Eskisifrelbl.BackColor = Color.DarkSeaGreen;
+            // Eskisifrelbl.BackColor = Color.DarkSeaGreen;
             AdminprintPanel.Controls.Add(AvaiblePasswordLbl);
 
             AvaiblePasword = new TextBox();
             AvaiblePasword.Size = new Size(100, 70);
-            AvaiblePasword.Location = new Point(300, 50 );
+            AvaiblePasword.Location = new Point(300, 50);
             AvaiblePasword.BackColor = Color.DarkSeaGreen;
             AdminprintPanel.Controls.Add(AvaiblePasword);
 
             Label NewPasswordlbl = new Label();
             NewPasswordlbl.Text = "New Password";
             NewPasswordlbl.Size = new Size(100, 70);
-            NewPasswordlbl.Location = new Point(100,150);
-           // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
-           AdminprintPanel.Controls.Add(NewPasswordlbl);
+            NewPasswordlbl.Location = new Point(100, 150);
+            // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
+            AdminprintPanel.Controls.Add(NewPasswordlbl);
 
             NewPassword = new TextBox();
             NewPassword.Size = new Size(100, 70);
-            NewPassword.Location = new Point(300,150);
+            NewPassword.Location = new Point(300, 150);
             NewPassword.BackColor = Color.DarkSeaGreen;
             AdminprintPanel.Controls.Add(NewPassword);
 
             Button PasswordBtn = new Button();
             PasswordBtn.Text = "Change Password";
             PasswordBtn.Size = new Size(100, 70);
-            PasswordBtn.Location = new Point(300,250);
+            PasswordBtn.Location = new Point(300, 250);
             PasswordBtn.Click += yeniolusturulanButonlarinClickOlayi_ChangePassword;
             PasswordBtn.BackColor = Color.DarkSeaGreen;
             AdminprintPanel.Controls.Add(PasswordBtn);
 
-           MessageLbl = new Label();
+            MessageLbl = new Label();
             MessageLbl.Text = "";
             MessageLbl.Size = new Size(100, 70);
             MessageLbl.Location = new Point(100, 250);
@@ -423,12 +432,12 @@ namespace BookStore
         private void yeniolusturulanButonlarinClickOlayi_ChangePassword(object sender, EventArgs e)
         {
 
-            string truepassword="";
+            string truepassword = "";
             string NewPasswordtxt = NewPassword.Text;
             Database database = Database.get_instance();
             database.CustomerList.Clear();
             database.read_customer("UserTable");
-            for(int i = 0; i < database.CustomerList.Count; i++)
+            for (int i = 0; i < database.CustomerList.Count; i++)
             {
                 if (database.CustomerList[i].userName == "tiv")
                 {
@@ -449,7 +458,7 @@ namespace BookStore
                         int i = cmd.ExecuteNonQuery();
                         if (i == 1)
                         {
-                           MessageLbl.Text="Password Change";
+                            MessageLbl.Text = "Password Change";
                         }
                         else
                         {
@@ -462,7 +471,7 @@ namespace BookStore
                         MessageBox.Show(ex.Message);
                     }
                 }
-               
+
             }
             else
             {
@@ -500,10 +509,10 @@ namespace BookStore
                 Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                 lb.Location = labelp;
                 AdminprintPanel.Controls.Add(lb);
-                
+
 
                 pictureBox1.Name = "pictureBox" + j + 10;
-                
+
 
 
             }
