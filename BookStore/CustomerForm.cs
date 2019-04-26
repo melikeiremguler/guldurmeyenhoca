@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -417,6 +418,115 @@ namespace BookStore
 
         private void customerpanel_Paint(object sender, PaintEventArgs e)
         {
+
+        }
+
+        TextBox AvaiblePasword;
+        TextBox NewPassword;
+        Label MessageLbl;
+        private void chancePasswordBtn_Click(object sender, EventArgs e)
+        {
+            Database database = Database.get_instance();
+            database.CustomerList.Clear();
+            database.read_customer("UserTable");
+
+            panel2.Controls.Clear();
+
+            Label AvaiblePasswordLbl = new Label();
+            AvaiblePasswordLbl.Text = "Avaible Password";
+            AvaiblePasswordLbl.Size = new Size(100, 70);
+            AvaiblePasswordLbl.Location = new Point(100, 50);
+            // Eskisifrelbl.BackColor = Color.DarkSeaGreen;
+            panel2.Controls.Add(AvaiblePasswordLbl);
+
+            AvaiblePasword = new TextBox();
+            AvaiblePasword.Size = new Size(100, 70);
+            AvaiblePasword.Location = new Point(300, 50);
+            AvaiblePasword.BackColor = Color.DarkSeaGreen;
+            panel2.Controls.Add(AvaiblePasword);
+
+            Label NewPasswordlbl = new Label();
+            NewPasswordlbl.Text = "New Password";
+            NewPasswordlbl.Size = new Size(100, 70);
+            NewPasswordlbl.Location = new Point(100, 150);
+            // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
+            panel2.Controls.Add(NewPasswordlbl);
+
+            NewPassword = new TextBox();
+            NewPassword.Size = new Size(100, 70);
+            NewPassword.Location = new Point(300, 150);
+            NewPassword.BackColor = Color.DarkSeaGreen;
+            panel2.Controls.Add(NewPassword);
+
+            Button PasswordBtn = new Button();
+            PasswordBtn.Text = "Change Password";
+            PasswordBtn.Size = new Size(100, 70);
+            PasswordBtn.Location = new Point(300, 250);
+            PasswordBtn.Click += yeniolusturulanButonlarinClickOlayi_ChangePassword;
+            PasswordBtn.BackColor = Color.DarkSeaGreen;
+            panel2.Controls.Add(PasswordBtn);
+
+            MessageLbl = new Label();
+            MessageLbl.Text = "";
+            MessageLbl.Size = new Size(100, 70);
+            MessageLbl.Location = new Point(100, 250);
+            // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
+            panel2.Controls.Add(MessageLbl);
+
+
+        }
+
+        private void yeniolusturulanButonlarinClickOlayi_ChangePassword(object sender, EventArgs e)
+        {
+            string truepassword = "";
+            string NewPasswordtxt = NewPassword.Text;
+            Database database = Database.get_instance();
+            database.CustomerList.Clear();
+            database.read_customer("UserTable");
+            int control = -1;
+            int tempid = -1;
+            for (int i = 0; i < database.CustomerList.Count; i++)
+            {
+                if (database.CustomerList[i].password == AvaiblePasword.Text)
+                {
+                    truepassword = database.CustomerList[i].password;
+                    control = 1;
+                    tempid = database.CustomerList[i].customerID;
+                }
+            }
+            if (control==1)
+            {
+                using (SQLiteConnection con = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
+                {
+                    try
+                    {
+                        SQLiteCommand cmd = new SQLiteCommand();
+                        cmd.CommandText = @"Update UserTable Set Password=@Password Where Id= "+tempid;
+                        cmd.Connection = con;
+                        cmd.Parameters.Add(new SQLiteParameter("@Password", NewPasswordtxt));
+                        con.Open();
+                        int i = cmd.ExecuteNonQuery();
+                        if (i == 1)
+                        {
+                            MessageLbl.Text = "Password Change";
+                        }
+                        else
+                        {
+                            MessageBox.Show( "Password Not Change");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            }
+            else
+            {
+                MessageLbl.Text = "Avaible Password Text is wrong !";
+            }
+
 
         }
 

@@ -352,6 +352,7 @@
             this.chancePasswordBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.chancePasswordBtn.UseVisualStyleBackColor = false;
             this.chancePasswordBtn.Visible = false;
+            this.chancePasswordBtn.Click += new System.EventHandler(this.chancePasswordBtn_Click);
             // 
             // SettingBtn
             // 
