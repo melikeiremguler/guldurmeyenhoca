@@ -42,5 +42,9 @@ namespace BookStore
         {
             return TotalMagazine;
         }
+        public void setTotalMagazine(int i)
+        {
+             TotalMagazine=i;
+        }
     }
 }

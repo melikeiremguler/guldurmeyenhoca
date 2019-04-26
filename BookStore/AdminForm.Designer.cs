@@ -330,6 +330,7 @@
             this.cmbFiltre.Name = "cmbFiltre";
             this.cmbFiltre.Size = new System.Drawing.Size(144, 24);
             this.cmbFiltre.TabIndex = 9;
+            this.cmbFiltre.Text = "Select";
             // 
             // cmbProduct
             // 
@@ -343,6 +344,7 @@
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(144, 24);
             this.cmbProduct.TabIndex = 8;
+            this.cmbProduct.Text = "Select";
             this.cmbProduct.SelectedIndexChanged += new System.EventHandler(this.cmbProduct_SelectedIndexChanged);
             // 
             // timer1
@@ -353,17 +355,22 @@
             // 
             // AdminprintPanel
             // 
+            this.AdminprintPanel.AutoScroll = true;
             this.AdminprintPanel.AutoSize = true;
             this.AdminprintPanel.BackColor = System.Drawing.Color.Honeydew;
             this.AdminprintPanel.Location = new System.Drawing.Point(261, 261);
             this.AdminprintPanel.Name = "AdminprintPanel";
-            this.AdminprintPanel.Size = new System.Drawing.Size(1044, 493);
+            this.AdminprintPanel.Size = new System.Drawing.Size(1044, 648);
             this.AdminprintPanel.TabIndex = 18;
+            this.AdminprintPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.AdminprintPanel_Paint);
             // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(1317, 912);
             this.Controls.Add(this.AdminprintPanel);
             this.Controls.Add(this.reklam2picturebox);

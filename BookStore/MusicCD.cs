@@ -35,5 +35,9 @@ namespace BookStore
         {
             return TotalCD;
         }
+        public void setTotalCd(int t)
+        {
+           TotalCD = t;
+        }
     }
 }

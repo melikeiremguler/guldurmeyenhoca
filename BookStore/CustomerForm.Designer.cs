@@ -87,10 +87,11 @@
             // 
             this.cmbFiltre.FormattingEnabled = true;
             this.cmbFiltre.Location = new System.Drawing.Point(100, 85);
-            this.cmbFiltre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFiltre.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFiltre.Name = "cmbFiltre";
             this.cmbFiltre.Size = new System.Drawing.Size(144, 24);
             this.cmbFiltre.TabIndex = 9;
+            this.cmbFiltre.Text = "Select";
             this.cmbFiltre.SelectedIndexChanged += new System.EventHandler(this.cmbFiltre_SelectedIndexChanged);
             // 
             // cmbProduct
@@ -101,10 +102,11 @@
             "MAGAZİNE",
             "MUSİC CD"});
             this.cmbProduct.Location = new System.Drawing.Point(100, 52);
-            this.cmbProduct.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbProduct.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(144, 24);
             this.cmbProduct.TabIndex = 8;
+            this.cmbProduct.Text = "Select";
             this.cmbProduct.SelectedIndexChanged += new System.EventHandler(this.cmbProduct_SelectedIndexChanged);
             // 
             // searchgroupBox
@@ -140,7 +142,7 @@
             this.Searchtxt.Location = new System.Drawing.Point(12, 21);
             this.Searchtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Searchtxt.Name = "Searchtxt";
-            this.Searchtxt.Size = new System.Drawing.Size(207, 22);
+            this.Searchtxt.Size = new System.Drawing.Size(234, 22);
             this.Searchtxt.TabIndex = 15;
             // 
             // reklam1picturebox
@@ -201,7 +203,7 @@
             this.panel1.Controls.Add(this.SettingBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1353, 177);
             this.panel1.TabIndex = 0;

@@ -68,29 +68,42 @@ namespace BookStore
             AdminprintPanel.Controls.Clear();
 
 
-            for (int j = 1; j <= data_base_.BookList.Count; j++)
+            int control = 0;
+            for (int k = 0; k <= data_base_.BookList.Count / 4; k++)
             {
-                PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 80);
 
-                pictureBox1.Size = new System.Drawing.Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.BackColor = Color.Honeydew;
-                // pictureBox1.BackColor = Color.Black;
-                AdminprintPanel.Controls.Add(pictureBox1);
+                for (int j = 1; j <= 4; j++)
+                {
 
-                Label lb = new Label();
-                lb.AutoSize = true;
-                lb.Text = data_base_.BookList[j - 1].getName() + "\n" + data_base_.BookList[j - 1].author;
-                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                lb.Location = labelp;
-                AdminprintPanel.Controls.Add(lb);
+                    PictureBox pictureBox1 = new PictureBox();
+                    if (k == 0) { pictureBox1.Location = new Point(170 * j, 75); }
+                    else { pictureBox1.Location = new Point(170 * j, 350 * k); }
+
+                    pictureBox1.Size = new System.Drawing.Size(170, 200);
+                    pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + ((k * 4) + j) + ".jpg";
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.BackColor = Color.Honeydew;
+                    // pictureBox1.BackColor = Color.Black;
+                    AdminprintPanel.Controls.Add(pictureBox1);
+
+                    Label lb = new Label();
+                    lb.AutoSize = true;
+                    lb.Text = data_base_.BookList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.BookList[(k * 4) + (j - 1)].author;
+                    Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                    lb.Location = labelp;
+                    AdminprintPanel.Controls.Add(lb);
 
 
+                    pictureBox1.Name = "pictureBox" + j + 10;
 
-                pictureBox1.Name = "pictureBox" + j + 10;
+                    lb.Name = "lb" + j;
+                    control++;
+                    if (control >= data_base_.BookList.Count)
+                    {
+                        break;
+                    }
 
+                }
 
 
             }
@@ -106,29 +119,42 @@ namespace BookStore
             AdminprintPanel.Controls.Clear();
 
 
-            for (int j = 1; j <= data_base_.BookList.Count; j++)
+            int control = 0;
+            for (int k = 0; k <= data_base_.BookList.Count / 4; k++)
             {
-                PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 80);
 
-                pictureBox1.Size = new System.Drawing.Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.BackColor = Color.Honeydew;
-                // pictureBox1.BackColor = Color.Black;
-                AdminprintPanel.Controls.Add(pictureBox1);
+                for (int j = 1; j <= 4; j++)
+                {
 
-                Label lb = new Label();
-                lb.AutoSize = true;
-                lb.Text = data_base_.BookList[j - 1].getName() + "\n" + data_base_.BookList[j - 1].author;
-                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                lb.Location = labelp;
-                AdminprintPanel.Controls.Add(lb);
+                    PictureBox pictureBox1 = new PictureBox();
+                    if (k == 0) { pictureBox1.Location = new Point(170 * j, 75); }
+                    else { pictureBox1.Location = new Point(170 * j, 350 * k); }
 
+                    pictureBox1.Size = new System.Drawing.Size(170, 200);
+                    pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + ((k * 4) + j) + ".jpg";
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.BackColor = Color.Honeydew;
+                    // pictureBox1.BackColor = Color.Black;
+                    AdminprintPanel.Controls.Add(pictureBox1);
 
+                    Label lb = new Label();
+                    lb.AutoSize = true;
+                    lb.Text = data_base_.BookList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.BookList[(k * 4) + (j - 1)].author;
+                    Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                    lb.Location = labelp;
+                    AdminprintPanel.Controls.Add(lb);
 
-                pictureBox1.Name = "pictureBox" + j + 10;
+                   
+                    pictureBox1.Name = "pictureBox" + j + 10;
+                   
+                    lb.Name = "lb" + j;
+                    control++;
+                    if (control >= data_base_.BookList.Count)
+                    {
+                        break;
+                    }
 
+                }
 
 
             }
@@ -142,29 +168,44 @@ namespace BookStore
             AdminprintPanel.Controls.Clear();
 
 
-            for (int j = 1; j <= data_base_.MagazineList.Count; j++)
+
+            int control = 0;
+            for (int k = 0; k <= data_base_.MagazineList.Count / 4; k++)
             {
-                PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 80);
 
-                pictureBox1.Size = new System.Drawing.Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\Magazine\" + j + ".jpg";
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.BackColor = Color.Honeydew;
-                // pictureBox1.BackColor = Color.Black;
-                AdminprintPanel.Controls.Add(pictureBox1);
+                for (int j = 1; j <= 4; j++)
+                {
 
-                Label lb = new Label();
-                lb.AutoSize = true;
-                lb.Text = data_base_.MagazineList[j - 1].getName() + "\n" + data_base_.MagazineList[j - 1].issue;
-                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                lb.Location = labelp;
-                AdminprintPanel.Controls.Add(lb);
+                    PictureBox pictureBox1 = new PictureBox();
+                    if (k == 0) { pictureBox1.Location = new Point(170 * j, 75); }
+                    else { pictureBox1.Location = new Point(170 * j, 300 * k); }
 
+                    pictureBox1.Size = new System.Drawing.Size(170, 200);
+                    pictureBox1.ImageLocation = Application.StartupPath + @"\Magazine\" + ((k * 4) + j) + ".jpg";
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.BackColor = Color.Honeydew;
+                    // pictureBox1.BackColor = Color.Black;
+                    AdminprintPanel.Controls.Add(pictureBox1);
 
+                    Label lb = new Label();
+                    lb.AutoSize = true;
+                    lb.Text = data_base_.MagazineList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.MagazineList[(k * 4) + (j - 1)].type;
+                    Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                    lb.Location = labelp;
+                    AdminprintPanel.Controls.Add(lb);
 
-                pictureBox1.Name = "pictureBox" + j + 10;
+                    
 
+                    pictureBox1.Name = "pictureBox" + j + 10;
+              
+                    lb.Name = "lb" + j;
+                    control++;
+                    if (control >= data_base_.MagazineList.Count)
+                    {
+                        break;
+                    }
+
+                }
 
 
             }
@@ -178,29 +219,42 @@ namespace BookStore
             AdminprintPanel.Controls.Clear();
 
 
-            for (int j = 1; j <= data_base_.MusicCDList.Count; j++)
+            int control = 0;
+            for (int k = 0; k <= data_base_.MusicCDList.Count / 4; k++)
             {
-                PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 80);
 
-                pictureBox1.Size = new System.Drawing.Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + j + ".jpg";
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.BackColor = Color.Honeydew;
-                // pictureBox1.BackColor = Color.Black;
-                AdminprintPanel.Controls.Add(pictureBox1);
+                for (int j = 1; j <= 4; j++)
+                {
 
-                Label lb = new Label();
-                lb.AutoSize = true;
-                lb.Text = data_base_.MusicCDList[j - 1].getName() + "\n" + data_base_.MusicCDList[j - 1].singer;
-                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                lb.Location = labelp;
-                AdminprintPanel.Controls.Add(lb);
+                    PictureBox pictureBox1 = new PictureBox();
+                    if (k == 0) { pictureBox1.Location = new Point(170 * j, 75); }
+                    else { pictureBox1.Location = new Point(170 * j, 350 * k); }
 
+                    pictureBox1.Size = new System.Drawing.Size(170, 200);
+                    pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + ((k * 4) + j) + ".jpg";
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.BackColor = Color.Honeydew;
+                    // pictureBox1.BackColor = Color.Black;
+                    AdminprintPanel.Controls.Add(pictureBox1);
 
+                    Label lb = new Label();
+                    lb.AutoSize = true;
+                    lb.Text = data_base_.MusicCDList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.MusicCDList[(k * 4) + (j - 1)].singer;
+                    Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                    lb.Location = labelp;
+                    AdminprintPanel.Controls.Add(lb);
 
-                pictureBox1.Name = "pictureBox" + j + 10;
+                   
+                    pictureBox1.Name = "pictureBox" + j + 10;
+                  
+                    lb.Name = "lb" + j;
+                    control++;
+                    if (control >= data_base_.MusicCDList.Count)
+                    {
+                        break;
+                    }
 
+                }
 
 
             }
@@ -252,7 +306,7 @@ namespace BookStore
             dt.Columns.AddRange(new DataColumn[4] { new DataColumn("Tür", typeof(string)), new DataColumn("Id", typeof(Int32)), new DataColumn("Name", typeof(string)), new DataColumn("Stok", typeof(Int32)) });
             for (int i = 0; i < database.BookList.Count; i++)
             {
-                dt.Rows.Add("BOOK", database.BookList[i].ISBN, database.BookList[i].getName(), database.BookList[i].Stok);
+                dt.Rows.Add("BOOK", database.BookList[i].getId(), database.BookList[i].getName(), database.BookList[i].Stok);
             }
             for (int i = 0; i < database.MagazineList.Count; i++)
             {
@@ -723,8 +777,14 @@ namespace BookStore
             }
         }
 
+        private void AdminprintPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
+           
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
             data_base_.read_book("BookTable");
@@ -732,28 +792,41 @@ namespace BookStore
             AdminprintPanel.Controls.Clear();
 
 
-            for (int j = 1; j <= data_base_.BookList.Count; j++)
+            int control = 0;
+            for (int k = 0; k <= data_base_.BookList.Count / 4; k++)
             {
-                PictureBox pictureBox1 = new PictureBox();
-                pictureBox1.Location = new Point(180 * j, 80);
 
-                pictureBox1.Size = new System.Drawing.Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + j + ".jpg";
-                pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-                pictureBox1.BackColor = Color.Honeydew;
-                // pictureBox1.BackColor = Color.Black;
-                AdminprintPanel.Controls.Add(pictureBox1);
+                for (int j = 1; j <= 4; j++)
+                {
 
-                Label lb = new Label();
-                lb.AutoSize = true;
-                lb.Text = data_base_.BookList[j - 1].getName() + "\n" + data_base_.BookList[j - 1].author;
-                Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                lb.Location = labelp;
-                AdminprintPanel.Controls.Add(lb);
+                    PictureBox pictureBox1 = new PictureBox();
+                    if (k == 0) { pictureBox1.Location = new Point(170 * j, 75); }
+                    else { pictureBox1.Location = new Point(170 * j, 350 * k); }
 
+                    pictureBox1.Size = new System.Drawing.Size(170, 200);
+                    pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + ((k * 4) + j) + ".jpg";
+                    pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+                    pictureBox1.BackColor = Color.Honeydew;
+                    // pictureBox1.BackColor = Color.Black;
+                    AdminprintPanel.Controls.Add(pictureBox1);
 
-                pictureBox1.Name = "pictureBox" + j + 10;
+                    Label lb = new Label();
+                    lb.AutoSize = true;
+                    lb.Text = data_base_.BookList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.BookList[(k * 4) + (j - 1)].author;
+                    Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
+                    lb.Location = labelp;
+                    AdminprintPanel.Controls.Add(lb);
+                    
+                    pictureBox1.Name = "pictureBox" + j + 10;
+                   
+                    lb.Name = "lb" + j;
+                    control++;
+                    if (control >= data_base_.BookList.Count)
+                    {
+                        break;
+                    }
 
+                }
 
 
             }

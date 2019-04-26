@@ -229,7 +229,10 @@ namespace BookStore
        
         public List<Book> read_book(string value)
         {
+            Book b = new Book(0, null, 0, 0, null, null, 0, null, 0);
+            b.setTotalBook(1);
             BookList.Clear();
+            
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -253,6 +256,7 @@ namespace BookStore
         }
         public List<Customer> read_customer(string value)
         {
+            
             CustomerList.Clear();
             using (connection = new SQLiteConnection(path))
             {
@@ -277,6 +281,8 @@ namespace BookStore
         }
         public List<MusicCD> read_musiccd(string value)
         {
+            MusicCD m = new MusicCD(0, null, 0, null, null, MusicCD.Type.Country, 0);
+            m.setTotalCd(0);
             MusicCDList.Clear();
             using (connection = new SQLiteConnection(path))
             {
@@ -302,7 +308,10 @@ namespace BookStore
             return MusicCDList;
         }
         public List<Magazine> read_magazine(string value)
+
         {
+            Magazine m=new Magazine(0,"a",1,null,Magazine.Type.Actual,"fun",0);
+           m.setTotalMagazine(0);
             MagazineList.Clear();
             using (connection = new SQLiteConnection(path))
             {

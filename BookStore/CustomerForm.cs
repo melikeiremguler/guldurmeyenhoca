@@ -602,6 +602,7 @@ namespace BookStore
 
                         }
                     }
+                   
                 }
                 if (cmbFiltre.SelectedIndex == 1)
                 {
@@ -805,6 +806,8 @@ namespace BookStore
                     }
                 }
             }
+            cmbFiltre.Text = "Select";
+            cmbProduct.Text = "Select";
         }
 
         void OpenForm(Form Openform)

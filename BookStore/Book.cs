@@ -37,6 +37,10 @@ namespace BookStore
         {
             return TotalBook;
         }
+        public  void setTotalBook(int t)
+        {
+            TotalBook = t ;
+        }
         public override void Print()
         {
             base.Print();
