@@ -77,7 +77,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(287, 1);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 4;
             // 
             // panel3
             // 
@@ -86,7 +86,7 @@
             this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(287, 1);
-            this.panel3.TabIndex = 2;
+            this.panel3.TabIndex = 7;
             // 
             // password_txtbox
             // 
@@ -98,7 +98,7 @@
             this.password_txtbox.Name = "password_txtbox";
             this.password_txtbox.PasswordChar = '*';
             this.password_txtbox.Size = new System.Drawing.Size(284, 23);
-            this.password_txtbox.TabIndex = 3;
+            this.password_txtbox.TabIndex = 2;
             // 
             // username_txtbox
             // 
@@ -109,7 +109,7 @@
             this.username_txtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.username_txtbox.Name = "username_txtbox";
             this.username_txtbox.Size = new System.Drawing.Size(284, 23);
-            this.username_txtbox.TabIndex = 4;
+            this.username_txtbox.TabIndex = 1;
             // 
             // username_lbl
             // 
@@ -147,7 +147,7 @@
             this.login_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.login_button.Name = "login_button";
             this.login_button.Size = new System.Drawing.Size(181, 38);
-            this.login_button.TabIndex = 7;
+            this.login_button.TabIndex = 3;
             this.login_button.Text = "Login";
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);

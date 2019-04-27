@@ -16,7 +16,7 @@ namespace BookStore
 
         public static int TotalCD { get; set; } = 0;
 
-        public MusicCD(int id,string nm,double prc, Image img , string Singer, Type type) : base(id,nm, prc,img)
+        public MusicCD(int id,string nm,double prc, string img_path , string Singer, Type type) : base(id,nm, prc,img_path)
         {
             singer = Singer;
             this.type = type;

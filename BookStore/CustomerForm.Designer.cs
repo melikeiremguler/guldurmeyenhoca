@@ -48,7 +48,7 @@
             this.bookBtn = new System.Windows.Forms.Button();
             this.magazineBtn = new System.Windows.Forms.Button();
             this.musiccdBtn = new System.Windows.Forms.Button();
-            this.billBtn = new System.Windows.Forms.Button();
+            this.cartBtn = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.creditcardBtn = new System.Windows.Forms.Button();
             this.chancePasswordBtn = new System.Windows.Forms.Button();
@@ -113,9 +113,9 @@
             this.searchgroupBox.Controls.Add(this.cmbFiltre);
             this.searchgroupBox.Controls.Add(this.cmbProduct);
             this.searchgroupBox.Location = new System.Drawing.Point(2, 152);
-            this.searchgroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchgroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchgroupBox.Name = "searchgroupBox";
-            this.searchgroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchgroupBox.Padding = new System.Windows.Forms.Padding(2);
             this.searchgroupBox.Size = new System.Drawing.Size(189, 123);
             this.searchgroupBox.TabIndex = 12;
             this.searchgroupBox.TabStop = false;
@@ -123,7 +123,7 @@
             // searchBtn
             // 
             this.searchBtn.Location = new System.Drawing.Point(99, 95);
-            this.searchBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchBtn.Margin = new System.Windows.Forms.Padding(2);
             this.searchBtn.Name = "searchBtn";
             this.searchBtn.Size = new System.Drawing.Size(56, 19);
             this.searchBtn.TabIndex = 16;
@@ -133,7 +133,7 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(9, 17);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 20);
             this.textBox1.TabIndex = 15;
@@ -142,7 +142,7 @@
             // 
             this.reklam1picturebox.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.reklam1picturebox.Location = new System.Drawing.Point(0, 275);
-            this.reklam1picturebox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reklam1picturebox.Margin = new System.Windows.Forms.Padding(2);
             this.reklam1picturebox.Name = "reklam1picturebox";
             this.reklam1picturebox.Size = new System.Drawing.Size(191, 187);
             this.reklam1picturebox.TabIndex = 13;
@@ -153,7 +153,7 @@
             // 
             this.reklam2picturebox.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.reklam2picturebox.Location = new System.Drawing.Point(-1, 466);
-            this.reklam2picturebox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.reklam2picturebox.Margin = new System.Windows.Forms.Padding(2);
             this.reklam2picturebox.Name = "reklam2picturebox";
             this.reklam2picturebox.Size = new System.Drawing.Size(191, 187);
             this.reklam2picturebox.TabIndex = 14;
@@ -174,7 +174,7 @@
             this.customerpanel.Controls.Add(this.panel2);
             this.customerpanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.customerpanel.Location = new System.Drawing.Point(0, 0);
-            this.customerpanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.customerpanel.Margin = new System.Windows.Forms.Padding(2);
             this.customerpanel.Name = "customerpanel";
             this.customerpanel.Size = new System.Drawing.Size(1022, 609);
             this.customerpanel.TabIndex = 7;
@@ -189,7 +189,7 @@
             this.panel1.Controls.Add(this.bookBtn);
             this.panel1.Controls.Add(this.magazineBtn);
             this.panel1.Controls.Add(this.musiccdBtn);
-            this.panel1.Controls.Add(this.billBtn);
+            this.panel1.Controls.Add(this.cartBtn);
             this.panel1.Controls.Add(this.btnLogin);
             this.panel1.Controls.Add(this.creditcardBtn);
             this.panel1.Controls.Add(this.chancePasswordBtn);
@@ -225,7 +225,7 @@
             this.HomeBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("HomeBtn.BackgroundImage")));
             this.HomeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.HomeBtn.Location = new System.Drawing.Point(2, 8);
-            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HomeBtn.Margin = new System.Windows.Forms.Padding(2);
             this.HomeBtn.Name = "HomeBtn";
             this.HomeBtn.Size = new System.Drawing.Size(92, 123);
             this.HomeBtn.TabIndex = 14;
@@ -241,7 +241,7 @@
             this.bookBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bookBtn.BackgroundImage")));
             this.bookBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bookBtn.Location = new System.Drawing.Point(98, 8);
-            this.bookBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bookBtn.Margin = new System.Windows.Forms.Padding(2);
             this.bookBtn.Name = "bookBtn";
             this.bookBtn.Size = new System.Drawing.Size(92, 123);
             this.bookBtn.TabIndex = 15;
@@ -257,7 +257,7 @@
             this.magazineBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("magazineBtn.BackgroundImage")));
             this.magazineBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.magazineBtn.Location = new System.Drawing.Point(191, 8);
-            this.magazineBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.magazineBtn.Margin = new System.Windows.Forms.Padding(2);
             this.magazineBtn.Name = "magazineBtn";
             this.magazineBtn.Size = new System.Drawing.Size(92, 123);
             this.magazineBtn.TabIndex = 16;
@@ -273,7 +273,7 @@
             this.musiccdBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("musiccdBtn.BackgroundImage")));
             this.musiccdBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.musiccdBtn.Location = new System.Drawing.Point(287, 8);
-            this.musiccdBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.musiccdBtn.Margin = new System.Windows.Forms.Padding(2);
             this.musiccdBtn.Name = "musiccdBtn";
             this.musiccdBtn.Size = new System.Drawing.Size(92, 123);
             this.musiccdBtn.TabIndex = 17;
@@ -283,20 +283,21 @@
             this.musiccdBtn.UseVisualStyleBackColor = false;
             this.musiccdBtn.Click += new System.EventHandler(this.musiccdBtn_Click);
             // 
-            // billBtn
+            // cartBtn
             // 
-            this.billBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.billBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("billBtn.BackgroundImage")));
-            this.billBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.billBtn.Location = new System.Drawing.Point(383, 8);
-            this.billBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.billBtn.Name = "billBtn";
-            this.billBtn.Size = new System.Drawing.Size(92, 123);
-            this.billBtn.TabIndex = 21;
-            this.billBtn.Text = "CART";
-            this.billBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.billBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.billBtn.UseVisualStyleBackColor = false;
+            this.cartBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.cartBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cartBtn.BackgroundImage")));
+            this.cartBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cartBtn.Location = new System.Drawing.Point(383, 8);
+            this.cartBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.cartBtn.Name = "cartBtn";
+            this.cartBtn.Size = new System.Drawing.Size(92, 123);
+            this.cartBtn.TabIndex = 21;
+            this.cartBtn.Text = "CART";
+            this.cartBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.cartBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.cartBtn.UseVisualStyleBackColor = false;
+            this.cartBtn.Click += new System.EventHandler(this.cartBtn_Click);
             // 
             // btnLogin
             // 
@@ -304,7 +305,7 @@
             this.btnLogin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogin.BackgroundImage")));
             this.btnLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnLogin.Location = new System.Drawing.Point(479, 8);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(92, 123);
             this.btnLogin.TabIndex = 22;
@@ -320,7 +321,7 @@
             this.creditcardBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("creditcardBtn.BackgroundImage")));
             this.creditcardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.creditcardBtn.Location = new System.Drawing.Point(575, 8);
-            this.creditcardBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.creditcardBtn.Margin = new System.Windows.Forms.Padding(2);
             this.creditcardBtn.Name = "creditcardBtn";
             this.creditcardBtn.Size = new System.Drawing.Size(92, 123);
             this.creditcardBtn.TabIndex = 20;
@@ -336,7 +337,7 @@
             this.chancePasswordBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chancePasswordBtn.BackgroundImage")));
             this.chancePasswordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chancePasswordBtn.Location = new System.Drawing.Point(671, 8);
-            this.chancePasswordBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chancePasswordBtn.Margin = new System.Windows.Forms.Padding(2);
             this.chancePasswordBtn.Name = "chancePasswordBtn";
             this.chancePasswordBtn.Size = new System.Drawing.Size(92, 123);
             this.chancePasswordBtn.TabIndex = 19;
@@ -352,7 +353,7 @@
             this.SettingBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingBtn.BackgroundImage")));
             this.SettingBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SettingBtn.Location = new System.Drawing.Point(767, 8);
-            this.SettingBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SettingBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SettingBtn.Name = "SettingBtn";
             this.SettingBtn.Size = new System.Drawing.Size(92, 123);
             this.SettingBtn.TabIndex = 18;
@@ -365,7 +366,7 @@
             // panel2
             // 
             this.panel2.Location = new System.Drawing.Point(195, 152);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(823, 425);
             this.panel2.TabIndex = 13;
@@ -379,7 +380,7 @@
             this.Controls.Add(this.reklam2picturebox);
             this.Controls.Add(this.reklam1picturebox);
             this.Controls.Add(this.customerpanel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CustomerForm";
             this.Text = "BookStore";
             this.Load += new System.EventHandler(this.CustomerForm_Load);
@@ -412,7 +413,7 @@
         private System.Windows.Forms.Button bookBtn;
         private System.Windows.Forms.Button magazineBtn;
         private System.Windows.Forms.Button musiccdBtn;
-        private System.Windows.Forms.Button billBtn;
+        private System.Windows.Forms.Button cartBtn;
         public System.Windows.Forms.Button btnLogin;
         public System.Windows.Forms.Button creditcardBtn;
         public System.Windows.Forms.Button chancePasswordBtn;

@@ -35,7 +35,6 @@ namespace BookStore
         public static Database get_instance()
         {
             
-
             if (database == null)
             {
                 database = new Database();
@@ -82,6 +81,7 @@ namespace BookStore
                 throw new Exception(ex.Message);
             }
 
+            connection.Close();
 
         }
         public void add_book(string sql_statement, Book book)
@@ -91,7 +91,7 @@ namespace BookStore
             sql_command.Parameters.Add(book.getId());
             sql_command.Parameters.Add(book.getName());
             sql_command.Parameters.Add(book.getPrice());
-            sql_command.Parameters.Add(book.image);
+            sql_command.Parameters.Add(book.image_path);
             sql_command.Parameters.Add(book.ISBN);
             sql_command.Parameters.Add(book.author);
             sql_command.Parameters.Add(book.publisher);
@@ -106,6 +106,8 @@ namespace BookStore
                 throw new Exception(ex.Message);
             }
 
+            connection.Close();
+
         }
         public void add_magazine(string sql_statement, Magazine magazine)
         {
@@ -114,7 +116,7 @@ namespace BookStore
             sql_command.Parameters.Add(magazine.getId());
             sql_command.Parameters.Add(magazine.getName());
             sql_command.Parameters.Add(magazine.getPrice());
-            sql_command.Parameters.Add(magazine.image);
+            sql_command.Parameters.Add(magazine.image_path);
             sql_command.Parameters.Add(magazine.issue);
             sql_command.Parameters.Add(magazine.type);
             //  sql_command.Parameters.Add(magazine.getTotalMagazine());
@@ -127,6 +129,8 @@ namespace BookStore
                 throw new Exception(ex.Message);
             }
 
+            connection.Close();
+
         }
         public void add_musiccd(string sql_statement, MusicCD musicCD)
         {
@@ -135,7 +139,7 @@ namespace BookStore
             sql_command.Parameters.Add(musicCD.getId());
             sql_command.Parameters.Add(musicCD.getName());
             sql_command.Parameters.Add(musicCD.getPrice());
-            sql_command.Parameters.Add(musicCD.image);
+            sql_command.Parameters.Add(musicCD.image_path);
             sql_command.Parameters.Add(musicCD.singer);
             sql_command.Parameters.Add(musicCD.type);
             //  sql_command.Parameters.Add(musicCD.getTotalCd());
@@ -148,12 +152,17 @@ namespace BookStore
                 throw new Exception(ex.Message);
             }
 
+            connection.Close();
+
         }
-        public void add_shoppingcart(string sql_statement, int customerId,string productName)
+        public void add_shoppingcart(string sql_statement, int customerId,string productName,int amount)
         {
-            process_command(sql_statement);
+            sql_command = connection.CreateCommand();
+            sql_command.CommandText = sql_statement;
+            
             sql_command.Parameters.Add(customerId);
-            sql_command.Parameters.Add(productName+',');
+            sql_command.Parameters.Add(productName);
+            sql_command.Parameters.Add(amount);
             try
             {
                 sql_command.ExecuteNonQuery();
@@ -162,6 +171,8 @@ namespace BookStore
             {
                 throw new Exception(ex.Message);
             }
+
+            connection.Close();
         }
 
         public bool execute_command()
@@ -181,6 +192,7 @@ namespace BookStore
 
         public List<Book> read_book(string value)
         {
+            BookList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -204,6 +216,7 @@ namespace BookStore
         }
         public List<Customer> read_customer(string value)
         {
+            CustomerList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -227,6 +240,7 @@ namespace BookStore
         }
         public List<MusicCD> read_musiccd(string value)
         {
+            MusicCDList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -252,6 +266,7 @@ namespace BookStore
         }
         public List<Magazine> read_magazine(string value)
         {
+            MagazineList.Clear();
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();

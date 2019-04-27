@@ -16,16 +16,17 @@ namespace BookStore {
         private int Id;
         private string Name;
         private double Price;
-        public Image image { get; set; }
+        public string image_path { get; set; }
         
-        public Product(int id,string nm, double prc,Image img)
+        public Product(int id,string nm, double prc,string img_path)
         {
             Name = nm;
             Price = prc;
-            Id = ++idcounter;
-            image = img;
+            Id = id;
+            image_path = img_path;
             
         }
+
         public int getTotal()
         {
             return idcounter;
@@ -62,6 +63,7 @@ namespace BookStore {
             Price = price;
 
         }
+
         public virtual void Print()
         {
             Console.Write("| " + getId() + " | " + getName() + " | " + getPrice());
