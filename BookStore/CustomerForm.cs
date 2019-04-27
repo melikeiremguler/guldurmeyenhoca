@@ -31,7 +31,7 @@ namespace BookStore
             data_base_.BookList.Clear();
             data_base_.read_book("BookTable");
 
-            panel2.Controls.Clear();
+            SearchReklamPanel.Controls.Clear();
            int  control = 0;
             for(int k = 0; k <= data_base_.BookList.Count/4; k++) {
                
@@ -46,14 +46,14 @@ namespace BookStore
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox1.BackColor = Color.Honeydew;
                     // pictureBox1.BackColor = Color.Black;
-                    panel2.Controls.Add(pictureBox1);
+                    SearchReklamPanel.Controls.Add(pictureBox1);
 
                     Label lb = new Label();
                     lb.AutoSize = true;
                     lb.Text = data_base_.BookList[(k*4)+(j - 1)].getName() + "\n" + data_base_.BookList[(k * 4) + (j - 1)].author;
                     Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                     lb.Location = labelp;
-                    panel2.Controls.Add(lb);
+                    SearchReklamPanel.Controls.Add(lb);
 
                     Button btn = new Button();
                     btn.Text = "SEPETE EKLE";
@@ -61,7 +61,7 @@ namespace BookStore
                     btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                     btn.Click += yeniolusturulanButonlarinClickOlayi;
                     btn.BackColor = Color.DarkSeaGreen;
-                    panel2.Controls.Add(btn);
+                    SearchReklamPanel.Controls.Add(btn);
 
                     pictureBox1.Name = "pictureBox" + j + 10;
                     btn.Name = "btn" + j;
@@ -186,7 +186,7 @@ namespace BookStore
            
             data_base_.read_book("BookTable");
            
-            panel2.Controls.Clear();
+            SearchReklamPanel.Controls.Clear();
 
             int control = 0;
             for (int k = 0; k <= data_base_.BookList.Count / 4; k++)
@@ -203,14 +203,14 @@ namespace BookStore
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox1.BackColor = Color.Honeydew;
                     // pictureBox1.BackColor = Color.Black;
-                    panel2.Controls.Add(pictureBox1);
+                    SearchReklamPanel.Controls.Add(pictureBox1);
 
                     Label lb = new Label();
                     lb.AutoSize = true;
                     lb.Text = data_base_.BookList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.BookList[(k * 4) + (j - 1)].author;
                     Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                     lb.Location = labelp;
-                    panel2.Controls.Add(lb);
+                    SearchReklamPanel.Controls.Add(lb);
 
                     Button btn = new Button();
                     btn.Text = "SEPETE EKLE";
@@ -218,7 +218,7 @@ namespace BookStore
                     btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                     btn.Click += yeniolusturulanButonlarinClickOlayi;
                     btn.BackColor = Color.DarkSeaGreen;
-                    panel2.Controls.Add(btn);
+                    SearchReklamPanel.Controls.Add(btn);
 
                     pictureBox1.Name = "pictureBox" + j + 10;
                     btn.Name = "btn" + j;
@@ -328,7 +328,7 @@ namespace BookStore
             Database data_base_ = Database.get_instance();
             data_base_.MagazineList.Clear();
             data_base_.read_magazine("MagazineTable");
-            panel2.Controls.Clear();
+            SearchReklamPanel.Controls.Clear();
 
 
             int control = 0;
@@ -346,14 +346,14 @@ namespace BookStore
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox1.BackColor = Color.Honeydew;
                     // pictureBox1.BackColor = Color.Black;
-                    panel2.Controls.Add(pictureBox1);
+                    SearchReklamPanel.Controls.Add(pictureBox1);
 
                     Label lb = new Label();
                     lb.AutoSize = true;
                     lb.Text = data_base_.MagazineList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.MagazineList[(k * 4) + (j - 1)].type;
                     Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                     lb.Location = labelp;
-                    panel2.Controls.Add(lb);
+                    SearchReklamPanel.Controls.Add(lb);
 
                     Button btn = new Button();
                     btn.Text = "SEPETE EKLE";
@@ -361,7 +361,7 @@ namespace BookStore
                     btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                     btn.Click += yeniolusturulanButonlarinClickOlayi;
                     btn.BackColor = Color.DarkSeaGreen;
-                    panel2.Controls.Add(btn);
+                    SearchReklamPanel.Controls.Add(btn);
 
                     pictureBox1.Name = "pictureBox" + j + 10;
                     btn.Name = "btn" + j;
@@ -383,7 +383,7 @@ namespace BookStore
             Database data_base_ = Database.get_instance();
             data_base_.MusicCDList.Clear();
             data_base_.read_musiccd("MusicCDTable");
-            panel2.Controls.Clear();
+            SearchReklamPanel.Controls.Clear();
 
 
             int control = 0;
@@ -401,14 +401,14 @@ namespace BookStore
                     pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                     pictureBox1.BackColor = Color.Honeydew;
                     // pictureBox1.BackColor = Color.Black;
-                    panel2.Controls.Add(pictureBox1);
+                    SearchReklamPanel.Controls.Add(pictureBox1);
 
                     Label lb = new Label();
                     lb.AutoSize = true;
                     lb.Text = data_base_.MusicCDList[(k * 4) + (j - 1)].getName() + "\n" + data_base_.MusicCDList[(k * 4) + (j - 1)].singer;
                     Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                     lb.Location = labelp;
-                    panel2.Controls.Add(lb);
+                    SearchReklamPanel.Controls.Add(lb);
 
                     Button btn = new Button();
                     btn.Text = "SEPETE EKLE";
@@ -416,7 +416,7 @@ namespace BookStore
                     btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                     btn.Click += yeniolusturulanButonlarinClickOlayi;
                     btn.BackColor = Color.DarkSeaGreen;
-                    panel2.Controls.Add(btn);
+                    SearchReklamPanel.Controls.Add(btn);
 
                     pictureBox1.Name = "pictureBox" + j + 10;
                     btn.Name = "btn" + j;
@@ -447,33 +447,33 @@ namespace BookStore
             database.CustomerList.Clear();
             database.read_customer("UserTable");
 
-            panel2.Controls.Clear();
+            SearchReklamPanel.Controls.Clear();
 
             Label AvaiblePasswordLbl = new Label();
             AvaiblePasswordLbl.Text = "Avaible Password";
             AvaiblePasswordLbl.Size = new Size(100, 70);
             AvaiblePasswordLbl.Location = new Point(100, 50);
             // Eskisifrelbl.BackColor = Color.DarkSeaGreen;
-            panel2.Controls.Add(AvaiblePasswordLbl);
+            SearchReklamPanel.Controls.Add(AvaiblePasswordLbl);
 
             AvaiblePasword = new TextBox();
             AvaiblePasword.Size = new Size(100, 70);
             AvaiblePasword.Location = new Point(300, 50);
             AvaiblePasword.BackColor = Color.DarkSeaGreen;
-            panel2.Controls.Add(AvaiblePasword);
+            SearchReklamPanel.Controls.Add(AvaiblePasword);
 
             Label NewPasswordlbl = new Label();
             NewPasswordlbl.Text = "New Password";
             NewPasswordlbl.Size = new Size(100, 70);
             NewPasswordlbl.Location = new Point(100, 150);
             // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
-            panel2.Controls.Add(NewPasswordlbl);
+            SearchReklamPanel.Controls.Add(NewPasswordlbl);
 
             NewPassword = new TextBox();
             NewPassword.Size = new Size(100, 70);
             NewPassword.Location = new Point(300, 150);
             NewPassword.BackColor = Color.DarkSeaGreen;
-            panel2.Controls.Add(NewPassword);
+            SearchReklamPanel.Controls.Add(NewPassword);
 
             Button PasswordBtn = new Button();
             PasswordBtn.Text = "Change Password";
@@ -481,14 +481,14 @@ namespace BookStore
             PasswordBtn.Location = new Point(300, 250);
             PasswordBtn.Click += yeniolusturulanButonlarinClickOlayi_ChangePassword;
             PasswordBtn.BackColor = Color.DarkSeaGreen;
-            panel2.Controls.Add(PasswordBtn);
+            SearchReklamPanel.Controls.Add(PasswordBtn);
 
             MessageLbl = new Label();
             MessageLbl.Text = "";
             MessageLbl.Size = new Size(100, 70);
             MessageLbl.Location = new Point(100, 250);
             // YeniSifrelbl.BackColor = Color.DarkSeaGreen;
-            panel2.Controls.Add(MessageLbl);
+            SearchReklamPanel.Controls.Add(MessageLbl);
 
 
         }
@@ -570,7 +570,7 @@ namespace BookStore
                     {
                         if (Searchtxt.Text == database.BookList[i].getName())
                         {
-                            panel2.Controls.Clear();
+                            SearchReklamPanel.Controls.Clear();
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(170 , 100 );
 
@@ -579,14 +579,14 @@ namespace BookStore
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
                             // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            SearchReklamPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
                             lb.Text = database.BookList[i].getName() + "\n" + database.BookList[i].author;
                             Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                             lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            SearchReklamPanel.Controls.Add(lb);
 
                             Button btn = new Button();
                             btn.Text = "SEPETE EKLE";
@@ -594,7 +594,7 @@ namespace BookStore
                             btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                             btn.Click += yeniolusturulanButonlarinClickOlayi;
                             btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            SearchReklamPanel.Controls.Add(btn);
 
                             pictureBox1.Name = "pictureBox" + i + 10;
                             btn.Name = "btn" + i;
@@ -610,7 +610,7 @@ namespace BookStore
                     {
                         if (Searchtxt.Text == database.BookList[i].author)
                         {
-                            panel2.Controls.Clear();
+                            SearchReklamPanel.Controls.Clear();
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(170, 100);
 
@@ -619,14 +619,14 @@ namespace BookStore
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
                             // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            SearchReklamPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
                             lb.Text = database.BookList[i].getName() + "\n" + database.BookList[i].author;
                             Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                             lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            SearchReklamPanel.Controls.Add(lb);
 
                             Button btn = new Button();
                             btn.Text = "SEPETE EKLE";
@@ -634,7 +634,7 @@ namespace BookStore
                             btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                             btn.Click += yeniolusturulanButonlarinClickOlayi;
                             btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            SearchReklamPanel.Controls.Add(btn);
 
                             pictureBox1.Name = "pictureBox" + i + 10;
                             btn.Name = "btn" + i;
@@ -652,7 +652,7 @@ namespace BookStore
                     {
                         if (Searchtxt.Text == database.MagazineList[i].getName())
                         {
-                            panel2.Controls.Clear();
+                            SearchReklamPanel.Controls.Clear();
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(170, 100);
 
@@ -661,14 +661,14 @@ namespace BookStore
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
                             // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            SearchReklamPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
                             lb.Text = database.MagazineList[i].getName() + "\n" + database.MagazineList[i].type;
                             Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                             lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            SearchReklamPanel.Controls.Add(lb);
 
                             Button btn = new Button();
                             btn.Text = "SEPETE EKLE";
@@ -676,7 +676,7 @@ namespace BookStore
                             btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                             btn.Click += yeniolusturulanButonlarinClickOlayi;
                             btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            SearchReklamPanel.Controls.Add(btn);
 
                             pictureBox1.Name = "pictureBox" + i + 10;
                             btn.Name = "btn" + i;
@@ -691,7 +691,7 @@ namespace BookStore
                     {
                         if (Searchtxt.Text == database.MagazineList[i].type.ToString())
                         {
-                            panel2.Controls.Clear();
+                            SearchReklamPanel.Controls.Clear();
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(170*i, 100);
 
@@ -700,14 +700,14 @@ namespace BookStore
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
                             // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            SearchReklamPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
                             lb.Text = database.MagazineList[i].getName() + "\n" + database.MagazineList[i].type;
                             Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                             lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            SearchReklamPanel.Controls.Add(lb);
 
                             Button btn = new Button();
                             btn.Text = "SEPETE EKLE";
@@ -715,7 +715,7 @@ namespace BookStore
                             btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                             btn.Click += yeniolusturulanButonlarinClickOlayi;
                             btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            SearchReklamPanel.Controls.Add(btn);
 
                             pictureBox1.Name = "pictureBox" + i + 10;
                             btn.Name = "btn" + i;
@@ -733,7 +733,7 @@ namespace BookStore
                     {
                         if (Searchtxt.Text == database.MusicCDList[i].getName())
                         {
-                            panel2.Controls.Clear();
+                            SearchReklamPanel.Controls.Clear();
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(170, 100);
 
@@ -742,14 +742,14 @@ namespace BookStore
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
                             // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            SearchReklamPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
                             lb.Text = database.MusicCDList[i].getName() + "\n" + database.MusicCDList[i].singer;
                             Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                             lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            SearchReklamPanel.Controls.Add(lb);
 
                             Button btn = new Button();
                             btn.Text = "SEPETE EKLE";
@@ -757,7 +757,7 @@ namespace BookStore
                             btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                             btn.Click += yeniolusturulanButonlarinClickOlayi;
                             btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            SearchReklamPanel.Controls.Add(btn);
 
                             pictureBox1.Name = "pictureBox" + i + 10;
                             btn.Name = "btn" + i;
@@ -772,7 +772,7 @@ namespace BookStore
                     {
                         if (Searchtxt.Text == database.MusicCDList[i].singer)
                         {
-                            panel2.Controls.Clear();
+                            SearchReklamPanel.Controls.Clear();
                             PictureBox pictureBox1 = new PictureBox();
                             pictureBox1.Location = new Point(170, 100);
 
@@ -781,14 +781,14 @@ namespace BookStore
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
                             // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            SearchReklamPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
                             lb.Text = database.MusicCDList[i].getName() + "\n" + database.MusicCDList[i].singer;
                             Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
                             lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            SearchReklamPanel.Controls.Add(lb);
 
                             Button btn = new Button();
                             btn.Text = "SEPETE EKLE";
@@ -796,7 +796,7 @@ namespace BookStore
                             btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
                             btn.Click += yeniolusturulanButonlarinClickOlayi;
                             btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            SearchReklamPanel.Controls.Add(btn);
 
                             pictureBox1.Name = "pictureBox" + i + 10;
                             btn.Name = "btn" + i;

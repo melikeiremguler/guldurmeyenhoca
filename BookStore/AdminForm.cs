@@ -782,6 +782,11 @@ namespace BookStore
 
         }
 
+        private void searchgroupBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void AdminForm_Load(object sender, EventArgs e)
         {
            

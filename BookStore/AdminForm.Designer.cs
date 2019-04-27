@@ -278,6 +278,7 @@
             this.searchgroupBox.Size = new System.Drawing.Size(252, 166);
             this.searchgroupBox.TabIndex = 15;
             this.searchgroupBox.TabStop = false;
+            this.searchgroupBox.Enter += new System.EventHandler(this.searchgroupBox_Enter);
             // 
             // searchBtn
             // 
