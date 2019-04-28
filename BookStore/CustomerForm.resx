@@ -2319,7 +2319,7 @@
         aGZmZsMWHjQzM7NhCw+amZnZsIUHzczMbMj+35L/D06jcPNg6N63AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="billBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="cartBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAP
         3AAAD9wBXwB3NwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADQJSURBVHhe7d0L

@@ -16,16 +16,26 @@ namespace BookStore {
         private int Id;
         private string Name;
         private double Price;
-        public Image image { get; set; }
+        public string image_path { get; set; }
         
+<<<<<<< HEAD
         public Product(string nm, double prc,Image img)
         {
             Name = nm;
             Price = prc;
             TotalProduct++;
             image = img;
+=======
+        public Product(int id,string nm, double prc,string img_path)
+        {
+            Name = nm;
+            Price = prc;
+            Id = id;
+            image_path = img_path;
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             
         }
+
         public int getTotal()
         {
             return TotalProduct;
@@ -62,6 +72,7 @@ namespace BookStore {
             Price = price;
 
         }
+
         public virtual void Print()
         {
             Console.Write("| " + getId() + " | " + getName() + " | " + getPrice());

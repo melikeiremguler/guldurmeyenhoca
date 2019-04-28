@@ -94,7 +94,7 @@ namespace BookStore
             data_base_.read_customer("UserTable");
             for (int i = 0; i < data_base_.CustomerList.Count; i++)
             {
-                if (username_txtbox.Text == data_base_.CustomerList[i].userName && password_txtbox.Text == data_base_.CustomerList[i].password)
+                if (username_txtbox.Text.Equals(data_base_.CustomerList[i].userName) && password_txtbox.Text.Equals(data_base_.CustomerList[i].password))
                 {
                     current_customer_id = data_base_.CustomerList[i].customerID;
                     return true;

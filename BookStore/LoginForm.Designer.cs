@@ -74,16 +74,26 @@
             this.panel2.BackColor = System.Drawing.Color.Gray;
             this.panel2.Location = new System.Drawing.Point(46, 219);
             this.panel2.Name = "panel2";
+<<<<<<< HEAD
             this.panel2.Size = new System.Drawing.Size(215, 1);
             this.panel2.TabIndex = 1;
+=======
+            this.panel2.Size = new System.Drawing.Size(287, 1);
+            this.panel2.TabIndex = 4;
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
             this.panel3.Location = new System.Drawing.Point(48, 307);
             this.panel3.Name = "panel3";
+<<<<<<< HEAD
             this.panel3.Size = new System.Drawing.Size(215, 1);
             this.panel3.TabIndex = 2;
+=======
+            this.panel3.Size = new System.Drawing.Size(287, 1);
+            this.panel3.TabIndex = 7;
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             // 
             // password_txtbox
             // 
@@ -93,8 +103,13 @@
             this.password_txtbox.Location = new System.Drawing.Point(48, 284);
             this.password_txtbox.Name = "password_txtbox";
             this.password_txtbox.PasswordChar = '*';
+<<<<<<< HEAD
             this.password_txtbox.Size = new System.Drawing.Size(213, 19);
             this.password_txtbox.TabIndex = 3;
+=======
+            this.password_txtbox.Size = new System.Drawing.Size(284, 23);
+            this.password_txtbox.TabIndex = 2;
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             // 
             // username_txtbox
             // 
@@ -103,8 +118,13 @@
             this.username_txtbox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.username_txtbox.Location = new System.Drawing.Point(48, 196);
             this.username_txtbox.Name = "username_txtbox";
+<<<<<<< HEAD
             this.username_txtbox.Size = new System.Drawing.Size(213, 19);
             this.username_txtbox.TabIndex = 4;
+=======
+            this.username_txtbox.Size = new System.Drawing.Size(284, 23);
+            this.username_txtbox.TabIndex = 1;
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             // 
             // username_lbl
             // 
@@ -138,8 +158,13 @@
             this.login_button.ForeColor = System.Drawing.SystemColors.Control;
             this.login_button.Location = new System.Drawing.Point(48, 341);
             this.login_button.Name = "login_button";
+<<<<<<< HEAD
             this.login_button.Size = new System.Drawing.Size(100, 31);
             this.login_button.TabIndex = 7;
+=======
+            this.login_button.Size = new System.Drawing.Size(181, 38);
+            this.login_button.TabIndex = 3;
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             this.login_button.Text = "Login";
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);

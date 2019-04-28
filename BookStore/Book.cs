@@ -21,7 +21,11 @@ namespace BookStore
         public static int TotalBook { get; set; } = 0;
 
 
+<<<<<<< HEAD
         public Book(int id,string nm, double prc, int isbn, string Author, string Publisher, int Page, Image CoverPagePicture,string des,int stok) : base(nm, prc,CoverPagePicture)
+=======
+        public Book(int id,string nm, double prc, int isbn, string Author, string Publisher, int Page, string CoverPagePicture_path) : base(id,nm, prc,CoverPagePicture_path)
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
         {
             ISBN = isbn;
             author = Author;

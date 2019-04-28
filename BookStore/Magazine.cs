@@ -18,12 +18,16 @@ namespace BookStore
         public String Description { get; set; }
         public int Stok { get; set; }
 
+<<<<<<< HEAD
 
         public enum Type { Actual, News, Sport, Computer, Technology }
 
 
 
         public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue,string des,int stok) : base(nm, prc,img)
+=======
+        public Magazine(int id,string nm,double prc, string img_path, Type Type, string Issue) : base(id,nm, prc,img_path)
+>>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
         {
             issue = Issue;
             type = Type;
