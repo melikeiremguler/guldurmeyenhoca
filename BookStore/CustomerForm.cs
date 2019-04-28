@@ -21,6 +21,7 @@ namespace BookStore
         private TextBox total_price_textbox;
         private Label total_price_label;
         private Button buy_button;
+        private ContextMenuStrip contextmenu;
 
         public CustomerForm()
         {
@@ -513,6 +514,7 @@ namespace BookStore
             shoppingcart_datagridview.Columns[2].Width = 220;
             shoppingcart_datagridview.Columns[3].Name = "Price";
             shoppingcart_datagridview.Columns[3].Width = 220;
+            shoppingcart_datagridview.MouseDown += new MouseEventHandler(shoppingcart_datagridview_mouseDown);
 
             for (int i = 0; i < shopping_cart_list.Count; i++)
             {
@@ -565,9 +567,71 @@ namespace BookStore
             panel2.Controls.Add(shoppingcart_datagridview);
         }
 
+        private void shoppingcart_datagridview_mouseDown(Object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                contextmenu = new ContextMenuStrip();
+                int position_xy_mouse_row = shoppingcart_datagridview.HitTest(e.X, e.Y).RowIndex;
+
+                if (position_xy_mouse_row >= 0)
+                {
+                    contextmenu.Items.Add("Delete").Name = "Del";
+                    shoppingcart_datagridview.ClearSelection();
+                    shoppingcart_datagridview.Rows[position_xy_mouse_row].Selected = true;
+                    contextmenu.Show(shoppingcart_datagridview, new Point(e.X, e.Y));
+                    contextmenu.Click += new EventHandler(DeleteRow_Click);
+                    
+                }
+               
+            }
+
+        }
+
+        //to delete product in shoppingcart 
+        private void DeleteRow_Click(object sender, EventArgs e)
+        {
+            contextmenu.Hide();
+            ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
+            DialogResult confirm_question = MessageBox.Show("Would you like to delete te product?",
+                                                   "The Confirmation",
+                                 MessageBoxButtons.YesNoCancel,
+                                 MessageBoxIcon.Question);
+
+            if (confirm_question == DialogResult.Yes)
+            {
+
+                try
+                {
+                    Int32 rowToDelete = shoppingcart_datagridview.Rows.GetFirstRow(DataGridViewElementStates.Selected);
+                    for (int i = 0; i < shopping_cart_list.Count; i++)
+                    {
+
+                        ItemToPurchase item = (ItemToPurchase)shopping_cart_list[i];
+
+                        if (item.product.getId() == LoginForm.current_customer_id &&
+                            shoppingcart_datagridview.Rows[rowToDelete].Cells[1].Value.ToString().Equals(item.product.getName()))
+                        {
+                            shopping_cart.removeProduct(item);
+                            shopping_cart_list.RemoveAt(i);
+                            break;
+                        }
+                    }
+
+                    shoppingcart_datagridview.Rows.RemoveAt(rowToDelete);
+                    shoppingcart_datagridview.ClearSelection();
+                }catch
+                {
+                    MessageBox.Show("Error! You can't delete it.", "Warning",
+                                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+
+        }
+
         private void buy_button_Click(object sender, EventArgs e)
         {
-            ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list,1);
+            ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             DialogResult confirm_question = MessageBox.Show("Would you like to buy it?",
                                                     "The Confirmation",
                                   MessageBoxButtons.YesNoCancel,
@@ -592,7 +656,7 @@ namespace BookStore
                 total_price_textbox.Text = "0";
             }
 
-   
+
         }
 
         void OpenForm(Form Openform)
