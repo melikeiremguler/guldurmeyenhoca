@@ -23,6 +23,9 @@ namespace BookStore
         private Label total_price_label;
         private Button buy_button;
         private ContextMenuStrip contextmenu;
+        private TextBox AvaiblePasword;
+        private TextBox NewPassword;
+        private Label MessageLbl;
 
         public CustomerForm()
         {
@@ -102,7 +105,7 @@ namespace BookStore
                 addPicture.Location = new Point(pictureBox1.Location.X + pictureBox1.Width + 90, pictureBox1.Location.Y + 105);
                 addPicture.SizeMode = PictureBoxSizeMode.Zoom;
                 addPicture.BackColor = Color.Honeydew;
-                addPicture.Click += yeniolusturulanButonlarinClickOlayi;
+                addPicture.Click += yeniolusturulanButonlarinClickOlayi_Book;
                 productPanel.Controls.Add(addPicture);
 
                 pictureBox1.Name = "pictureBox" + k + 10;
@@ -261,12 +264,9 @@ namespace BookStore
         public void yeniolusturulanButonlarinClickOlayi_Book(object sender, EventArgs e)
         {
 
-            PictureBox tıklananPictureNesnesi = (sender as PictureBox);
-
-
             read_shopping_cart();
             Database database_obj = Database.get_instance();
-            Button tıklananButtonNesnesi = (sender as Button);
+            PictureBox tıklananPictureNesnesi = (sender as PictureBox);
             Product book_obj = null;
 
 
@@ -279,14 +279,14 @@ namespace BookStore
 
             //to call related label
             Control label = this.Controls.Find(label_name, true).FirstOrDefault() as Label;
-
+            string[] product_info = label.Text.Split('\n');
             if (label != null)
             {
 
                 for (int i = 0; i < database_obj.BookList.Count; i++)
                 {
 
-                    if (label.Text.Equals(database_obj.BookList[i].getName()))
+                    if (product_info[0].Equals(database_obj.BookList[i].getName()))
                     {
                         book_obj = database_obj.BookList[i];
                         break;
@@ -308,26 +308,26 @@ namespace BookStore
         {
             read_shopping_cart();
             Database database_obj = Database.get_instance();
-            Button tıklananButtonNesnesi = (sender as Button);
+            PictureBox tıklananPictureNesnesi = (sender as PictureBox);
             Product musiccd_obj = null;
 
 
             database_obj.read_musiccd("MusicCDTable");
 
-            string button_name = tıklananButtonNesnesi.Name;
+            string button_name = tıklananPictureNesnesi.Name;
             string temp = button_name.Remove(0, 3);
             string label_name = "lb" + temp;
 
             //to call related label
             Control label = this.Controls.Find(label_name, true).FirstOrDefault() as Label;
-
+            string[] product_info = label.Text.Split('\n');
             if (label != null)
             {
 
                 for (int i = 0; i < database_obj.MusicCDList.Count; i++)
                 {
 
-                    if (label.Text.Equals(database_obj.MusicCDList[i].getName()))
+                    if (product_info[0].Equals(database_obj.MusicCDList[i].getName()))
                     {
                         musiccd_obj = database_obj.MusicCDList[i];
                         break;
@@ -348,26 +348,26 @@ namespace BookStore
         {
             read_shopping_cart();
             Database database_obj = Database.get_instance();
-            Button tıklananButtonNesnesi = (sender as Button);
+            PictureBox tıklananPictureNesnesi = (sender as PictureBox);
             Product magazine_obj = null;
 
 
             database_obj.read_magazine("MagazineTable");
 
-            string button_name = tıklananButtonNesnesi.Name;
+            string button_name = tıklananPictureNesnesi.Name;
             string temp = button_name.Remove(0, 3);
             string label_name = "lb" + temp;
 
             //to call related label
             Control label = this.Controls.Find(label_name, true).FirstOrDefault() as Label;
-
+            string[] product_info = label.Text.Split('\n');
             if (label != null)
             {
 
                 for (int i = 0; i < database_obj.MagazineList.Count; i++)
                 {
 
-                    if (label.Text.Equals(database_obj.MagazineList[i].getName()))
+                    if (product_info[0].Equals(database_obj.MagazineList[i].getName()))
                     {
                         magazine_obj = database_obj.MagazineList[i];
                         break;
@@ -467,7 +467,7 @@ namespace BookStore
                 addPicture.Location = new Point(pictureBox1.Location.X + pictureBox1.Width + 90, pictureBox1.Location.Y + 105);
                 addPicture.SizeMode = PictureBoxSizeMode.Zoom;
                 addPicture.BackColor = Color.Honeydew;
-                addPicture.Click += yeniolusturulanButonlarinClickOlayi;
+                addPicture.Click += yeniolusturulanButonlarinClickOlayi_Magazine;
                 productPanel.Controls.Add(addPicture);
 
                 pictureBox1.Name = "pictureBox" + k + 10;
@@ -506,7 +506,7 @@ namespace BookStore
                 pictureBox1.Location = new Point(0, 0);
 
                 pictureBox1.Size = new Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + ((k + 1)) + ".jpg";
+                pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (k+1) + ".jpg";
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox1.BackColor = Color.Honeydew;
                 productPanel.Controls.Add(pictureBox1);
@@ -551,7 +551,7 @@ namespace BookStore
                 addPicture.Location = new Point(pictureBox1.Location.X + pictureBox1.Width + 90, pictureBox1.Location.Y + 105);
                 addPicture.SizeMode = PictureBoxSizeMode.Zoom;
                 addPicture.BackColor = Color.Honeydew;
-                addPicture.Click += yeniolusturulanButonlarinClickOlayi;
+                addPicture.Click += yeniolusturulanButonlarinClickOlayi_MusicCD;
                 productPanel.Controls.Add(addPicture);
 
                 pictureBox1.Name = "pictureBox" + k + 10;
@@ -574,9 +574,6 @@ namespace BookStore
 
         }
 
-        TextBox AvaiblePasword;
-        TextBox NewPassword;
-        Label MessageLbl;
         private void chancePasswordBtn_Click(object sender, EventArgs e)
         {
             Database database = Database.get_instance();
@@ -685,7 +682,82 @@ namespace BookStore
 
         private void billBtn_Click_1(object sender, EventArgs e)
         {
+            double total_Price = 0.0;
+            shopping_cart_list.Clear();
+            read_shopping_cart();
+            panel2.Controls.Clear();
 
+            //to populate datagridview
+            shoppingcart_datagridview = new DataGridView();
+            shoppingcart_datagridview.Location = new Point(8, 8);
+            shoppingcart_datagridview.Size = new Size(800, 350);
+            shoppingcart_datagridview.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
+            shoppingcart_datagridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            shoppingcart_datagridview.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+
+
+            DataGridViewImageColumn img_column = new DataGridViewImageColumn();
+            img_column.HeaderText = "Photo";
+            img_column.Name = "Photo";
+            shoppingcart_datagridview.Columns.Add(img_column);
+            shoppingcart_datagridview.ColumnCount = 4;
+            shoppingcart_datagridview.Columns[1].Name = "Name";
+            shoppingcart_datagridview.Columns[1].Width = 220;
+            shoppingcart_datagridview.Columns[2].Name = "Quantity";
+            shoppingcart_datagridview.Columns[2].Width = 220;
+            shoppingcart_datagridview.Columns[3].Name = "Price";
+            shoppingcart_datagridview.Columns[3].Width = 220;
+            shoppingcart_datagridview.MouseDown += new MouseEventHandler(shoppingcart_datagridview_mouseDown);
+
+            for (int i = 0; i < shopping_cart_list.Count; i++)
+            {
+
+                ItemToPurchase item = (ItemToPurchase)shopping_cart_list[i];
+                if (item.product.getId() == LoginForm.current_customer_id)
+                {
+                    string[] path = item.product.image_path.Split(',');
+                    Image img = Image.FromFile(Application.StartupPath + @"\" + path[0] + @"\" + path[1] + ".jpg");
+                    Image thumb = img.GetThumbnailImage(100, 100, null, IntPtr.Zero);
+
+                    total_Price += item.product.getPrice();
+
+                    Object[] row = new Object[] { thumb, item.product.getName(), item.quantity, item.product.getPrice() };
+                    shoppingcart_datagridview.Rows.Add(row);
+                }
+            }
+
+            //to populate label 
+            total_price_label = new Label();
+            total_price_label.Name = "totalPrice_lbl";
+            total_price_label.Text = "Total Price : ";
+            total_price_label.Font = new Font("Times New Roman", 12, FontStyle.Bold);
+            total_price_label.Location = new Point(8, 380);
+            total_price_label.Width = 100;
+            total_price_label.Height = 40;
+
+            //to populate total price textbox 
+            total_price_textbox = new TextBox();
+            total_price_textbox.Name = "totalPrice_txtbox";
+            total_price_textbox.Text = total_Price.ToString();
+            total_price_textbox.Location = new Point(110, 380);
+            total_price_textbox.Width = 150;
+            total_price_textbox.Height = 40;
+            total_price_textbox.Enabled = false;
+
+            //to populate buy button
+            buy_button = new Button();
+            buy_button.Name = "totalPrice_button";
+            buy_button.Text = "Buy";
+            buy_button.BackColor = Color.FromArgb(143, 188, 139);
+            buy_button.Location = new Point(600, 380);
+            buy_button.Width = 150;
+            buy_button.Height = 30;
+            buy_button.Click += buy_button_Click;
+
+            panel2.Controls.Add(shoppingcart_datagridview);
+            panel2.Controls.Add(total_price_label);
+            panel2.Controls.Add(total_price_textbox);
+            panel2.Controls.Add(buy_button);
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -949,86 +1021,7 @@ namespace BookStore
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
         }
-        private void cartBtn_Click(object sender, EventArgs e)
-        {
-            double total_Price = 0.0;
-            shopping_cart_list.Clear();
-            read_shopping_cart();
-            panel2.Controls.Clear();
-
-            //to populate datagridview
-            shoppingcart_datagridview = new DataGridView();
-            shoppingcart_datagridview.Location = new Point(8, 8);
-            shoppingcart_datagridview.Size = new Size(800, 350);
-            shoppingcart_datagridview.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;
-            shoppingcart_datagridview.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            shoppingcart_datagridview.CellBorderStyle = DataGridViewCellBorderStyle.Single;
-
-
-            DataGridViewImageColumn img_column = new DataGridViewImageColumn();
-            img_column.HeaderText = "Photo";
-            img_column.Name = "Photo";
-            shoppingcart_datagridview.Columns.Add(img_column);
-            shoppingcart_datagridview.ColumnCount = 4;
-            shoppingcart_datagridview.Columns[1].Name = "Name";
-            shoppingcart_datagridview.Columns[1].Width = 220;
-            shoppingcart_datagridview.Columns[2].Name = "Quantity";
-            shoppingcart_datagridview.Columns[2].Width = 220;
-            shoppingcart_datagridview.Columns[3].Name = "Price";
-            shoppingcart_datagridview.Columns[3].Width = 220;
-            shoppingcart_datagridview.MouseDown += new MouseEventHandler(shoppingcart_datagridview_mouseDown);
-
-            for (int i = 0; i < shopping_cart_list.Count; i++)
-            {
-
-                ItemToPurchase item = (ItemToPurchase)shopping_cart_list[i];
-                if (item.product.getId() == LoginForm.current_customer_id)
-                {
-                    string[] path = item.product.image_path.Split(',');
-                    Image img = Image.FromFile(Application.StartupPath + @"\" + path[0] + @"\" + path[1] + ".jpg");
-                    Image thumb = img.GetThumbnailImage(100, 100, null, IntPtr.Zero);
-
-                    total_Price += item.product.getPrice();
-
-                    Object[] row = new Object[] { thumb, item.product.getName(), item.quantity, item.product.getPrice() };
-                    shoppingcart_datagridview.Rows.Add(row);
-                }
-            }
-
-            //to populate label 
-            total_price_label = new Label();
-            total_price_label.Name = "totalPrice_lbl";
-            total_price_label.Text = "Total Price : ";
-            total_price_label.Font = new Font("Times New Roman", 12, FontStyle.Bold);
-            total_price_label.Location = new Point(8, 380);
-            total_price_label.Width = 100;
-            total_price_label.Height = 40;
-
-            //to populate total price textbox 
-            total_price_textbox = new TextBox();
-            total_price_textbox.Name = "totalPrice_txtbox";
-            total_price_textbox.Text = total_Price.ToString();
-            total_price_textbox.Location = new Point(110, 380);
-            total_price_textbox.Width = 150;
-            total_price_textbox.Height = 40;
-            total_price_textbox.Enabled = false;
-
-            //to populate buy button
-            buy_button = new Button();
-            buy_button.Name = "totalPrice_button";
-            buy_button.Text = "Buy";
-            buy_button.BackColor = Color.FromArgb(143, 188, 139);
-            buy_button.Location = new Point(600, 380);
-            buy_button.Width = 150;
-            buy_button.Height = 30;
-            buy_button.Click += buy_button_Click;
-
-            panel2.Controls.Add(total_price_label);
-            panel2.Controls.Add(total_price_textbox);
-            panel2.Controls.Add(buy_button);
-            panel2.Controls.Add(shoppingcart_datagridview);
-        }
-
+     
         private void shoppingcart_datagridview_mouseDown(Object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -1090,6 +1083,7 @@ namespace BookStore
             }
 
         }
+
         public void yeniolusturulanButonlarinClickOlayi(object sender, EventArgs e)
         {
             PictureBox tıklananPictureNesnesi = (sender as PictureBox);
@@ -1142,6 +1136,7 @@ namespace BookStore
 
 
         }
+
 
         void OpenForm(Form Openform)
         {
