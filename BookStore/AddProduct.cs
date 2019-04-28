@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,8 +19,15 @@ namespace BookStore
         {
             InitializeComponent();
         }
+        string file;
+        Database database = Database.get_instance();
+        AdminUser admin = AdminUser.get_instance();
         private void AddProduct_Load(object sender, EventArgs e)
         {
+            database.BookList = database.read_book("BookTable");
+            database.MagazineList = database.read_magazine("MagazineTable");
+            database.MusicCDList = database.read_musiccd("MusicCDTable");
+
             cmbMagTyp.Items.Add(Magazine.Type.Actual);
             cmbMagTyp.Items.Add(Magazine.Type.Computer);
             cmbMagTyp.Items.Add(Magazine.Type.News);
@@ -31,56 +39,63 @@ namespace BookStore
             cmbMucTyp.Items.Add(MusicCD.Type.Romance);
 
         }
-
+      
+        
         private void rdbBookAdd_CheckedChanged(object sender, EventArgs e)
-        {         
-                txtIssue.Enabled = false;
-                txtSinger.Enabled = false;
-                cmbMagTyp.Enabled = false;
-                cmbMucTyp.Enabled = false;
-                txtPublisher.Enabled = true;
-                txtPage.Enabled = true;
-                txtIsbn.Enabled = true;
-                txtAuther.Enabled = true;
-                btnBookAdd.Visible = true;
-                btnMagAdd.Visible = false;
-                btnMucAdd.Visible = false;            
+        {
+            txtIssue.Enabled = false;
+            txtSinger.Enabled = false;
+            cmbMagTyp.Enabled = false;
+            cmbMucTyp.Enabled = false;
+            txtPublisher.Enabled = true;
+            txtPage.Enabled = true;
+            txtIsbn.Enabled = true;
+            txtAuther.Enabled = true;
+            btnBookAdd.Visible = true;
+            btnMagAdd.Visible = false;
+            btnMucAdd.Visible = false;
+            txtDescription.Enabled = true;
+            btnLoad.Enabled = false;
         }
 
         private void rdbMagAdd_CheckedChanged(object sender, EventArgs e)
         {
-                txtIssue.Enabled = true;
-                txtSinger.Enabled = false;
-                cmbMagTyp.Enabled = true;
-                cmbMucTyp.Enabled = false;
-                txtPublisher.Enabled = false;
-                txtPage.Enabled = false;
-                txtIsbn.Enabled = false;
-                txtAuther.Enabled = false;
-                btnBookAdd.Visible = false;
-                btnMagAdd.Visible = true;
-                btnMucAdd.Visible = false;
+            txtIssue.Enabled = true;
+            txtSinger.Enabled = false;
+            cmbMagTyp.Enabled = true;
+            cmbMucTyp.Enabled = false;
+            txtPublisher.Enabled = false;
+            txtPage.Enabled = false;
+            txtIsbn.Enabled = false;
+            txtAuther.Enabled = false;
+            btnBookAdd.Visible = false;
+            btnMagAdd.Visible = true;
+            btnMucAdd.Visible = false;
+            txtDescription.Enabled = true;
+            btnLoad.Enabled = false;
         }
 
         private void rdbMucAdd_CheckedChanged(object sender, EventArgs e)
         {
-                txtIssue.Enabled = false;
-                txtSinger.Enabled = true;
-                cmbMagTyp.Enabled = false;
-                cmbMucTyp.Enabled = true;
-                txtPublisher.Enabled = false;
-                txtPage.Enabled = false;
-                txtIsbn.Enabled = false;
-                txtAuther.Enabled = false;
-                btnBookAdd.Visible = false;
-                btnMagAdd.Visible = false;
-                btnMucAdd.Visible = true;           
+            txtIssue.Enabled = false;
+            txtSinger.Enabled = true;
+            cmbMagTyp.Enabled = false;
+            cmbMucTyp.Enabled = true;
+            txtPublisher.Enabled = false;
+            txtPage.Enabled = false;
+            txtIsbn.Enabled = false;
+            txtAuther.Enabled = false;
+            btnBookAdd.Visible = false;
+            btnMagAdd.Visible = false;
+            btnMucAdd.Visible = true;
+            txtDescription.Enabled = false;
+            btnLoad.Enabled = true;
         }
-        AdminUser admin = AdminUser.get_instance();
+      
         private void btnBookAdd_Click(object sender, EventArgs e)
         {
 
-            string filename = Application.StartupPath + @"\Book\" + Book.TotalBook + ".jpg";
+            string filename = Application.StartupPath + @"\Book\" + (database.BookList.Count +1)+ ".jpg";
 
             using (FileStream fstream = new FileStream(filename, FileMode.Create))
             {
@@ -90,15 +105,16 @@ namespace BookStore
             Double price = Double.Parse(txtPrice.Text);
             int ISBN = Int32.Parse(txtIsbn.Text);
             int page = Int32.Parse(txtPage.Text);
-            admin.addNewBook(0, txtName.Text, price, pcbImage.Image, ISBN, txtAuther.Text, txtPublisher.Text, page,Convert.ToInt32(StockTxt.Text));
+            admin.addNewBook((database.BookList.Count+1), txtName.Text, price, pcbImage.Image, ISBN, txtAuther.Text, txtPublisher.Text, page, txtDescription.Text, Convert.ToInt32(StockTxt.Text));
 
-            
+
         }
-     
+
 
         private void btnMagAdd_Click(object sender, EventArgs e)
         {
-            string filename = Application.StartupPath + @"\Magazine\" +Magazine.TotalMagazine+ ".jpg";
+            string filename = Application.StartupPath + @"\Magazine\" + (database.MagazineList.Count+1) + ".jpg";
+           
 
             using (FileStream fstream = new FileStream(filename, FileMode.Create))
             {
@@ -108,22 +124,24 @@ namespace BookStore
 
             Magazine.Type typ = (Magazine.Type)cmbMagTyp.SelectedItem;
             Double price = Double.Parse(txtPrice.Text);
-            admin.addNewMagazine(0, txtName.Text, price, pcbImage.Image, typ, txtIssue.Text, Convert.ToInt32(StockTxt.Text));
-          
+            admin.addNewMagazine((database.MagazineList.Count+1), txtName.Text, price, pcbImage.Image, typ, txtIssue.Text, txtDescription.Text, Convert.ToInt32(StockTxt.Text));
+
         }
 
         private void btnMucAdd_Click(object sender, EventArgs e)
         {
-            string filename = Application.StartupPath + @"\MusicCD\" + MusicCD.TotalCD+ ".jpg";
+            string filename = Application.StartupPath + @"\MusicCD\" +( database.MusicCDList.Count+1) + ".jpg";
+            string Filemusic = Application.StartupPath + @"\Demos\" + (database.MusicCDList.Count+1) + ".wav";
+            File.Copy(file, Filemusic);
 
             using (FileStream fstream = new FileStream(filename, FileMode.Create))
             {
                 pcbImage.Image.Save(fstream, ImageFormat.Jpeg);
                 fstream.Close();
             }
-            MusicCD.Type typ =(MusicCD.Type)cmbMucTyp.SelectedItem; //Type tipine çevrildi
+            MusicCD.Type typ = (MusicCD.Type)cmbMucTyp.SelectedItem; //Type tipine çevrildi
             Double price = Double.Parse(txtPrice.Text);   //price double'a çevrildi
-            admin.addNewMusicCD(0, txtName.Text, price, pcbImage.Image, txtSinger.Text, typ, Convert.ToInt32(StockTxt.Text));
+            admin.addNewMusicCD((database.MusicCDList.Count+1), txtName.Text, price, pcbImage.Image, txtSinger.Text, typ, Convert.ToInt32(StockTxt.Text));
 
 
         }
@@ -136,7 +154,7 @@ namespace BookStore
 
             if (f.ShowDialog() == DialogResult.OK)
             {
-                File =Image.FromFile(f.FileName);
+                File = Image.FromFile(f.FileName);
                 pcbImage.Image = File;
                 pcbImage.Image = resizeImage(pcbImage.Image, new Size(120, 120));
             }
@@ -144,6 +162,21 @@ namespace BookStore
         public static Image resizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+           
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Music files (*.wav) | *.wav";
+
+            if(dialog.ShowDialog()==DialogResult.OK)
+            {
+                 file = dialog.FileName;
+                 lbSuc.Text = file;
+            }
+            
+
         }
     }
 }

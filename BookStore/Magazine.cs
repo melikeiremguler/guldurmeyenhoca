@@ -15,7 +15,7 @@ namespace BookStore
 
         public static int TotalMagazine{ get; set; } = 0;
 
-
+        public String Description { get; set; }
         public int Stok { get; set; }
 
 
@@ -23,7 +23,7 @@ namespace BookStore
 
 
 
-        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue,int stok) : base(nm, prc,img)
+        public Magazine(int id,string nm,double prc, Image img, Type Type, string Issue,string des,int stok) : base(nm, prc,img)
         {
             issue = Issue;
             type = Type;
@@ -31,6 +31,7 @@ namespace BookStore
             id = TotalMagazine;
             setId(id);
             TotalMagazine++;
+            Description = des;
         }
         public override void Print()
         {

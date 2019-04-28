@@ -32,20 +32,20 @@ namespace BookStore
             Database database = Database.get_instance();
             database.add_customer("INSERT INTO UserTable", customer);
         }
-        public void addNewBook(int id,string nm, double prc, Image CoverPagePicture, int isbn, string Author, string Publisher, int Page,int stok)
+        public void addNewBook(int id,string nm, double prc, Image CoverPagePicture, int isbn, string Author, string Publisher, int Page,string des,int stok)
         {
-            Book book = new Book(id,nm,prc, isbn, Author, Publisher, Page, CoverPagePicture,stok);
+            Book book = new Book(id,nm,prc, isbn, Author, Publisher, Page, CoverPagePicture, des,stok);
             Database database = Database.get_instance();
-            database.add_book("INSERT INTO BookTable(Id,Name,Price,Image,ISBN,Author,Publisher,Page,Stock) values(@Id,@Name,@Price,@Image,@ISBN,@Author,@Publisher,@Page,@Stock)", book);
+            database.add_book("INSERT INTO BookTable(Id,Name,Price,Image,ISBN,Author,Publisher,Page,Description,Stock) values(@Id,@Name,@Price,@Image,@ISBN,@Author,@Publisher,@Page,@Description,@Stock)", book);
            
         }
-        public void addNewMagazine(int id, string nm, double prc, Image img, Magazine.Type type, string Issue,int stok)
+        public void addNewMagazine(int id, string nm, double prc, Image img, Magazine.Type type, string Issue,string des,int stok)
         {
 
-            Magazine magazine = new Magazine(id,nm,prc,img, type,Issue,stok);
+            Magazine magazine = new Magazine(id,nm,prc,img, type,Issue,des,stok);
 
             Database database = Database.get_instance();
-            database.add_magazine("INSERT INTO MagazineTable(Id,Name,Price,Image,Type,Issue,Stock) values(@Id,@Name,@Price,@Image,@Type,@Issue,@Stock)", magazine);//parametreler databasedeki sıraya göre alındı.
+            database.add_magazine("INSERT INTO MagazineTable(Id,Name,Price,Image,Type,Issue,Description,Stock) values(@Id,@Name,@Price,@Image,@Type,@Issue,@Description,@Stock)", magazine);//parametreler databasedeki sıraya göre alındı.
         } 
         public void addNewMusicCD(int id,string nm, double prc ,Image img,string Singer, MusicCD.Type type,int stok)
         {

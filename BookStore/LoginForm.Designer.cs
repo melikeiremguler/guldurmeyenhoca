@@ -39,6 +39,7 @@
             this.password_lbl = new System.Windows.Forms.Label();
             this.login_button = new System.Windows.Forms.Button();
             this.lbWarring = new System.Windows.Forms.Label();
+            this.btnLogup = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo_picturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,10 +48,9 @@
             this.exit_lbl.AutoSize = true;
             this.exit_lbl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.exit_lbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.exit_lbl.Location = new System.Drawing.Point(371, 2);
-            this.exit_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.exit_lbl.Location = new System.Drawing.Point(278, 2);
             this.exit_lbl.Name = "exit_lbl";
-            this.exit_lbl.Size = new System.Drawing.Size(26, 29);
+            this.exit_lbl.Size = new System.Drawing.Size(20, 23);
             this.exit_lbl.TabIndex = 8;
             this.exit_lbl.Text = "X";
             this.exit_lbl.Click += new System.EventHandler(this.exit_lbl_Click);
@@ -59,10 +59,9 @@
             // 
             this.logo_picturebox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.logo_picturebox.Image = ((System.Drawing.Image)(resources.GetObject("logo_picturebox.Image")));
-            this.logo_picturebox.Location = new System.Drawing.Point(43, 47);
-            this.logo_picturebox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logo_picturebox.Location = new System.Drawing.Point(32, 38);
             this.logo_picturebox.Name = "logo_picturebox";
-            this.logo_picturebox.Size = new System.Drawing.Size(320, 86);
+            this.logo_picturebox.Size = new System.Drawing.Size(240, 70);
             this.logo_picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo_picturebox.TabIndex = 0;
             this.logo_picturebox.TabStop = false;
@@ -73,19 +72,17 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Gray;
-            this.panel2.Location = new System.Drawing.Point(61, 270);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(46, 219);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(287, 1);
+            this.panel2.Size = new System.Drawing.Size(215, 1);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.Gray;
-            this.panel3.Location = new System.Drawing.Point(64, 378);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(48, 307);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(287, 1);
+            this.panel3.Size = new System.Drawing.Size(215, 1);
             this.panel3.TabIndex = 2;
             // 
             // password_txtbox
@@ -93,11 +90,10 @@
             this.password_txtbox.BackColor = System.Drawing.SystemColors.Control;
             this.password_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.password_txtbox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.password_txtbox.Location = new System.Drawing.Point(64, 350);
-            this.password_txtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_txtbox.Location = new System.Drawing.Point(48, 284);
             this.password_txtbox.Name = "password_txtbox";
             this.password_txtbox.PasswordChar = '*';
-            this.password_txtbox.Size = new System.Drawing.Size(284, 23);
+            this.password_txtbox.Size = new System.Drawing.Size(213, 19);
             this.password_txtbox.TabIndex = 3;
             // 
             // username_txtbox
@@ -105,10 +101,9 @@
             this.username_txtbox.BackColor = System.Drawing.SystemColors.Control;
             this.username_txtbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.username_txtbox.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.username_txtbox.Location = new System.Drawing.Point(64, 241);
-            this.username_txtbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.username_txtbox.Location = new System.Drawing.Point(48, 196);
             this.username_txtbox.Name = "username_txtbox";
-            this.username_txtbox.Size = new System.Drawing.Size(284, 23);
+            this.username_txtbox.Size = new System.Drawing.Size(213, 19);
             this.username_txtbox.TabIndex = 4;
             // 
             // username_lbl
@@ -116,10 +111,9 @@
             this.username_lbl.AutoSize = true;
             this.username_lbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.username_lbl.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.username_lbl.Location = new System.Drawing.Point(57, 219);
-            this.username_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.username_lbl.Location = new System.Drawing.Point(43, 178);
             this.username_lbl.Name = "username_lbl";
-            this.username_lbl.Size = new System.Drawing.Size(81, 21);
+            this.username_lbl.Size = new System.Drawing.Size(62, 15);
             this.username_lbl.TabIndex = 5;
             this.username_lbl.Text = "Username";
             this.username_lbl.Click += new System.EventHandler(this.username_lbl_Click);
@@ -129,10 +123,9 @@
             this.password_lbl.AutoSize = true;
             this.password_lbl.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.password_lbl.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.password_lbl.Location = new System.Drawing.Point(57, 327);
-            this.password_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.password_lbl.Location = new System.Drawing.Point(43, 266);
             this.password_lbl.Name = "password_lbl";
-            this.password_lbl.Size = new System.Drawing.Size(77, 21);
+            this.password_lbl.Size = new System.Drawing.Size(61, 15);
             this.password_lbl.TabIndex = 6;
             this.password_lbl.Text = "Password";
             // 
@@ -143,10 +136,9 @@
             this.login_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.login_button.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.login_button.ForeColor = System.Drawing.SystemColors.Control;
-            this.login_button.Location = new System.Drawing.Point(104, 420);
-            this.login_button.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.login_button.Location = new System.Drawing.Point(48, 341);
             this.login_button.Name = "login_button";
-            this.login_button.Size = new System.Drawing.Size(181, 38);
+            this.login_button.Size = new System.Drawing.Size(100, 31);
             this.login_button.TabIndex = 7;
             this.login_button.Text = "Login";
             this.login_button.UseVisualStyleBackColor = false;
@@ -155,18 +147,33 @@
             // lbWarring
             // 
             this.lbWarring.AutoSize = true;
-            this.lbWarring.Location = new System.Drawing.Point(39, 495);
-            this.lbWarring.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbWarring.Location = new System.Drawing.Point(29, 402);
             this.lbWarring.Name = "lbWarring";
-            this.lbWarring.Size = new System.Drawing.Size(0, 17);
+            this.lbWarring.Size = new System.Drawing.Size(0, 13);
             this.lbWarring.TabIndex = 9;
+            // 
+            // btnLogup
+            // 
+            this.btnLogup.BackColor = System.Drawing.Color.SkyBlue;
+            this.btnLogup.FlatAppearance.BorderSize = 0;
+            this.btnLogup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogup.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnLogup.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnLogup.Location = new System.Drawing.Point(161, 341);
+            this.btnLogup.Name = "btnLogup";
+            this.btnLogup.Size = new System.Drawing.Size(100, 31);
+            this.btnLogup.TabIndex = 10;
+            this.btnLogup.Text = "Log Up";
+            this.btnLogup.UseVisualStyleBackColor = false;
+            this.btnLogup.Click += new System.EventHandler(this.btnLogup_Click);
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(400, 554);
+            this.ClientSize = new System.Drawing.Size(300, 450);
+            this.Controls.Add(this.btnLogup);
             this.Controls.Add(this.lbWarring);
             this.Controls.Add(this.exit_lbl);
             this.Controls.Add(this.login_button);
@@ -178,7 +185,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.Load += new System.EventHandler(this.LoginForm_Load);
@@ -202,5 +208,6 @@
         private System.Windows.Forms.PictureBox logo_picturebox;
         private System.Windows.Forms.Label exit_lbl;
         private System.Windows.Forms.Label lbWarring;
+        private System.Windows.Forms.Button btnLogup;
     }
 }

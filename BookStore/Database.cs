@@ -80,24 +80,34 @@ namespace BookStore
         }
         public void add_customer(string sql_statement, Customer customer)
         {
-            //process_command(sql_statement);
-            SQLiteCommand sql_command = new SQLiteCommand(sql_statement, connection);
+            using (SQLiteConnection connection = new SQLiteConnection(path))
+            {
 
-            sql_command.Parameters.Add(customer.customerID);
-            sql_command.Parameters.Add(customer.name);
-            sql_command.Parameters.Add(customer.email);
-            sql_command.Parameters.Add(customer.userName);
-            sql_command.Parameters.Add(customer.password);
-            sql_command.Parameters.Add(customer.Address);
-            //  sql_command.Parameters.Add(customer.TotalCustomer);
-            try
-            {
-                sql_command.ExecuteNonQuery();
+                SQLiteCommand sql_command = new SQLiteCommand();
+                sql_command.CommandText = sql_statement;
+
+                sql_command.Connection = connection;  //bağlantı kuruluyor.            
+                sql_command.Parameters.AddWithValue("@Name", customer.name);
+                sql_command.Parameters.AddWithValue("@Email", customer.email);
+                sql_command.Parameters.AddWithValue("@Username", customer.userName);
+                sql_command.Parameters.AddWithValue("@Password", customer.password);
+                sql_command.Parameters.AddWithValue("@Address", customer.Address);
+               
+                connection.Open();
+
+                try
+                {
+                    sql_command.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+
+
+                connection.Close();
             }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+
 
 
         }
@@ -119,6 +129,7 @@ namespace BookStore
                 sql_command.Parameters.AddWithValue("@Author", book.author);
                 sql_command.Parameters.AddWithValue("@Publisher", book.publisher);
                 sql_command.Parameters.AddWithValue("@Page", book.page);
+                sql_command.Parameters.AddWithValue("@Description", book.Description);
                 sql_command.Parameters.AddWithValue("@Stock", book.Stok);
                 connection.Open();
 
@@ -151,6 +162,7 @@ namespace BookStore
                 sql_command.Parameters.AddWithValue("@Image", magazine.image);
                 sql_command.Parameters.AddWithValue("@Type", magazine.type);
                 sql_command.Parameters.AddWithValue("@Issue", magazine.issue);
+                sql_command.Parameters.AddWithValue("@Description", magazine.Description);
                 sql_command.Parameters.AddWithValue("@Stock", magazine.Stok);
 
                 connection.Open(); //connnection açılır.
@@ -229,7 +241,7 @@ namespace BookStore
        
         public List<Book> read_book(string value)
         {
-            Book b = new Book(0, null, 0, 0, null, null, 0, null, 0);
+            Book b = new Book(0, null, 0, 0, null, null, 0, null,null, 0);
             b.setTotalBook(1);
             BookList.Clear();
             
@@ -243,7 +255,7 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            Book mybook = new Book(sdr.GetInt32(0),sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null,sdr.GetInt32(8));
+                            Book mybook = new Book(sdr.GetInt32(0),sdr.GetString(1), sdr.GetDouble(2), sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7), null, sdr.GetString(8), sdr.GetInt32(9));
                             BookList.Add(mybook);
                         }
                         sdr.Close();
@@ -310,7 +322,7 @@ namespace BookStore
         public List<Magazine> read_magazine(string value)
 
         {
-            Magazine m=new Magazine(0,"a",1,null,Magazine.Type.Actual,"fun",0);
+            Magazine m=new Magazine(0,"a",1,null,Magazine.Type.Actual,"fun",null,0);
            m.setTotalMagazine(0);
             MagazineList.Clear();
             using (connection = new SQLiteConnection(path))
@@ -324,7 +336,7 @@ namespace BookStore
                         while (sdr.Read())
                         {
 
-                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, (Magazine.Type)sdr.GetInt32(4), sdr.GetString(5),sdr.GetInt32(6));
+                          Magazine mymagazine = new Magazine(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(2), null, (Magazine.Type)sdr.GetInt32(4), sdr.GetString(5), sdr.GetString(6), sdr.GetInt32(7));
 
                           MagazineList.Add(mymagazine);
 

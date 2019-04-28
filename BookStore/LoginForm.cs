@@ -109,5 +109,12 @@ namespace BookStore
         {
 
         }
+
+        private void btnLogup_Click(object sender, EventArgs e)
+        {
+            LogUpForm logUpForm = new LogUpForm();
+            logUpForm.Show();   
+
+        }
     }
 }

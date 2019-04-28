@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BookStore
 {
@@ -16,7 +19,7 @@ namespace BookStore
         
         public string password { get; set; }
         public string Address { get; set; }
-        public int TotalCustomer { get; set; } = 0;
+        public static int TotalCustomer { get; set; } = 0;
         public Customer(int id,string Name,string Email,string Username,string Password,string address)
         {
             customerID = id;
@@ -47,24 +50,24 @@ namespace BookStore
             }
             return null;
         }
-        public void printCustomerDetails(int cutomerID)
+        public DataTable printCustomerDetails()
         {
-            Customer customer;
-            CustumerList = read_customer(); //customer okuma fonsiyonunda okuma işlemi yapılır
-            customer = customer_search(CustumerList, customerID);
 
-            //cout kısmı ekle artık nere yazılcak bu detail ben bilmiyom
+         //customer okuma fonsiyonunda okuma işlemi yapılır
+                                            // customer = customer_search(CustumerList, customerID);
+            Database database = Database.get_instance();
+            CustumerList = read_customer();
 
-            
+            DataTable dt = new DataTable();
+            dt.Columns.AddRange(new DataColumn[6] { new DataColumn("Id", typeof(Int32)), new DataColumn("Name", typeof(string)), new DataColumn("Email", typeof(String)), new DataColumn("UserName", typeof(String)), new DataColumn("Passwword", typeof(String)), new DataColumn("Address", typeof(string)) });
+            for (int i = 0; i < database.CustomerList.Count; i++)
+            {
+                dt.Rows.Add(database.CustomerList[i].customerID, database.CustomerList[i].name, database.CustomerList[i].email, database.CustomerList[i].userName, database.CustomerList[i].password, database.CustomerList[i].Address);
+            }
+           
 
-        }
-        public void saveCustomer()
-        {
-            //textboxtan al ardından
-            // Customer newCustomer= new Customer(//paremetreleri textboxdan al ); de
-            //  Database database = Database.get_instance();
-            // database.add_customer("INSERT INTO UserTable", newCustomer);//INSERT INTO UserTable(id,name,..)gibe de olabilir kontrol edilmeli!!
-
+        
+            return dt;
 
 
         }

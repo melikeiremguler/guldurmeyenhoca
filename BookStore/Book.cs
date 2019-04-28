@@ -16,11 +16,12 @@ namespace BookStore
         public string author { get; set; }
         public string publisher { get; set; }
         public int page { get; set; }
+        public string Description { get; set; }
         public int Stok { get; set; }
         public static int TotalBook { get; set; } = 0;
 
 
-        public Book(int id,string nm, double prc, int isbn, string Author, string Publisher, int Page, Image CoverPagePicture,int stok) : base(nm, prc,CoverPagePicture)
+        public Book(int id,string nm, double prc, int isbn, string Author, string Publisher, int Page, Image CoverPagePicture,string des,int stok) : base(nm, prc,CoverPagePicture)
         {
             ISBN = isbn;
             author = Author;
@@ -30,7 +31,7 @@ namespace BookStore
             id = TotalBook;
             setId(id);
             TotalBook++;
-           
+            Description = des;
             
         }
         public int getTotalBook()
