@@ -76,31 +76,18 @@ namespace BookStore
                 throw new Exception(ex.Message);
             }
 
-<<<<<<< HEAD
-=======
-            connection.Close();
 
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+            connection.Close();
+            
         }
         public void add_customer(string sql_statement, Customer customer)
         {
-<<<<<<< HEAD
+
             using (SQLiteConnection connection = new SQLiteConnection(path))
-=======
+
             process_command(sql_statement);
 
-            sql_command.Parameters.Add(book.getId());
-            sql_command.Parameters.Add(book.getName());
-            sql_command.Parameters.Add(book.getPrice());
-            sql_command.Parameters.Add(book.image_path);
-            sql_command.Parameters.Add(book.ISBN);
-            sql_command.Parameters.Add(book.author);
-            sql_command.Parameters.Add(book.publisher);
-            sql_command.Parameters.Add(book.page);
-            //  sql_command.Parameters.Add(book.getTotalBook());
-            try
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
-            {
+           
 
                 SQLiteCommand sql_command = new SQLiteCommand();
                 sql_command.CommandText = sql_statement;
@@ -125,25 +112,18 @@ namespace BookStore
 
 
                 connection.Close();
-            }
-
-<<<<<<< HEAD
-
-=======
-            connection.Close();
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+         
 
         }
         public void add_book(string sql_statement,Book book)
         {
 
-<<<<<<< HEAD
             using (SQLiteConnection connection = new SQLiteConnection(path))
-            {             
+            {
 
                 SQLiteCommand sql_command = new SQLiteCommand();
                 sql_command.CommandText = sql_statement;
-          
+
                 sql_command.Connection = connection;  //bağlantı kuruluyor.
                 sql_command.Parameters.AddWithValue("@Id", book.getId());
                 sql_command.Parameters.AddWithValue("@Name", book.getName());
@@ -168,21 +148,8 @@ namespace BookStore
 
 
                 connection.Close();
-=======
-            sql_command.Parameters.Add(magazine.getId());
-            sql_command.Parameters.Add(magazine.getName());
-            sql_command.Parameters.Add(magazine.getPrice());
-            sql_command.Parameters.Add(magazine.image_path);
-            sql_command.Parameters.Add(magazine.issue);
-            sql_command.Parameters.Add(magazine.type);
-            //  sql_command.Parameters.Add(magazine.getTotalMagazine());
-            try
-            {
-                sql_command.ExecuteNonQuery();
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
-            }
-               
 
+            }
         }
         public void add_magazine(string sql_statement, Magazine magazine)
         {
@@ -195,7 +162,7 @@ namespace BookStore
                 sql_command.Parameters.AddWithValue("@Id",magazine.getId());
                 sql_command.Parameters.AddWithValue("@Name", magazine.getName());
                 sql_command.Parameters.AddWithValue("@Price", magazine.getPrice());
-                sql_command.Parameters.AddWithValue("@Image", magazine.image);
+                sql_command.Parameters.AddWithValue("@Image", magazine.image_path);
                 sql_command.Parameters.AddWithValue("@Type", magazine.type);
                 sql_command.Parameters.AddWithValue("@Issue", magazine.issue);
                 sql_command.Parameters.AddWithValue("@Description", magazine.Description);
@@ -212,32 +179,13 @@ namespace BookStore
                 }
                 connection.Close();
             }
-<<<<<<< HEAD
-=======
-
-            connection.Close();
-
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+      
         }
         public void add_musiccd(string sql_statement, MusicCD musicCD)
         {
 
-<<<<<<< HEAD
+
             using (SQLiteConnection connection = new SQLiteConnection(path))
-=======
-            sql_command.Parameters.Add(musicCD.getId());
-            sql_command.Parameters.Add(musicCD.getName());
-            sql_command.Parameters.Add(musicCD.getPrice());
-            sql_command.Parameters.Add(musicCD.image_path);
-            sql_command.Parameters.Add(musicCD.singer);
-            sql_command.Parameters.Add(musicCD.type);
-            //  sql_command.Parameters.Add(musicCD.getTotalCd());
-            try
-            {
-                sql_command.ExecuteNonQuery();
-            }
-            catch (Exception ex)
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             {
                 SQLiteCommand sql_command = new SQLiteCommand();
                 sql_command.CommandText = sql_statement;
@@ -246,7 +194,7 @@ namespace BookStore
                 sql_command.Parameters.AddWithValue("@Id",musicCD.getId());
                 sql_command.Parameters.AddWithValue("@Name",musicCD.getName());
                 sql_command.Parameters.AddWithValue("@Price",musicCD.getPrice());
-                sql_command.Parameters.AddWithValue("@Image",musicCD.image);
+                sql_command.Parameters.AddWithValue("@Image",musicCD.image_path);
                 sql_command.Parameters.AddWithValue("@Singer",musicCD.singer);
                 sql_command.Parameters.AddWithValue("@Type",musicCD.type);
                 sql_command.Parameters.AddWithValue("@Stock", musicCD.Stok);
@@ -265,12 +213,8 @@ namespace BookStore
                 }
                 connection.Close();
             }
-<<<<<<< HEAD
-=======
 
-            connection.Close();
 
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
         }
         public void add_shoppingcart(string sql_statement, int customerId,string productName,int amount)
         {
@@ -309,14 +253,12 @@ namespace BookStore
        
         public List<Book> read_book(string value)
         {
-<<<<<<< HEAD
+
             Book b = new Book(0, null, 0, 0, null, null, 0, null,null, 0);
             b.setTotalBook(1);
             BookList.Clear();
             
-=======
-            BookList.Clear();
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+
             using (connection = new SQLiteConnection(path))
             {
                 connection.Open();
@@ -340,10 +282,6 @@ namespace BookStore
         }
         public List<Customer> read_customer(string value)
         {
-<<<<<<< HEAD
-            
-=======
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
             CustomerList.Clear();
             using (connection = new SQLiteConnection(path))
             {
@@ -368,11 +306,10 @@ namespace BookStore
         }
         public List<MusicCD> read_musiccd(string value)
         {
-<<<<<<< HEAD
+
             MusicCD m = new MusicCD(0, null, 0, null, null, MusicCD.Type.Country, 0);
             m.setTotalCd(0);
-=======
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+
             MusicCDList.Clear();
             using (connection = new SQLiteConnection(path))
             {
@@ -400,11 +337,10 @@ namespace BookStore
         public List<Magazine> read_magazine(string value)
 
         {
-<<<<<<< HEAD
+
             Magazine m=new Magazine(0,"a",1,null,Magazine.Type.Actual,"fun",null,0);
            m.setTotalMagazine(0);
-=======
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+
             MagazineList.Clear();
             using (connection = new SQLiteConnection(path))
             {

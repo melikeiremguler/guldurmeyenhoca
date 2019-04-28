@@ -105,8 +105,8 @@ namespace BookStore
             Double price = Double.Parse(txtPrice.Text);
             int ISBN = Int32.Parse(txtIsbn.Text);
             int page = Int32.Parse(txtPage.Text);
-            admin.addNewBook((database.BookList.Count+1), txtName.Text, price, pcbImage.Image, ISBN, txtAuther.Text, txtPublisher.Text, page, txtDescription.Text, Convert.ToInt32(StockTxt.Text));
-
+            admin.addNewBook((database.BookList.Count+1), txtName.Text, price, null, ISBN, txtAuther.Text, txtPublisher.Text, page, txtDescription.Text, Convert.ToInt32(StockTxt.Text));
+            MessageBox.Show("Succes");
 
         }
 
@@ -124,8 +124,8 @@ namespace BookStore
 
             Magazine.Type typ = (Magazine.Type)cmbMagTyp.SelectedItem;
             Double price = Double.Parse(txtPrice.Text);
-            admin.addNewMagazine((database.MagazineList.Count+1), txtName.Text, price, pcbImage.Image, typ, txtIssue.Text, txtDescription.Text, Convert.ToInt32(StockTxt.Text));
-
+            admin.addNewMagazine((database.MagazineList.Count+1), txtName.Text, price, null, typ, txtIssue.Text, txtDescription.Text, Convert.ToInt32(StockTxt.Text));
+            MessageBox.Show("Succes");
         }
 
         private void btnMucAdd_Click(object sender, EventArgs e)
@@ -141,8 +141,8 @@ namespace BookStore
             }
             MusicCD.Type typ = (MusicCD.Type)cmbMucTyp.SelectedItem; //Type tipine çevrildi
             Double price = Double.Parse(txtPrice.Text);   //price double'a çevrildi
-            admin.addNewMusicCD((database.MusicCDList.Count+1), txtName.Text, price, pcbImage.Image, txtSinger.Text, typ, Convert.ToInt32(StockTxt.Text));
-
+            admin.addNewMusicCD((database.MusicCDList.Count+1), txtName.Text, price, null, txtSinger.Text, typ, Convert.ToInt32(StockTxt.Text));
+            MessageBox.Show("Succes");
 
         }
 

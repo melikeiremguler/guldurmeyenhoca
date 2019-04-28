@@ -16,11 +16,8 @@ namespace BookStore
         public int Stok { get; set; }
         public static int TotalCD { get; set; } = 0;
 
-<<<<<<< HEAD
-        public MusicCD(int id,string nm,double prc, Image img , string Singer, Type type,int stok) : base(nm, prc,img)
-=======
-        public MusicCD(int id,string nm,double prc, string img_path , string Singer, Type type) : base(id,nm, prc,img_path)
->>>>>>> c79f436d15f902ebd0b5d835f1c772eb39a57754
+
+        public MusicCD(int id,string nm,double prc, string img , string Singer, Type type,int stok) : base(id,nm, prc,img)
         {
             singer = Singer;
             this.type = type;
