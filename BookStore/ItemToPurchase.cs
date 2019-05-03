@@ -11,10 +11,12 @@ namespace BookStore
         
         public Product product { get; set; }
         public int quantity { get; set; }
-        public ItemToPurchase(Product Product,int Quantity)
+        public double total_price { get; set;}
+        public ItemToPurchase(Product Product,int Quantity,double total_price)
         {
             product = Product;
             quantity = Quantity;
+            this.total_price = total_price;
         }
     }
 }

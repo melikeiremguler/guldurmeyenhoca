@@ -16,6 +16,7 @@ namespace BookStore
         public ArrayList itemsToPurchase_list { get; set; }
         public int paymentAmount { get; set; }
         public enum paymentType { cash, creditcard }
+        
         public ShoppingCart()
         {
 
@@ -31,6 +32,7 @@ namespace BookStore
 
         public void addProduct(ItemToPurchase item)
         {
+            bool check = true;
             Database database = Database.get_instance();
 
             //to check whether the product exists in the database or not
@@ -51,9 +53,9 @@ namespace BookStore
                         using (SQLiteCommand command = new SQLiteCommand(connection))
                         {
                             command.CommandText =
-                                "update ShoppingCartTable set Amount = :amount,Price = :price where Id = :id AND Product= :product";
+                                "update ShoppingCartTable set Amount = :amount,TotalPrice = :totalprice where Id = :id AND Product= :product";
                             command.Parameters.Add("amount", DbType.Int32).Value = item_obj.quantity;
-                            command.Parameters.Add("price", DbType.Double).Value = item_obj.quantity * item_obj.product.getPrice();
+                            command.Parameters.Add("totalprice", DbType.Double).Value = item_obj.quantity * item_obj.product.getPrice();
                             command.Parameters.Add("id", DbType.Int32).Value = customerID;
                             command.Parameters.Add("product", DbType.String).Value = item.product.getName();
 
@@ -62,30 +64,33 @@ namespace BookStore
 
                         connection.Close();
                     }
-
-                    return;
+                    check = false;
+                    break;
 
                 }
             }
 
-            //if the product does not exist in the database,it is added to the database.
-            itemsToPurchase_list.Add(item);
-            using (SQLiteConnection sql_con = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
+            if (check)
             {
-                SQLiteCommand sql_command = new SQLiteCommand();
-                sql_command.CommandText = "Insert Into ShoppingCartTable(Id,Product,Amount,Price,Image) Values(@Id,@Product,@Amount,@Price,@Image)";
-                sql_command.Connection = sql_con;
+                //if the product does not exist in the database,it is added to the database.
+                itemsToPurchase_list.Add(item);
+                using (SQLiteConnection sql_con = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
+                {
+                    SQLiteCommand sql_command = new SQLiteCommand();
+                    sql_command.CommandText = "Insert Into ShoppingCartTable(Id,Product,Amount,UnitPrice,TotalPrice,Image) Values(@Id,@Product,@Amount,@UnitPrice,@TotalPrice,@Image)";
+                    sql_command.Connection = sql_con;
 
-                sql_command.Parameters.AddWithValue("@Id", customerID);
-                sql_command.Parameters.AddWithValue("@Product", item.product.getName());
-                sql_command.Parameters.AddWithValue("@Amount", item.quantity);
-                sql_command.Parameters.AddWithValue("@Price", item.product.getPrice());
-                sql_command.Parameters.AddWithValue("@Image", item.product.ToString().Split('.')[1] + "," + item.product.getId().ToString());
-                sql_con.Open();
-                sql_command.ExecuteNonQuery();
-                sql_con.Close();
+                    sql_command.Parameters.AddWithValue("@Id", customerID);
+                    sql_command.Parameters.AddWithValue("@Product", item.product.getName());
+                    sql_command.Parameters.AddWithValue("@Amount", item.quantity);
+                    sql_command.Parameters.AddWithValue("@UnitPrice", item.product.getPrice());
+                    sql_command.Parameters.AddWithValue("@TotalPrice", item.product.getPrice()*item.quantity);
+                    sql_command.Parameters.AddWithValue("@Image", item.product.ToString().Split('.')[1] + "," + item.product.getId().ToString());
+                    sql_con.Open();
+                    sql_command.ExecuteNonQuery();
+                    sql_con.Close();
+                }
             }
-
 
         }
 
@@ -103,6 +108,25 @@ namespace BookStore
                 sql_con.Close();
             }
 
+            if (itemsToPurchase_list.Contains(item))
+            {
+                itemsToPurchase_list.Remove(item);
+            }
+        }
+
+        public int getTotalProduct()
+        {
+            int totalproduct = 0;
+            for(int i = 0; i < itemsToPurchase_list.Count; i++)
+            {
+                ItemToPurchase item = (ItemToPurchase)itemsToPurchase_list[i];
+                if (customerID == item.product.getId())
+                {
+                    totalproduct += item.quantity;
+                }
+            }
+
+            return totalproduct;
         }
         public void placeOrder() { }//fatura gönderme
         public void cancelOrder() { }//sms gönderme

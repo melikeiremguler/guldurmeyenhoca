@@ -17,25 +17,27 @@ namespace BookStore
     public partial class CustomerForm : Form
     {
         int t = 1, r = 6;
-        private ArrayList shopping_cart_list;
-        private DataGridView shoppingcart_datagridview;
-        private TextBox total_price_textbox;
+        public ArrayList shopping_cart_list;
+        public DataGridView shoppingcart_datagridview;
+        public TextBox total_price_textbox;
         private Label total_price_label;
-        private Button buy_button;
+        public Button confirm_cart_button;
         private ContextMenuStrip contextmenu;
         private TextBox AvaiblePasword;
         private TextBox NewPassword;
         private Label MessageLbl;
+        public int total_quantity { get; set; } = 0;
 
         public CustomerForm()
         {
             InitializeComponent();
             shopping_cart_list = new ArrayList();
+            Console.WriteLine(total_quantity);
+            
         }
 
         private void CustomerForm_Load(object sender, EventArgs e)
         {
-
 
             Database data_base_ = Database.get_instance();
             data_base_.BookList.Clear();
@@ -79,18 +81,18 @@ namespace BookStore
                 infoIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y + 50);
                 infoIcon.SizeMode = PictureBoxSizeMode.Zoom;
                 infoIcon.BackColor = Color.Honeydew;
-                infoIcon.Name =  (k).ToString();
+                infoIcon.Name = (k).ToString();
                 infoIcon.Click += (s, p) =>
                 {
                     var img = s as PictureBox;
                     InfoForm infoForm = new InfoForm();
                     int number = Int32.Parse(img.Name);
 
-                    infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Book\" + (number+1) + ".jpg";
-                    infoForm.lnName.Text =data_base_.BookList[number].getName()+"\n"+ data_base_.BookList[number].author ;
-                    infoForm.lbPage.Text ="Page : "+ data_base_.BookList[number].page.ToString();
+                    infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Book\" + (number + 1) + ".jpg";
+                    infoForm.lnName.Text = data_base_.BookList[number].getName() + "\n" + data_base_.BookList[number].author;
+                    infoForm.lbPage.Text = "Page : " + data_base_.BookList[number].page.ToString();
                     infoForm.lbDescription.Text = data_base_.BookList[number].Description;
-                    infoForm.lbPrice.Text = data_base_.BookList[number].getPrice().ToString()+" TL";
+                    infoForm.lbPrice.Text = data_base_.BookList[number].getPrice().ToString() + " TL";
                     infoForm.lbPublisher.Text = data_base_.BookList[number].publisher;
 
                     infoForm.Show();
@@ -117,10 +119,6 @@ namespace BookStore
                 {
                     break;
                 }
-
-
-
-
 
             }
 
@@ -216,13 +214,18 @@ namespace BookStore
                 creditcardBtn.Visible = false;
                 creditcardBtn.Visible = false;
                 SettingBtn.Visible = false;
+                if (shoppingcart_datagridview != null)
+                {
+                    shoppingcart_datagridview.ClearSelection();
+                    shoppingcart_datagridview.Update();
+                    shoppingcart_datagridview.Refresh();
+                }
+                shopping_cart_list.Clear();
+                LoginForm.current_customer_id = -1;
+                total_quantity = 0;
+                numberofproduct.Text = total_quantity.ToString();
             }
 
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 
@@ -237,6 +240,7 @@ namespace BookStore
 
         public void read_shopping_cart()
         {
+            shopping_cart_list.Clear();
             Database database_obj = Database.get_instance();
             using (SQLiteConnection connection = new SQLiteConnection("Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3"))
             {
@@ -248,7 +252,7 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            ItemToPurchase item = new ItemToPurchase(new Product(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(3), sdr.GetString(4)), sdr.GetInt32(2));
+                            ItemToPurchase item = new ItemToPurchase(new Product(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(3), sdr.GetString(5)), sdr.GetInt32(2),sdr.GetDouble(4));
                             shopping_cart_list.Add(item);
 
                         }
@@ -296,10 +300,11 @@ namespace BookStore
 
             }
 
-            ItemToPurchase item_to_purchase = new ItemToPurchase(book_obj, 1);
+            ItemToPurchase item_to_purchase = new ItemToPurchase(book_obj, 1,book_obj.getPrice());
             ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             shopping_cart.addProduct(item_to_purchase);
-
+            total_quantity++;
+            numberofproduct.Text = total_quantity.ToString();
 
 
         }
@@ -336,12 +341,11 @@ namespace BookStore
                 }
             }
 
-            ItemToPurchase item_to_purchase = new ItemToPurchase(musiccd_obj, 1);
+            ItemToPurchase item_to_purchase = new ItemToPurchase(musiccd_obj, 1,musiccd_obj.getPrice());
             ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             shopping_cart.addProduct(item_to_purchase);
-
-
-
+            total_quantity++;
+            numberofproduct.Text = total_quantity.ToString();
         }
 
         public void yeniolusturulanButonlarinClickOlayi_Magazine(object sender, EventArgs e)
@@ -376,9 +380,11 @@ namespace BookStore
                 }
             }
 
-            ItemToPurchase item_to_purchase = new ItemToPurchase(magazine_obj, 1);
+            ItemToPurchase item_to_purchase = new ItemToPurchase(magazine_obj, 1,magazine_obj.getPrice());
             ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             shopping_cart.addProduct(item_to_purchase);
+            total_quantity++;
+            numberofproduct.Text = total_quantity.ToString();
 
         }
 
@@ -442,14 +448,14 @@ namespace BookStore
                 infoIcon.SizeMode = PictureBoxSizeMode.Zoom;
                 infoIcon.BackColor = Color.Honeydew;
 
-                infoIcon.Name = (k ).ToString();
+                infoIcon.Name = (k).ToString();
                 infoIcon.Click += (s, p) =>
                 {
                     var img = s as PictureBox;
                     InfoForm infoForm = new InfoForm();
                     int number = Int32.Parse(img.Name);
 
-                    infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Magazine\" + (number+1) + ".jpg";
+                    infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Magazine\" + (number + 1) + ".jpg";
                     infoForm.lnName.Text = data_base_.MagazineList[number].getName();
                     infoForm.lbPage.Text = "Type : " + data_base_.MagazineList[number].type;
                     infoForm.lbDescription.Text = data_base_.MagazineList[number].Description;
@@ -480,9 +486,6 @@ namespace BookStore
                     break;
                 }
 
-
-
-
             }
         }
 
@@ -506,7 +509,7 @@ namespace BookStore
                 pictureBox1.Location = new Point(0, 0);
 
                 pictureBox1.Size = new Size(170, 200);
-                pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (k+1) + ".jpg";
+                pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (k + 1) + ".jpg";
                 pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                 pictureBox1.BackColor = Color.Honeydew;
                 productPanel.Controls.Add(pictureBox1);
@@ -529,16 +532,16 @@ namespace BookStore
                 PictureBox playIcon = new PictureBox();
                 playIcon.Size = new Size(25, 25);
                 playIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "play" + ".jpg";
-                playIcon.Location = new Point(pictureBox1.Location.X+ pictureBox1.Width+5, pictureBox1.Location.Y + 70);
+                playIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width + 5, pictureBox1.Location.Y + 70);
                 playIcon.SizeMode = PictureBoxSizeMode.Zoom;
                 playIcon.BackColor = Color.Honeydew;
 
-                playIcon.Name = (k+1).ToString();
+                playIcon.Name = (k + 1).ToString();
                 playIcon.Click += (s, p) =>
                 {
                     SoundPlayer player = new SoundPlayer();
                     var img = s as PictureBox;
-                    
+
                     player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Demos\\" + img.Name + ".wav";
                     player.Play();
 
@@ -719,9 +722,9 @@ namespace BookStore
                     Image img = Image.FromFile(Application.StartupPath + @"\" + path[0] + @"\" + path[1] + ".jpg");
                     Image thumb = img.GetThumbnailImage(100, 100, null, IntPtr.Zero);
 
-                    total_Price += item.product.getPrice();
+                    total_Price += item.total_price;
 
-                    Object[] row = new Object[] { thumb, item.product.getName(), item.quantity, item.product.getPrice() };
+                    Object[] row = new Object[] { thumb, item.product.getName(), item.quantity, item.total_price };
                     shoppingcart_datagridview.Rows.Add(row);
                 }
             }
@@ -745,19 +748,19 @@ namespace BookStore
             total_price_textbox.Enabled = false;
 
             //to populate buy button
-            buy_button = new Button();
-            buy_button.Name = "totalPrice_button";
-            buy_button.Text = "Buy";
-            buy_button.BackColor = Color.FromArgb(143, 188, 139);
-            buy_button.Location = new Point(600, 380);
-            buy_button.Width = 150;
-            buy_button.Height = 30;
-            buy_button.Click += buy_button_Click;
+            confirm_cart_button = new Button();
+            confirm_cart_button.Name = "totalPrice_button";
+            confirm_cart_button.Text = "Confirm Cart";
+            confirm_cart_button.BackColor = Color.FromArgb(143, 188, 139);
+            confirm_cart_button.Location = new Point(600, 380);
+            confirm_cart_button.Width = 150;
+            confirm_cart_button.Height = 30;
+            confirm_cart_button.Click += confirm_cart_button_Click;
 
             panel2.Controls.Add(shoppingcart_datagridview);
             panel2.Controls.Add(total_price_label);
             panel2.Controls.Add(total_price_textbox);
-            panel2.Controls.Add(buy_button);
+            panel2.Controls.Add(confirm_cart_button);
         }
 
         private void searchBtn_Click(object sender, EventArgs e)
@@ -1018,10 +1021,6 @@ namespace BookStore
             cmbProduct.Text = "Select";
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-        }
-     
         private void shoppingcart_datagridview_mouseDown(Object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -1036,9 +1035,9 @@ namespace BookStore
                     shoppingcart_datagridview.Rows[position_xy_mouse_row].Selected = true;
                     contextmenu.Show(shoppingcart_datagridview, new Point(e.X, e.Y));
                     contextmenu.Click += new EventHandler(DeleteRow_Click);
-                    
+
                 }
-               
+
             }
 
         }
@@ -1068,14 +1067,16 @@ namespace BookStore
                             shoppingcart_datagridview.Rows[rowToDelete].Cells[1].Value.ToString().Equals(item.product.getName()))
                         {
                             shopping_cart.removeProduct(item);
-                            shopping_cart_list.RemoveAt(i);
+                            total_quantity -= item.quantity;
+                            numberofproduct.Text = total_quantity.ToString();
                             break;
                         }
                     }
 
                     shoppingcart_datagridview.Rows.RemoveAt(rowToDelete);
                     shoppingcart_datagridview.ClearSelection();
-                }catch
+                }
+                catch
                 {
                     MessageBox.Show("Error! You can't delete it.", "Warning",
                                      MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1106,39 +1107,22 @@ namespace BookStore
 
         }
 
-        private void buy_button_Click(object sender, EventArgs e)
+        private void confirm_cart_button_Click(object sender, EventArgs e)
         {
-            ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
-            DialogResult confirm_question = MessageBox.Show("Would you like to buy it?",
-                                                    "The Confirmation",
-                                  MessageBoxButtons.YesNoCancel,
-                                  MessageBoxIcon.Question);
-
-            if (confirm_question == DialogResult.Yes)
+            if (LoginForm.current_customer_id != -1)
             {
-                for (int i = 0; i < shopping_cart_list.Count; i++)
-                {
-
-                    ItemToPurchase item = (ItemToPurchase)shopping_cart_list[i];
-                    if (item.product.getId() == LoginForm.current_customer_id)
-                    {
-                        shopping_cart.removeProduct(item);
-                    }
-                }
-
-                shopping_cart_list.Clear();
-
-                shoppingcart_datagridview.Rows.Clear();
-                shoppingcart_datagridview.Refresh();
-                total_price_textbox.Text = "0";
+                PaymentForm paymentform = new PaymentForm();
+                paymentform.set_Form(this);
+                paymentform.Show();
             }
-
-
+            else
+            {
+                MessageBox.Show("Please login first", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
         }
 
-
-        void OpenForm(Form Openform)
+        public void OpenForm(Form Openform)
         {
             // Not: Ana Form (Form1) hariç, sadece Form2 olduğu için sadece Form2'yi ele alıyoruz.
             // Başka formlarda olursa hepsini kontrol eder.

@@ -50,12 +50,7 @@ namespace BookStore
         {
             mouseDown = false;
         }
-
-        private void username_lbl_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         public void login_button_Click(object sender, EventArgs e)
         {
             if(User_control())
@@ -76,7 +71,11 @@ namespace BookStore
                     ths.btnLogin.Text = "LOGOUT"; //customer adı login buttonuna eklenir 
                     ths.lbHosgeldin.Text = "HOŞGELDİN";
                     ths.lbUserName.Text = username_txtbox.Text.ToUpper();
-                    this.Close();
+                    clean_unknownuser_shoppingcart();
+                    ths.read_shopping_cart();
+                    ShoppingCart shopping_cart = new ShoppingCart(current_customer_id, ref ths.shopping_cart_list, 1);
+                    ths.total_quantity = shopping_cart.getTotalProduct();
+                    ths.numberofproduct.Text = shopping_cart.getTotalProduct().ToString();
                 }
                
             }
@@ -102,6 +101,32 @@ namespace BookStore
 
             }          
             return false;
+
+        }
+
+        private void clean_unknownuser_shoppingcart()
+        {
+            ths.read_shopping_cart();
+            ShoppingCart shopping_cart = new ShoppingCart(-1, ref ths.shopping_cart_list, 1);
+            for (int i = 0; i < ths.shopping_cart_list.Count; i++)
+            {
+
+                ItemToPurchase item = (ItemToPurchase)ths.shopping_cart_list[i];
+
+                if (item.product.getId() == -1)
+                {
+                    shopping_cart.removeProduct(item);
+                    i--;
+                }
+            }
+            if (ths.shoppingcart_datagridview != null)
+            {
+                ths.shoppingcart_datagridview.ClearSelection();
+                ths.shoppingcart_datagridview.Update();
+                ths.shoppingcart_datagridview.Refresh();
+            }
+
+            this.Close();
 
         }
 

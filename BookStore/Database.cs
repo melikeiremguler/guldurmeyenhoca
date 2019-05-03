@@ -308,7 +308,7 @@ namespace BookStore
         {
 
             MusicCD m = new MusicCD(0, null, 0, null, null, MusicCD.Type.Country, 0);
-            m.setTotalCd(0);
+            m.setTotalCd(1);
 
             MusicCDList.Clear();
             using (connection = new SQLiteConnection(path))
@@ -335,11 +335,10 @@ namespace BookStore
             return MusicCDList;
         }
         public List<Magazine> read_magazine(string value)
-
         {
 
-            Magazine m=new Magazine(0,"a",1,null,Magazine.Type.Actual,"fun",null,0);
-           m.setTotalMagazine(0);
+           Magazine m=new Magazine(0,"a",1,null,Magazine.Type.Actual,"fun",null,0);
+           m.setTotalMagazine(1);
 
             MagazineList.Clear();
             using (connection = new SQLiteConnection(path))

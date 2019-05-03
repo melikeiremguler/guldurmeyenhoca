@@ -54,6 +54,7 @@
             this.SettingBtn = new System.Windows.Forms.Button();
             this.SearchReklamPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.numberofproduct = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.reklam1picturebox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reklam2picturebox)).BeginInit();
             this.searchgroupBox.SuspendLayout();
@@ -172,6 +173,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Controls.Add(this.numberofproduct);
             this.panel1.Controls.Add(this.lbUserName);
             this.panel1.Controls.Add(this.lbHosgeldin);
             this.panel1.Controls.Add(this.HomeBtn);
@@ -188,7 +190,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1012, 219);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+           
             // 
             // lbUserName
             // 
@@ -375,6 +377,16 @@
             this.panel2.Size = new System.Drawing.Size(824, 465);
             this.panel2.TabIndex = 0;
             // 
+            // numberofproduct
+            // 
+            this.numberofproduct.AutoSize = true;
+            this.numberofproduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.numberofproduct.Location = new System.Drawing.Point(408, 113);
+            this.numberofproduct.Name = "numberofproduct";
+            this.numberofproduct.Size = new System.Drawing.Size(13, 13);
+            this.numberofproduct.TabIndex = 25;
+            this.numberofproduct.Text = "0";
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -424,5 +436,6 @@
         public System.Windows.Forms.Button SettingBtn;
         private System.Windows.Forms.Panel SearchReklamPanel;
         private System.Windows.Forms.FlowLayoutPanel panel2;
+        public System.Windows.Forms.Label numberofproduct;
     }
 }

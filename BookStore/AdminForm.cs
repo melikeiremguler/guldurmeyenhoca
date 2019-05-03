@@ -294,6 +294,7 @@ namespace BookStore
 
         private void yeniolusturulanButonlarinClickOlayi_ChangeStock(object sender, EventArgs e)
         {
+            
             Database database = Database.get_instance();
             database.BookList.Clear();
             database.MagazineList.Clear();
@@ -304,7 +305,7 @@ namespace BookStore
             int tempid = -1;
             int newstock = 0;
             int k = database.BookList.Count;
-            int j = database.MusicCDList.Count + database.BookList.Count;
+            int j = database.MagazineList.Count + database.BookList.Count;
             int control = -1;
             for (int i = 0; i < database.BookList.Count; i++)
             {
