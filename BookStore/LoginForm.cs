@@ -55,7 +55,7 @@ namespace BookStore
         {
             if(User_control())
             {
-                if(username_txtbox.Text == "tiv" && password_txtbox.Text == "tiv")
+                if(username_txtbox.Text == "tiv")
                 {
                     ths.Visible = false;
                     adf = new AdminForm();

@@ -630,15 +630,24 @@ namespace BookStore
         private void yeniolusturulanButonlarinClickOlayi_ChangePassword(object sender, EventArgs e)
         {
             string truepassword = "";
-            string NewPasswordtxt = NewPassword.Text;
+
+            HashCode hash = new HashCode(NewPassword.Text);//new password hashlendi
+            string NewPasswordtxt = hash.hashCode;
+
+          
             Database database = Database.get_instance();
             database.CustomerList.Clear();
             database.read_customer("UserTable");
             int control = -1;
             int tempid = -1;
+
+            hash = new HashCode(AvaiblePasword.Text); //avaible password hashlendi.
+            string avaiblePassword = hash.hashCode;
+
+
             for (int i = 0; i < database.CustomerList.Count; i++)
             {
-                if (database.CustomerList[i].password == AvaiblePasword.Text)
+                if (database.CustomerList[i].password == avaiblePassword)
                 {
                     truepassword = database.CustomerList[i].password;
                     control = 1;
@@ -660,10 +669,14 @@ namespace BookStore
                         if (i == 1)
                         {
                             MessageLbl.Text = "Password Change";
+                            AvaiblePasword.Text = "";
+                            NewPassword.Text = "";
                         }
                         else
                         {
                             MessageBox.Show("Password Not Change");
+                            AvaiblePasword.Text = "";
+                            NewPassword.Text = "";
                         }
                     }
                     catch (Exception ex)
@@ -676,6 +689,7 @@ namespace BookStore
             else
             {
                 MessageLbl.Text = "Avaible Password Text is wrong !";
+               
             }
 
 

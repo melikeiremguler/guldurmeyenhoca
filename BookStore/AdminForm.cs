@@ -470,11 +470,15 @@ namespace BookStore
                         if (i == 1)
                         {
                             MessageLbl.Text = "Password Change";
+                            AvaiblePasword.Text = "";
+                            NewPassword.Text = "";
                         }
                         else
                         {
                             MessageBox.Show("A" +
                                 "Password Not Change");
+                            AvaiblePasword.Text = "";
+                            NewPassword.Text = "";
                         }
                     }
                     catch (Exception ex)
