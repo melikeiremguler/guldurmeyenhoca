@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -74,8 +76,9 @@ namespace BookStore
                     invoice_form.setPaymentForm(this);
                     invoice_form.Show();
 
+                   
                     ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref customerform.shopping_cart_list, 1);
-
+                    
 
                     for (int i = 0; i < customerform.shopping_cart_list.Count; i++)
                     {
@@ -86,9 +89,10 @@ namespace BookStore
                             shopping_cart.removeProduct(item);
                             i--;
                         }
+
                         
                     }
-
+                  
                     customerform.total_quantity = 0;
                     customerform.numberofproduct.Text = "0";
                     customerform.shopping_cart_list.Clear();
@@ -118,5 +122,6 @@ namespace BookStore
             twelve_total_lbl.Text = (Double.Parse(customerform.total_price_textbox.Text) + 30.0).ToString();
             twelve_payment_lbl.Text = Math.Round(((Double.Parse(customerform.total_price_textbox.Text) + 30.0) / 12.0), 2).ToString();
         }
+       
     }
 }

@@ -122,6 +122,8 @@
       <DependentUpon>CustomerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Email.cs" />
+    <Compile Include="HashCode.cs" />
     <Compile Include="InfoForm.cs">
       <SubType>Form</SubType>
     </Compile>

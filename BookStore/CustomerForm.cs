@@ -211,8 +211,6 @@ namespace BookStore
                 lbUserName.Text = "";
                 btnLogin.Text = "LOGIN";
                 chancePasswordBtn.Visible = false;
-                creditcardBtn.Visible = false;
-                creditcardBtn.Visible = false;
                 SettingBtn.Visible = false;
                 if (shoppingcart_datagridview != null)
                 {

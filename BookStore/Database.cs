@@ -82,12 +82,8 @@ namespace BookStore
         }
         public void add_customer(string sql_statement, Customer customer)
         {
-
             using (SQLiteConnection connection = new SQLiteConnection(path))
-
-            process_command(sql_statement);
-
-           
+            {
 
                 SQLiteCommand sql_command = new SQLiteCommand();
                 sql_command.CommandText = sql_statement;
@@ -98,7 +94,7 @@ namespace BookStore
                 sql_command.Parameters.AddWithValue("@Username", customer.userName);
                 sql_command.Parameters.AddWithValue("@Password", customer.password);
                 sql_command.Parameters.AddWithValue("@Address", customer.Address);
-               
+
                 connection.Open();
 
                 try
@@ -112,7 +108,8 @@ namespace BookStore
 
 
                 connection.Close();
-         
+            }
+
 
         }
         public void add_book(string sql_statement,Book book)

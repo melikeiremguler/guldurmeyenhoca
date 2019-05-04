@@ -82,7 +82,22 @@ namespace BookStore
 
         private void login_button_Click(object sender, EventArgs e)
         {
+            screenshotForm();
+
             this.Close();
+        }
+        private void screenshotForm()
+        {
+            var frm = InvoiceForm.ActiveForm;
+            using (var bmp = new Bitmap(frm.Width, frm.Height))
+            {
+                frm.DrawToBitmap(bmp, new Rectangle(0, 0, bmp.Width, bmp.Height));
+                bmp.Save(Application.StartupPath + "screenshot.jpeg");
+
+                Email email = new Email();
+
+
+            }
         }
     }
 

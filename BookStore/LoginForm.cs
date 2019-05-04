@@ -66,7 +66,7 @@ namespace BookStore
                 else
                 {
                     ths.chancePasswordBtn.Visible = true;
-                    ths.creditcardBtn.Visible = true;
+                    
                     ths.SettingBtn.Visible = true;
                     ths.btnLogin.Text = "LOGOUT"; //customer adı login buttonuna eklenir 
                     ths.lbHosgeldin.Text = "HOŞGELDİN";
@@ -88,18 +88,28 @@ namespace BookStore
         }
         public bool User_control()
         {
+
             Database data_base_ = Database.get_instance();
             data_base_.CustomerList.Clear();
             data_base_.read_customer("UserTable");
+
+            string password;
+            password = password_txtbox.Text;
+            if (username_txtbox.Text != "tiv")
+            {
+                HashCode hash = new HashCode(password_txtbox.Text);
+                password = hash.hashCode; //Hashlendi
+
+            }
             for (int i = 0; i < data_base_.CustomerList.Count; i++)
             {
-                if (username_txtbox.Text.Equals(data_base_.CustomerList[i].userName) && password_txtbox.Text.Equals(data_base_.CustomerList[i].password))
+                if (username_txtbox.Text.Equals(data_base_.CustomerList[i].userName) && password.Equals(data_base_.CustomerList[i].password))
                 {
                     current_customer_id = data_base_.CustomerList[i].customerID;
                     return true;
                 }
 
-            }          
+            }
             return false;
 
         }

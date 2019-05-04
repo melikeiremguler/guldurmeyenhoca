@@ -41,6 +41,7 @@
             this.cmbFiltre = new System.Windows.Forms.ComboBox();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.numberofproduct = new System.Windows.Forms.Label();
             this.lbUserName = new System.Windows.Forms.Label();
             this.lbHosgeldin = new System.Windows.Forms.Label();
             this.HomeBtn = new System.Windows.Forms.Button();
@@ -49,12 +50,10 @@
             this.musiccdBtn = new System.Windows.Forms.Button();
             this.billBtn = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
-            this.creditcardBtn = new System.Windows.Forms.Button();
             this.chancePasswordBtn = new System.Windows.Forms.Button();
             this.SettingBtn = new System.Windows.Forms.Button();
             this.SearchReklamPanel = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.numberofproduct = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.reklam1picturebox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.reklam2picturebox)).BeginInit();
             this.searchgroupBox.SuspendLayout();
@@ -182,7 +181,6 @@
             this.panel1.Controls.Add(this.musiccdBtn);
             this.panel1.Controls.Add(this.billBtn);
             this.panel1.Controls.Add(this.btnLogin);
-            this.panel1.Controls.Add(this.creditcardBtn);
             this.panel1.Controls.Add(this.chancePasswordBtn);
             this.panel1.Controls.Add(this.SettingBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -190,7 +188,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1012, 219);
             this.panel1.TabIndex = 0;
-           
+            // 
+            // numberofproduct
+            // 
+            this.numberofproduct.AutoSize = true;
+            this.numberofproduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.numberofproduct.Location = new System.Drawing.Point(408, 113);
+            this.numberofproduct.Name = "numberofproduct";
+            this.numberofproduct.Size = new System.Drawing.Size(13, 13);
+            this.numberofproduct.TabIndex = 25;
+            this.numberofproduct.Text = "0";
             // 
             // lbUserName
             // 
@@ -306,28 +313,12 @@
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // creditcardBtn
-            // 
-            this.creditcardBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.creditcardBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("creditcardBtn.BackgroundImage")));
-            this.creditcardBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.creditcardBtn.Location = new System.Drawing.Point(575, 94);
-            this.creditcardBtn.Margin = new System.Windows.Forms.Padding(2);
-            this.creditcardBtn.Name = "creditcardBtn";
-            this.creditcardBtn.Size = new System.Drawing.Size(92, 123);
-            this.creditcardBtn.TabIndex = 20;
-            this.creditcardBtn.Text = "CREDIT CARD";
-            this.creditcardBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.creditcardBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.creditcardBtn.UseVisualStyleBackColor = false;
-            this.creditcardBtn.Visible = false;
-            // 
             // chancePasswordBtn
             // 
             this.chancePasswordBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.chancePasswordBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("chancePasswordBtn.BackgroundImage")));
             this.chancePasswordBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.chancePasswordBtn.Location = new System.Drawing.Point(671, 94);
+            this.chancePasswordBtn.Location = new System.Drawing.Point(575, 96);
             this.chancePasswordBtn.Margin = new System.Windows.Forms.Padding(2);
             this.chancePasswordBtn.Name = "chancePasswordBtn";
             this.chancePasswordBtn.Size = new System.Drawing.Size(92, 123);
@@ -344,7 +335,7 @@
             this.SettingBtn.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.SettingBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SettingBtn.BackgroundImage")));
             this.SettingBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SettingBtn.Location = new System.Drawing.Point(767, 94);
+            this.SettingBtn.Location = new System.Drawing.Point(671, 94);
             this.SettingBtn.Margin = new System.Windows.Forms.Padding(2);
             this.SettingBtn.Name = "SettingBtn";
             this.SettingBtn.Size = new System.Drawing.Size(92, 123);
@@ -376,16 +367,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(824, 465);
             this.panel2.TabIndex = 0;
-            // 
-            // numberofproduct
-            // 
-            this.numberofproduct.AutoSize = true;
-            this.numberofproduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.numberofproduct.Location = new System.Drawing.Point(408, 113);
-            this.numberofproduct.Name = "numberofproduct";
-            this.numberofproduct.Size = new System.Drawing.Size(13, 13);
-            this.numberofproduct.TabIndex = 25;
-            this.numberofproduct.Text = "0";
             // 
             // CustomerForm
             // 
@@ -431,7 +412,6 @@
         private System.Windows.Forms.Button musiccdBtn;
         private System.Windows.Forms.Button billBtn;
         public System.Windows.Forms.Button btnLogin;
-        public System.Windows.Forms.Button creditcardBtn;
         public System.Windows.Forms.Button chancePasswordBtn;
         public System.Windows.Forms.Button SettingBtn;
         private System.Windows.Forms.Panel SearchReklamPanel;
