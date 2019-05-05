@@ -145,7 +145,9 @@ namespace BookStore {
         private void Notify()
         {
             // Herhangi bir değişiklik olduğunda gözlemleyicilerimizin Update metotunu tetikleterek istenilen aksiyonu gerçekleştirebiliriz. Örneğin: Kullanıcılara e-posta atmak gibi düşünebilirsiniz.
+            Console.WriteLine(observers.Count);
             observers.ForEach(o => { o.Update(); });
+            
         }
 
         /*! \fn void ChangeStock()

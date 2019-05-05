@@ -19,13 +19,15 @@ namespace BookStore
     public partial class PaymentForm : Form
     {
         public CustomerForm customerform;
+        private Customer customer;
         private Database db;
 
         public PaymentForm()
         {
             InitializeComponent();
 
-            Customer customer = find_customer();
+            customer = find_customer();
+            
             nametxtbox.Text = customer.name;
 
         }
@@ -108,6 +110,10 @@ namespace BookStore
                         if (item.product.getId() == LoginForm.current_customer_id)
                         {
                             shopping_cart.removeProduct(item);
+                            
+                            // to send message to customer about change of stock by using Observer Pattern
+                            item.product.Attach(customer);
+                            item.product.ChangeStock();
                             i--;
                         }
 
