@@ -70,7 +70,7 @@
             this.reklam1picturebox.Size = new System.Drawing.Size(191, 187);
             this.reklam1picturebox.TabIndex = 13;
             this.reklam1picturebox.TabStop = false;
-            this.reklam1picturebox.Click += new System.EventHandler(this.reklam1picturebox_Click);
+         
             // 
             // reklam2picturebox
             // 
@@ -152,7 +152,6 @@
             this.cmbFiltre.Size = new System.Drawing.Size(109, 21);
             this.cmbFiltre.TabIndex = 9;
             this.cmbFiltre.Text = "Select";
-            this.cmbFiltre.SelectedIndexChanged += new System.EventHandler(this.cmbFiltre_SelectedIndexChanged);
             // 
             // cmbProduct
             // 

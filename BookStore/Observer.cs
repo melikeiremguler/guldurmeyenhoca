@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-   
-       public abstract class Observer
+    /*! \class Observer
+     *  \brief It is abstract Observer class.
+     */
+    public abstract class Observer
 
         {
             //Değişimde haber gider

@@ -1,0 +1,6 @@
+<map id="BookStore.AddProduct" name="BookStore.AddProduct">
+<area shape="rect" id="node3" href="$class_book_store_1_1_admin_user.html" title="It is admin user class. " alt="" coords="81,157,232,184"/>
+<area shape="rect" id="node4" href="$class_book_store_1_1_customer.html" title="It is customer class. " alt="" coords="117,81,196,108"/>
+<area shape="rect" id="node5" href="$class_book_store_1_1_observer.html" title="It is abstract Observer class. " alt="" coords="120,5,193,32"/>
+<area shape="rect" id="node6" href="$class_book_store_1_1_database.html" title="It is Database class. " alt="" coords="320,157,463,184"/>
+</map>

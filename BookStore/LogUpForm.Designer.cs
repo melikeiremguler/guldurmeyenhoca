@@ -50,7 +50,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(125, 20);
             this.txtName.TabIndex = 0;
-            this.txtName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
             // txtAddress
             // 
@@ -66,7 +65,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(125, 20);
             this.txtEmail.TabIndex = 2;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             this.txtEmail.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress);
             // 
             // txtUserName
@@ -75,7 +73,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(125, 20);
             this.txtUserName.TabIndex = 3;
-            this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
             // 
             // txtPassword
             // 
@@ -186,7 +183,6 @@
             this.Controls.Add(this.txtName);
             this.Name = "LogUpForm";
             this.Text = "LogUpForm";
-            this.Load += new System.EventHandler(this.LogUpForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

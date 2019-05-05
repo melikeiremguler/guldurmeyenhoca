@@ -10,19 +10,27 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class InvoiceForm
+     *  \brief It is Invoice Form class.
+     *  \details it is derived from Form class
+    */
     public partial class InvoiceForm : Form
     {
+        
         private bool mouseDown;
         private Point lastLocation;
        
         public InvoiceForm()
         {
-           
-            InitializeComponent();
-            
-
+             InitializeComponent();
         }
 
+        /*! \fn void setPaymentForm(PaymentForm paymentForm)
+        *  \brief A set Payment Form.
+        *  \details It is used to make operation on PaymentForm.
+        *  \param paymentForm it is an PaymentForm object.
+        *  \return void
+        */
         public void setPaymentForm(PaymentForm paymentForm)
         {
             customernamelbl.Text = paymentForm.nametxtbox.Text;
@@ -53,17 +61,37 @@ namespace BookStore
             paymentForm.Close();
         }
 
+        /*! \fn void exit_lbl_Click(object sender, EventArgs e)
+       *  \brief A click listener function.
+       *  \details It is used to exit Invoice Form.
+       *  \param sender it is an object.
+       *  \param e it is EventArgs object.
+       *  \return void
+       */
         private void exit_lbl_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /*! \fn void InvoiceForm_MouseDown(object sender, MouseEventArgs e)
+          *  \brief A mouse down listener function.
+          *  \details It is used to move invoice form.
+          *  \param sender it is an object.
+          *  \param e it is MouseEventArgs object.
+          *  \return void
+        */
         private void InvoiceForm_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
             lastLocation = e.Location;
         }
-
+        /*! \fn void InvoiceForm_MouseMove(object sender, MouseEventArgs e)
+          *  \brief A mouse move listener function.
+          *  \details It is used to move invoice form.
+          *  \param sender it is an object.
+          *  \param e it is MouseEventArgs object.
+          *  \return void
+        */
         private void InvoiceForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
@@ -75,17 +103,37 @@ namespace BookStore
             }
         }
 
+        /*! \fn void InvoiceForm_MouseUp(object sender, MouseEventArgs e)
+          *  \brief A mouse move listener function.
+          *  \details It is used to move invoice form.
+          *  \param sender it is an object.
+          *  \param e it is MouseEventArgs object.
+          *  \return void
+        */
         private void InvoiceForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
         }
 
-        private void login_button_Click(object sender, EventArgs e)
+        /*! \fn void ok_button_Click(object sender, EventArgs e)
+          *  \brief A click listener function.
+          *  \details It is used to call screenshot function and confirm invoice.
+          *  \param sender it is an object.
+          *  \param e it is EventArgs object.
+          *  \return void
+        */
+        private void ok_button_Click(object sender, EventArgs e)
         {
             screenshotForm();
 
             this.Close();
         }
+
+        /*! \fn void screenshotForm()
+          *  \brief A screen shot function.
+          *  \details It is used to take invoice screen shot then send email.
+          *  \return void
+        */
         private void screenshotForm()
         {
             var frm = InvoiceForm.ActiveForm;

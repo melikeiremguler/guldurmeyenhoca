@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class ShoppingCart
+     *  \brief It is ShoppingCart class.
+     */
     class ShoppingCart
     {
         public int customerID { get; set; }
@@ -30,6 +33,12 @@ namespace BookStore
 
         }
 
+       /*! \fn void addProduct(ItemToPurchase item)
+       *  \brief A void add product function.
+       *  \details It is used to add product into shopping cart.
+       *  \param item it is ItemToPurchase object.
+       *  \return void
+       */
         public void addProduct(ItemToPurchase item)
         {
             bool check = true;
@@ -94,6 +103,12 @@ namespace BookStore
 
         }
 
+        /*! \fn void removeProduct(ItemToPurchase item)
+         *  \brief A void remove product function.
+         *  \details It is used to remove product from shopping cart.
+         *  \param item it is ItemToPurchase object.
+         *  \return void
+        */
         public void removeProduct(ItemToPurchase item)
         {
             Database database = Database.get_instance();
@@ -113,7 +128,11 @@ namespace BookStore
                 itemsToPurchase_list.Remove(item);
             }
         }
-
+        /*! \fn int getTotalProduct()
+         *  \brief A int return total product.
+         *  \details It is used to return total product in shopping cart.
+         *  \return int
+        */
         public int getTotalProduct()
         {
             int totalproduct = 0;

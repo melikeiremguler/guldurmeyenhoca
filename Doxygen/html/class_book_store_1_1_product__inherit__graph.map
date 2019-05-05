@@ -1,0 +1,5 @@
+<map id="BookStore.Product" name="BookStore.Product">
+<area shape="rect" id="node2" href="$class_book_store_1_1_book.html" title="It is book class. " alt="" coords="5,80,123,107"/>
+<area shape="rect" id="node3" href="$class_book_store_1_1_magazine.html" title="It is Magazine class. " alt="" coords="147,80,290,107"/>
+<area shape="rect" id="node4" href="$class_book_store_1_1_music_c_d.html" title="It is MusicCD class. " alt="" coords="314,80,454,107"/>
+</map>

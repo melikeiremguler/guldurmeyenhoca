@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-
-
-   public class Book:Product
+    /*! \class Book
+     *  \brief It is book class.
+     *  \details it is derived from product class
+     */
+    public class Book:Product
 
     {
+       
         public int ISBN { get; set; }
         public string author { get; set; }
         public string publisher { get; set; }
@@ -35,14 +38,32 @@ namespace BookStore
             Description = des;
             
         }
+        /*! \fn int getTotalBook()
+         *  \brief A int function.
+         *  \details It is used to return total book
+         *  \return int
+        */
         public int getTotalBook()
         {
             return TotalBook;
         }
-        public  void setTotalBook(int t)
+
+        /*! \fn void setTotalBook(int t)
+         *  \brief A void function.
+         *  \details It is used to set number of total book
+         *  \param t (int) number of total book
+         *  \return void
+        */
+        public void setTotalBook(int t)
         {
             TotalBook = t ;
         }
+
+        /*! \fn override void Print()
+         *  \brief A void function.
+         *  \details It is overrided from Product class.It is used to print information of Book 
+         *  \return void
+        */
         public override void Print()
         {
             base.Print();

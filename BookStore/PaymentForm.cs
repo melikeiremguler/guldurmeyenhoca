@@ -12,6 +12,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class PaymentForm
+    *  \brief It is Form class.
+    *  \details it is derived from Form class
+    */
     public partial class PaymentForm : Form
     {
         public CustomerForm customerform;
@@ -25,13 +29,23 @@ namespace BookStore
             nametxtbox.Text = customer.name;
 
         }
-
+       
+        /*! \fn void set_Form(CustomerForm customerform)
+        *  \brief A set function.
+        *  \details It is used to set customer form.
+        *  \param customerform it is an CustomerForm object
+        *  \return void
+       */
         public void set_Form(CustomerForm customerform)
         {
             this.customerform = customerform;
 
         }
-
+        /*! \fn void set_Form(CustomerForm customerform)
+          *  \brief A void find customer function.
+          *  \details It is used to find current customer.
+          *  \return Customer
+         */
         private Customer find_customer()
         {
             db = Database.get_instance();
@@ -49,6 +63,13 @@ namespace BookStore
             return customer;
         }
 
+        /*! void buy_button_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to make a purchase.
+         *  \param sender it is an object
+         *  \param e it is an EventArgs
+         *  \return void
+         */
         private void buy_button_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(customeraddresstxtbox.Text) && cash_radiobutton.Checked)
@@ -104,12 +125,25 @@ namespace BookStore
             }
         }
 
-
+        /*! void cash_radiobutton_CheckedChanged(object sender, EventArgs e)
+        *  \brief A checked changed listener function.
+        *  \details It is used to set the data to be entered when the cash payment option is selected.
+        *  \param sender it is an object
+        *  \param e it is an EventArgs
+        *  \return void
+        */
         private void cash_radiobutton_CheckedChanged(object sender, EventArgs e)
         {
             creditcart_groupbox.Enabled = false;
         }
 
+        /*! void creditcard_radiobutton_CheckedChanged(object sender, EventArgs e)
+       *  \brief A checked changed listener function.
+       *  \details It is used to set the data to be entered when the credit card payment option is selected.
+       *  \param sender it is an object
+       *  \param e it is an EventArgs
+       *  \return void
+       */
         private void creditcard_radiobutton_CheckedChanged(object sender, EventArgs e)
         {
             creditcart_groupbox.Enabled = true;

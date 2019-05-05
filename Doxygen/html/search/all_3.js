@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['database',['Database',['../class_book_store_1_1_database.html',1,'BookStore']]],
+  ['deleterow_5fclick',['DeleteRow_Click',['../class_book_store_1_1_customer_form.html#ae5bc34101169ef9869e920f25b0c70fa',1,'BookStore::CustomerForm']]],
+  ['detach',['Detach',['../class_book_store_1_1_product.html#aaa2f9b62900d28a992cbd82638d44b93',1,'BookStore::Product']]],
+  ['dispose',['Dispose',['../class_book_store_1_1_add_product.html#acb6d562b1c19ab48f09ff278acdc9977',1,'BookStore.AddProduct.Dispose()'],['../class_book_store_1_1_admin_form.html#a0cd7b6e9a8359989483f67bde04e07f5',1,'BookStore.AdminForm.Dispose()'],['../class_book_store_1_1_customer_form.html#a6eab9b626af9f831307170afaf8c63b5',1,'BookStore.CustomerForm.Dispose()'],['../class_book_store_1_1_info_form.html#aeacd9229c75a5ccea819839c8702ebae',1,'BookStore.InfoForm.Dispose()'],['../class_book_store_1_1_invoice_form.html#a2c61b699ecec6c4539ca526cca9061fe',1,'BookStore.InvoiceForm.Dispose()'],['../class_book_store_1_1_login_form.html#ade2e0a1c11510b7d26bf866794020435',1,'BookStore.LoginForm.Dispose()'],['../class_book_store_1_1_log_up_form.html#a9c09f7d11f38501cf2fe62a9190d4859',1,'BookStore.LogUpForm.Dispose()'],['../class_book_store_1_1_payment_form.html#adef2059dabcc8fc54c9965e87ebe330c',1,'BookStore.PaymentForm.Dispose()'],['../class_book_store_1_1_settingsform.html#a49bae492f0029504b46940df98d65948',1,'BookStore.Settingsform.Dispose()']]]
+];

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class LoginForm
+     *  \brief It is Form class.
+     *  \details it is derived from Form class.
+     */
     public partial class LoginForm : Form
     {
 
@@ -24,17 +28,37 @@ namespace BookStore
             ths = frm; //customer formundaki toolları kullanmamızı sağlar.
         }
 
+        /*! \fn void exit_lbl_Click(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to exit login form.
+        *  \param sender it is an object.
+        *  \param e it is EventArgs object.
+        *  \return void
+        */
         private void exit_lbl_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
+        /*! \fn void LoginForm_MouseDown(object sender, MouseEventArgs e)
+          *  \brief A mouse down listener function.
+          *  \details It is used to move invoice form.
+          *  \param sender it is an object.
+          *  \param e it is MouseEventArgs object.
+          *  \return void
+        */
         private void LoginForm_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
             lastLocation = e.Location;
         }
 
+        /*! \fn void LoginForm_MouseMove(object sender, MouseEventArgs e)
+          *  \brief A mouse move listener function.
+          *  \details It is used to move invoice form.
+          *  \param sender it is an object.
+          *  \param e it is MouseEventArgs object.
+          *  \return void
+        */
         private void LoginForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (mouseDown)
@@ -46,11 +70,25 @@ namespace BookStore
             }
         }
 
+        /*! \fn void LoginForm_MouseUp(object sender, MouseEventArgs e)
+          *  \brief A mouse move listener function.
+          *  \details It is used to move invoice form.
+          *  \param sender it is an object.
+          *  \param e it is MouseEventArgs object.
+          *  \return void
+        */
         private void LoginForm_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
         }
-        
+
+        /*! \fn void login_button_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to login by customer.
+         *  \param sender it is an object.
+         *  \param e it is EventArgs object.
+         *  \return void
+       */
         public void login_button_Click(object sender, EventArgs e)
         {
             if(User_control())
@@ -86,6 +124,11 @@ namespace BookStore
             }
            
         }
+        /*! \fn bool User_control()
+         *  \brief A bool function.
+         *  \details It is used to control information such as username and password of customer.
+         *  \return bool
+       */
         public bool User_control()
         {
 
@@ -95,12 +138,12 @@ namespace BookStore
 
             string password;
             password = password_txtbox.Text;
-            if (username_txtbox.Text != "tiv")
-            {
-                HashCode hash = new HashCode(password_txtbox.Text);
-                password = hash.hashCode; //Hashlendi
+            //if (username_txtbox.Text != "tiv")
+            //{
+            //    HashCode hash = new HashCode(password_txtbox.Text);
+            //    password = hash.hashCode; //Hashlendi
 
-            }
+            //}
             for (int i = 0; i < data_base_.CustomerList.Count; i++)
             {
                 if (username_txtbox.Text.Equals(data_base_.CustomerList[i].userName) && password.Equals(data_base_.CustomerList[i].password))
@@ -113,7 +156,11 @@ namespace BookStore
             return false;
 
         }
-
+        /*! \fn void clean_unknownuser_shoppingcart()
+        *  \brief A void function.
+        *  \details It is used to clean shopping cart of unknown customer.
+        *  \return void
+      */
         private void clean_unknownuser_shoppingcart()
         {
             ths.read_shopping_cart();
@@ -144,7 +191,13 @@ namespace BookStore
         {
 
         }
-
+        /*! \fn void btnLogup_Click(object sender, EventArgs e)
+        *  \brief A void function.
+        *  \details It is used to log up by customer.
+        *  \param sender it is an object.
+        *  \param e it is EventArgs object.
+        *  \return void
+      */
         private void btnLogup_Click(object sender, EventArgs e)
         {
             LogUpForm logUpForm = new LogUpForm();

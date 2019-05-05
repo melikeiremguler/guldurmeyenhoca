@@ -94,7 +94,7 @@
             this.password_txtbox.Name = "password_txtbox";
             this.password_txtbox.PasswordChar = '*';
             this.password_txtbox.Size = new System.Drawing.Size(213, 19);
-            this.password_txtbox.TabIndex = 3;
+            this.password_txtbox.TabIndex = 4;
             // 
             // username_txtbox
             // 
@@ -104,7 +104,7 @@
             this.username_txtbox.Location = new System.Drawing.Point(48, 196);
             this.username_txtbox.Name = "username_txtbox";
             this.username_txtbox.Size = new System.Drawing.Size(213, 19);
-            this.username_txtbox.TabIndex = 4;
+            this.username_txtbox.TabIndex = 3;
             // 
             // username_lbl
             // 
@@ -116,7 +116,6 @@
             this.username_lbl.Size = new System.Drawing.Size(62, 15);
             this.username_lbl.TabIndex = 5;
             this.username_lbl.Text = "Username";
-           
             // 
             // password_lbl
             // 

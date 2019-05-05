@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class LogUpForm
+     *  \brief It is Form class.
+     *  \details it is derived from Form class
+     */
     public partial class LogUpForm : Form
     {
         public LogUpForm()
@@ -18,16 +22,13 @@ namespace BookStore
             InitializeComponent();
         }
 
-        private void txtEmail_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtUserName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        /*! \fn void btnLogUp_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to sign up by customer.
+         *  \param sender it is an object
+         *  \param e it is an EventArgs
+         *  \return void
+        */
         private void btnLogUp_Click(object sender, EventArgs e)
         {
 
@@ -82,9 +83,5 @@ namespace BookStore
           //  e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
         }
 
-        private void LogUpForm_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

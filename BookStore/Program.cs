@@ -6,6 +6,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class Program
+    *   \brief It is Main class.
+    *   \details This application is firstly run in this class.
+    */
     static class Program
     {
        

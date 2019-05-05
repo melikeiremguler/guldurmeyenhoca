@@ -13,6 +13,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class AddProduct
+    *   \brief It is used to add product.
+    *   
+    */
     public partial class AddProduct : Form
     {
         public AddProduct()
@@ -22,6 +26,7 @@ namespace BookStore
         string file;
         Database database = Database.get_instance();
         AdminUser admin = AdminUser.get_instance();
+
         private void AddProduct_Load(object sender, EventArgs e)
         {
             database.BookList = database.read_book("BookTable");
@@ -39,8 +44,14 @@ namespace BookStore
             cmbMucTyp.Items.Add(MusicCD.Type.Romance);
 
         }
-      
-        
+
+        /*! \fn void rdbBookAdd_CheckedChanged(object sender, EventArgs e)
+         *  \brief A checkedchanged listener function.
+         *  \details It is used to set properties when adding book in form.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void rdbBookAdd_CheckedChanged(object sender, EventArgs e)
         {
             txtIssue.Enabled = false;
@@ -58,6 +69,13 @@ namespace BookStore
             btnLoad.Enabled = false;
         }
 
+        /*! \fn void  rdbMagAdd_CheckedChanged(object sender, EventArgs e)
+         *  \brief A checkedchanged listener function.
+         *  \details It is used to set properties when adding magazine in form.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void rdbMagAdd_CheckedChanged(object sender, EventArgs e)
         {
             txtIssue.Enabled = true;
@@ -75,6 +93,13 @@ namespace BookStore
             btnLoad.Enabled = false;
         }
 
+        /*! \fn void  rdbMucAdd_CheckedChanged(object sender, EventArgs e)
+         *  \brief A checkedchanged listener function.
+         *  \details It is used to set properties when adding music in form.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void rdbMucAdd_CheckedChanged(object sender, EventArgs e)
         {
             txtIssue.Enabled = false;
@@ -91,7 +116,14 @@ namespace BookStore
             txtDescription.Enabled = false;
             btnLoad.Enabled = true;
         }
-      
+
+        /*! \fn void  btnBookAdd_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to add book into book table in database.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void btnBookAdd_Click(object sender, EventArgs e)
         {
 
@@ -110,7 +142,13 @@ namespace BookStore
 
         }
 
-
+        /*! \fn void  btnMagAdd_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to add magazine into magazine table in database.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void btnMagAdd_Click(object sender, EventArgs e)
         {
             string filename = Application.StartupPath + @"\Magazine\" + (database.MagazineList.Count+1) + ".jpg";
@@ -128,6 +166,13 @@ namespace BookStore
             MessageBox.Show("Succes");
         }
 
+        /*! \fn void  btnMusAdd_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to add music into music table in database.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void btnMucAdd_Click(object sender, EventArgs e)
         {
             string filename = Application.StartupPath + @"\MusicCD\" +( database.MusicCDList.Count+1) + ".jpg";
@@ -145,7 +190,13 @@ namespace BookStore
             MessageBox.Show("Succes");
 
         }
-
+        /*! \fn void  btnDowload_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to add image of product.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void btnDowload_Click(object sender, EventArgs e)
         {
             Image File;
@@ -159,11 +210,26 @@ namespace BookStore
                 pcbImage.Image = resizeImage(pcbImage.Image, new Size(120, 120));
             }
         }
+
+        /*! \fn static Image resizeImage(Image imgToResize, Size size)
+         *  \brief A static Image function.
+         *  \details It is used to resize image of product.
+         *  \param imgToResize an Image.
+         *  \param size a Size.
+         *  \return Image
+        */
         public static Image resizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
 
+        /*! \fn void btnLoad_Click(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to load audio for music product.
+        *  \param sender an object.
+        *  \param e an EventArgs.
+        *  \return void
+       */
         private void btnLoad_Click(object sender, EventArgs e)
         {
            

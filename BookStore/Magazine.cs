@@ -7,7 +7,10 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-  
+    /*! \class Magazine
+      * \brief It is Magazine class.
+      * \details it is derived from Product class
+      */
     public class Magazine:Product
     {
         public Type type { get; set; }
@@ -20,8 +23,6 @@ namespace BookStore
 
         public enum Type { Actual, News, Sport, Computer, Technology }
 
-
-
         public Magazine(int id,string nm,double prc, string img, Type Type, string Issue,string des,int stok) : base(id,nm, prc,img)
         {
             issue = Issue;
@@ -32,16 +33,34 @@ namespace BookStore
             TotalMagazine++;
             Description = des;
         }
+
+        /*! \fn override void Print()
+         *  \brief A void function.
+         *  \details It is overrided from Product class.It is used to print information of Magazine. 
+         *  \return void
+        */
         public override void Print()
         {
             base.Print();
             Console.Write(" | " + type + " | " + issue + Environment.NewLine);
 
         }
+        /*! \fn int getTotalMagazine()
+        *  \brief A int function.
+        *  \details It is used to return total magazine.
+        *  \return int
+        */
         public int getTotalMagazine()
         {
             return TotalMagazine;
         }
+
+        /*! \fn void setTotalMagazine(int i)
+         *  \brief A void function.
+         *  \details It is used to set number of total magazine.
+         *  \param i (int) number of total magazine.
+         *  \return void
+        */
         public void setTotalMagazine(int i)
         {
              TotalMagazine=i;

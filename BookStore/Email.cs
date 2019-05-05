@@ -10,16 +10,21 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class Email
+     *  \brief It is Email class.
+     */
     class Email
     {
         private Customer currentCustomer { get; set; }//o anki aktif olan kullanıcıya güncellenen stok bilgisi mail olarak gider.
         private MailMessage mail { get; set; }
         private SmtpClient client { get; set; }
 
+        /*! \fn Email()
+         *  \brief A Email constructor function.
+         *  \details It is used to send email.
+        */
         public Email()
         {
-            
-            
             Database database = Database.get_instance();
             database.CustomerList = database.read_customer("UserTable");
             foreach(var i in database.CustomerList)

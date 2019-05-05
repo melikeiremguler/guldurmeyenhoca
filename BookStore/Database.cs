@@ -13,13 +13,21 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class Database
+    *  \brief It is Database class.
+    */
 
     public class Database
     {
         private static string path = "Data Source=" + Application.StartupPath + "\\BookStore.db;Version=3";
         private SQLiteConnection connection;
         private SQLiteCommand sql_command;
-        
+
+        public List<Book> BookList = new List<Book>();
+        public List<Customer> CustomerList = new List<Customer>();
+        public List<MusicCD> MusicCDList = new List<MusicCD>();
+        public List<Magazine> MagazineList = new List<Magazine>();
+
         private static Database database;
 
         private Database()
@@ -28,11 +36,12 @@ namespace BookStore
             connection = new SQLiteConnection(path);
             sql_command = new SQLiteCommand();
         }
-        public List<Book> BookList = new List<Book>();
-        public List<Customer> CustomerList = new List<Customer>();
-        public List<MusicCD> MusicCDList = new List<MusicCD>();
-        public List<Magazine> MagazineList = new List<Magazine>();
 
+        /*! \fn static Database get_instance()
+         *  \brief A static Database function 
+         *  \details It is used to return only one Database object by using Singleton Pattern.
+         *  \return Database
+        */
         public static Database get_instance()
         {
             
@@ -44,6 +53,11 @@ namespace BookStore
             return database;
         }
 
+        /*! \fn void open_database()
+        *  \brief A open database function.
+        *  \details It is used to connect database.
+        *  \return void
+       */
         public void open_database()
         {
 
@@ -51,18 +65,40 @@ namespace BookStore
 
         }
 
+        /*! \fn void process_command(string sql_statement)
+        *  \brief A process command function.
+        *  \details It is used to process sql statement.
+        *  \param sql_statement (string) it holds sql statement.
+        *  \return void
+       */
         private void process_command(string sql_statement)
         {
             sql_command.CommandText = sql_statement;
             sql_command.Connection = connection;
         }
 
+        /*!  \fn void add_value(string param, object value, string sql_statement)
+           * \brief A add value function.
+           * \details It is used to add value to database.
+           * \param param (string) it holds key.
+           * \param value (object) it hold value.
+           * \param sql_statement (string) it holds sql statement.
+           * \return void
+        */
         public void add_value(string param, object value, string sql_statement)  //string sql_statement = INSERT INTO table'ın adı
         {
             process_command(sql_statement);
             sql_command.Parameters.AddWithValue(param, value);
         }
-       
+
+        /*!  \fn void update_value(string param1, object value, string sql_statement)
+           * \brief A update value function.
+           * \details It is used to update value to database.
+           * \param param1 (string) it holds key.
+           * \param value (object) it hold value.
+           * \param sql_statement (string) it holds sql statement.
+           * \return void
+        */
         public void update_value(string param1, object value, string sql_statement)  //string sql_statement = INSERT INTO table'ın adı
         {
             process_command(sql_statement);
@@ -80,6 +116,14 @@ namespace BookStore
             connection.Close();
             
         }
+
+        /*!  \fn  void add_customer(string sql_statement, Customer customer)
+           * \brief A adding customer function.
+           * \details It is used to add customer value to database.
+           * \param sql_statement (string) it holds sql statement.
+           * \param customer (Customer) it holds Customer object.
+           * \return void
+        */
         public void add_customer(string sql_statement, Customer customer)
         {
             using (SQLiteConnection connection = new SQLiteConnection(path))
@@ -112,6 +156,14 @@ namespace BookStore
 
 
         }
+
+        /*!  \fn void add_book(string sql_statement,Book book)
+           * \brief A adding book function.
+           * \details It is used to add book value to database.
+           * \param sql_statement (string) it holds sql statement.
+           * \param book (Book) it holds Book object.
+           * \return void
+        */
         public void add_book(string sql_statement,Book book)
         {
 
@@ -148,6 +200,14 @@ namespace BookStore
 
             }
         }
+
+        /*!  \fn void add_magazine(string sql_statement,Magazine magazine)
+          * \brief A adding magazine function.
+          * \details It is used to add magazine value to database.
+          * \param sql_statement (string) it holds sql statement.
+          * \param magazine (Magazine) it holds Magazine object.
+          * \return void
+       */
         public void add_magazine(string sql_statement, Magazine magazine)
         {
              using(SQLiteConnection connection = new SQLiteConnection(path))
@@ -178,6 +238,14 @@ namespace BookStore
             }
       
         }
+
+        /*!  \fn void add_music(string sql_statement,MusicCD musicCD)
+         * \brief A adding musiccd function.
+         * \details It is used to add musiccd value to database.
+         * \param sql_statement (string) it holds sql statement.
+         * \param musicCD (MusicCD) it holds MusicCD object.
+         * \return void
+         */
         public void add_musiccd(string sql_statement, MusicCD musicCD)
         {
 
@@ -213,6 +281,16 @@ namespace BookStore
 
 
         }
+
+        /*!  \fn void add_shoppingcart(string sql_statement, int customerId,string productName,int amount)
+        * \brief A adding product to shopping cart function.
+        * \details It is used to add product that customer wants to buy to database.
+        * \param sql_statement (string) it holds sql statement.
+        * \param customerId (int) it holds customer id.
+        * \param productName (string) it holds product name.
+        * \param amount (int) it holds quantity of product.
+        * \return void
+        */
         public void add_shoppingcart(string sql_statement, int customerId,string productName,int amount)
         {
             sql_command = connection.CreateCommand();
@@ -233,6 +311,11 @@ namespace BookStore
             connection.Close();
         }
 
+        /*! \fn bool execute_command()
+        *   \brief A executing command function.
+        *   \details It is used to execute sql statement.
+        *   \return bool
+        */
         public bool execute_command()
         {
 
@@ -247,7 +330,13 @@ namespace BookStore
             }
 
         }
-       
+
+        /*! \fn List<Book> read_book(string value)
+       *   \brief A reading data function.
+       *   \details It is used to read data from book table in database.
+       *   \param value (string) table name.
+       *   \return List<Book>
+       */
         public List<Book> read_book(string value)
         {
 
@@ -277,6 +366,13 @@ namespace BookStore
             }
             return BookList;
         }
+
+        /*! \fn List<Customer> read_customer(string value)
+         *   \brief A reading data function.
+         *   \details It is used to read data from customer table in database.
+         *   \param value (string) table name.
+         *   \return List<Customer>
+         */
         public List<Customer> read_customer(string value)
         {
             CustomerList.Clear();
@@ -301,6 +397,13 @@ namespace BookStore
             }
             return CustomerList;
         }
+
+        /*! \fn List<MusicCD> read_musiccd(string value)
+         *   \brief A reading data function.
+         *   \details It is used to read data from musicCD table in database.
+         *   \param value (string) table name.
+         *   \return List<Customer>
+         */
         public List<MusicCD> read_musiccd(string value)
         {
 
@@ -331,6 +434,13 @@ namespace BookStore
             }
             return MusicCDList;
         }
+
+        /*! \fn List<Magazine> read_magazine(string value)
+        *   \brief A reading data function.
+        *   \details It is used to read data from magazine table in database.
+        *   \param value (string) table name.
+        *   \return List<Magazine>
+        */
         public List<Magazine> read_magazine(string value)
         {
 
@@ -363,6 +473,11 @@ namespace BookStore
             return MagazineList;
         }
 
+        /*! \fn void close_database()
+        *   \brief A close database.
+        *   \details It is used to close database.
+        *   \return void
+        */
         public void close_database()
         {
             sql_command.Dispose();

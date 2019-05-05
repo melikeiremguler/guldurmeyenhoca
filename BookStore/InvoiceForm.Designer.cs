@@ -40,12 +40,12 @@
             this.name_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.amount_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.unit_price_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.login_button = new System.Windows.Forms.Button();
+            this.total_price_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ok_button = new System.Windows.Forms.Button();
             this.totalpricelbl = new System.Windows.Forms.Label();
             this.customertotalpricelbl = new System.Windows.Forms.Label();
             this.installmentlbl = new System.Windows.Forms.Label();
             this.customerinstallmentlbl = new System.Windows.Forms.Label();
-            this.total_price_column = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.logo_picturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,20 +162,25 @@
             this.unit_price_column.Text = "Unit Price";
             this.unit_price_column.Width = 100;
             // 
-            // login_button
+            // total_price_column
             // 
-            this.login_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
-            this.login_button.FlatAppearance.BorderSize = 0;
-            this.login_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_button.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.login_button.ForeColor = System.Drawing.SystemColors.Control;
-            this.login_button.Location = new System.Drawing.Point(420, 548);
-            this.login_button.Name = "login_button";
-            this.login_button.Size = new System.Drawing.Size(118, 31);
-            this.login_button.TabIndex = 17;
-            this.login_button.Text = "OK";
-            this.login_button.UseVisualStyleBackColor = false;
-            this.login_button.Click += new System.EventHandler(this.login_button_Click);
+            this.total_price_column.Text = "Total Price";
+            this.total_price_column.Width = 100;
+            // 
+            // ok_button
+            // 
+            this.ok_button.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(31)))), ((int)(((byte)(32)))));
+            this.ok_button.FlatAppearance.BorderSize = 0;
+            this.ok_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ok_button.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ok_button.ForeColor = System.Drawing.SystemColors.Control;
+            this.ok_button.Location = new System.Drawing.Point(420, 548);
+            this.ok_button.Name = "ok_button";
+            this.ok_button.Size = new System.Drawing.Size(118, 31);
+            this.ok_button.TabIndex = 17;
+            this.ok_button.Text = "OK";
+            this.ok_button.UseVisualStyleBackColor = false;
+            this.ok_button.Click += new System.EventHandler(this.ok_button_Click);
             // 
             // totalpricelbl
             // 
@@ -217,11 +222,6 @@
             this.customerinstallmentlbl.TabIndex = 21;
             this.customerinstallmentlbl.Text = "-";
             // 
-            // total_price_column
-            // 
-            this.total_price_column.Text = "Total Price";
-            this.total_price_column.Width = 100;
-            // 
             // InvoiceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,7 +232,7 @@
             this.Controls.Add(this.installmentlbl);
             this.Controls.Add(this.customertotalpricelbl);
             this.Controls.Add(this.totalpricelbl);
-            this.Controls.Add(this.login_button);
+            this.Controls.Add(this.ok_button);
             this.Controls.Add(this.productlistview);
             this.Controls.Add(this.customeraddresslbl);
             this.Controls.Add(this.addresslbl);
@@ -264,7 +264,7 @@
         private System.Windows.Forms.ColumnHeader name_column;
         private System.Windows.Forms.ColumnHeader amount_column;
         private System.Windows.Forms.ColumnHeader unit_price_column;
-        private System.Windows.Forms.Button login_button;
+        private System.Windows.Forms.Button ok_button;
         private System.Windows.Forms.Label totalpricelbl;
         private System.Windows.Forms.Label customertotalpricelbl;
         private System.Windows.Forms.Label installmentlbl;

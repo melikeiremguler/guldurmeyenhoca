@@ -1,0 +1,4 @@
+<map id="BookStore.LoginForm" name="BookStore.LoginForm">
+<area shape="rect" id="node3" href="$class_book_store_1_1_customer_form.html" title="It is Form class. " alt="" coords="48,309,222,335"/>
+<area shape="rect" id="node5" href="$class_book_store_1_1_admin_form.html" title="It is used to make administrator operations. " alt="" coords="246,309,400,335"/>
+</map>

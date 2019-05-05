@@ -114,6 +114,7 @@
             this.Controls.Add(this.lbPrice);
             this.Controls.Add(this.lnName);
             this.Controls.Add(this.picBoxImage);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "InfoForm";
             this.Text = "InfoForm";
             ((System.ComponentModel.ISupportInitialize)(this.picBoxImage)).EndInit();

@@ -14,6 +14,10 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
+    /*! \class CustomerForm
+     *  \brief It is Form class.
+     *  \details it is derived from Form class
+     */
     public partial class CustomerForm : Form
     {
         int t = 1, r = 6;
@@ -32,10 +36,15 @@ namespace BookStore
         {
             InitializeComponent();
             shopping_cart_list = new ArrayList();
-            Console.WriteLine(total_quantity);
-            
-        }
 
+        }
+        /*! \fn void CustomerForm_Load(object sender, EventArgs e)
+         *  \brief A load listener function.
+         *  \details It is used to print data about book .
+         *  \param sender it is an object
+         *  \param e it is an EventArgs
+         *  \return void
+        */
         private void CustomerForm_Load(object sender, EventArgs e)
         {
 
@@ -134,12 +143,13 @@ namespace BookStore
 
         }
 
-        private void cmbFiltre_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-        }
-
+        /*! \fn void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
+      *  \brief A selectedindexchanged listener function.
+      *  \details It is used to change properties with respect to product.
+      *  \param sender an object.
+      *  \param e an EventArgs.
+      *  \return void
+     */
         private void cmbProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbProduct.SelectedIndex == 0)
@@ -162,6 +172,13 @@ namespace BookStore
             }
         }
 
+        /*! \fn void timer1_Tick(object sender, EventArgs e)
+         *  \brief A timer function.
+         *  \details It is used to set advertisement transition
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+         */
         private void timer1_Tick(object sender, EventArgs e)
         {
             t++;
@@ -179,25 +196,13 @@ namespace BookStore
 
         }
 
-
-
-        private void billBtn_Click(object sender, EventArgs e)
-        {
-
-            //panel1.Controls.Clear(); // Panel'in içini temizliyoruz..
-            //panel1.Visible = true;
-            //BillForm billForm = new BillForm();
-            //billForm.TopLevel = false;
-            //panel1.Controls.Add(billForm); // panel1 içerisinde formu ekledik
-
-            //billForm.Show(); // formu gösterdik. Ancak buraya dikakt. ShowDialog(); olarak değil Show(); olarak açıyoruz.
-            //billForm.Dock = DockStyle.Fill; // Açılan formun paneli doldurmasını sağladık.
-            //billForm.BringToFront(); // formu panel içinde en öne getirdik
-
-        }
-
-
-
+        /*! \fn void btnLogin_Click(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to open the window to be entered the username and password by customer.
+        *  \param sender an object.
+        *  \param e an EventArgs.
+        *  \return void
+        */
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (btnLogin.Text == "LOGIN")
@@ -227,15 +232,24 @@ namespace BookStore
 
         }
 
+        /*! \fn void HomeBtn_Click(object sender, EventArgs e)
+       *  \brief A click listener function.
+       *  \details It is used to show products in Home Page.
+       *  \param sender an object.
+       *  \param e an EventArgs.
+       *  \return void
+      */
         private void HomeBtn_Click(object sender, EventArgs e)
         {
 
-
             CustomerForm_Load(sender, e);
-
-
         }
 
+        /*! \fn void read_shopping_cart()
+         *  \brief A void function
+         *  \details It is used to read data related with shopping cart from database.
+         *  \return void
+         */
         public void read_shopping_cart()
         {
             shopping_cart_list.Clear();
@@ -250,7 +264,7 @@ namespace BookStore
                     {
                         while (sdr.Read())
                         {
-                            ItemToPurchase item = new ItemToPurchase(new Product(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(3), sdr.GetString(5)), sdr.GetInt32(2),sdr.GetDouble(4));
+                            ItemToPurchase item = new ItemToPurchase(new Product(sdr.GetInt32(0), sdr.GetString(1), sdr.GetDouble(3), sdr.GetString(5)), sdr.GetInt32(2), sdr.GetDouble(4));
                             shopping_cart_list.Add(item);
 
                         }
@@ -263,6 +277,13 @@ namespace BookStore
 
         }
 
+        /*! \fn yeniolusturulanButonlarinClickOlayi_Book(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to add book that is wanted to buy by customer into shopping cart table in database. 
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+         */
         public void yeniolusturulanButonlarinClickOlayi_Book(object sender, EventArgs e)
         {
 
@@ -298,7 +319,7 @@ namespace BookStore
 
             }
 
-            ItemToPurchase item_to_purchase = new ItemToPurchase(book_obj, 1,book_obj.getPrice());
+            ItemToPurchase item_to_purchase = new ItemToPurchase(book_obj, 1, book_obj.getPrice());
             ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             shopping_cart.addProduct(item_to_purchase);
             total_quantity++;
@@ -307,6 +328,14 @@ namespace BookStore
 
         }
 
+
+        /*! \fn yeniolusturulanButonlarinClickOlayi_MusicCD(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to add musiccd that is wanted to buy by customer into shopping cart table in database. 
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+         */
         public void yeniolusturulanButonlarinClickOlayi_MusicCD(object sender, EventArgs e)
         {
             read_shopping_cart();
@@ -339,13 +368,20 @@ namespace BookStore
                 }
             }
 
-            ItemToPurchase item_to_purchase = new ItemToPurchase(musiccd_obj, 1,musiccd_obj.getPrice());
+            ItemToPurchase item_to_purchase = new ItemToPurchase(musiccd_obj, 1, musiccd_obj.getPrice());
             ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             shopping_cart.addProduct(item_to_purchase);
             total_quantity++;
             numberofproduct.Text = total_quantity.ToString();
         }
 
+        /*! \fn yeniolusturulanButonlarinClickOlayi_MusicCD(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to add magazine that is wanted to buy by customer into shopping cart table in database. 
+        *  \param sender an object.
+        *  \param e an EventArgs.
+        *  \return void
+        */
         public void yeniolusturulanButonlarinClickOlayi_Magazine(object sender, EventArgs e)
         {
             read_shopping_cart();
@@ -378,7 +414,7 @@ namespace BookStore
                 }
             }
 
-            ItemToPurchase item_to_purchase = new ItemToPurchase(magazine_obj, 1,magazine_obj.getPrice());
+            ItemToPurchase item_to_purchase = new ItemToPurchase(magazine_obj, 1, magazine_obj.getPrice());
             ShoppingCart shopping_cart = new ShoppingCart(LoginForm.current_customer_id, ref shopping_cart_list, 1);
             shopping_cart.addProduct(item_to_purchase);
             total_quantity++;
@@ -386,19 +422,27 @@ namespace BookStore
 
         }
 
+        /*! \fn void HomeBtn_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to show products in Book Page.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void bookBtn_Click(object sender, EventArgs e)
         {
 
             CustomerForm_Load(sender, e);
 
-
         }
 
-        private void reklam1picturebox_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        /*! \fn void magazineBtn_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to show products in Magazine Page.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void magazineBtn_Click(object sender, EventArgs e)
         {
 
@@ -487,6 +531,13 @@ namespace BookStore
             }
         }
 
+        /*! \fn void musiccdBtn_Click(object sender, EventArgs e)
+           *  \brief A click listener function.
+           *  \details It is used to show products in MusicCd Page.
+           *  \param sender an object.
+           *  \param e an EventArgs.
+           *  \return void
+          */
         private void musiccdBtn_Click(object sender, EventArgs e)
         {
             Database data_base_ = Database.get_instance();
@@ -570,11 +621,13 @@ namespace BookStore
             }
         }
 
-        private void customerpanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        /*! \fn void chancePasswordBtn_Click(object sender, EventArgs e)
+          *  \brief A click listener function.
+          *  \details It is used to change password by customer.
+          *  \param sender an object.
+          *  \param e an EventArgs.
+          *  \return void
+         */
         private void chancePasswordBtn_Click(object sender, EventArgs e)
         {
             Database database = Database.get_instance();
@@ -627,6 +680,13 @@ namespace BookStore
 
         }
 
+        /*! \fn void yeniolusturulanButonlarinClickOlayi_ChangePassword(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to change password by customer and new password is converted hash code then it is written to database as hash code.
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+        */
         private void yeniolusturulanButonlarinClickOlayi_ChangePassword(object sender, EventArgs e)
         {
             string truepassword = "";
@@ -634,7 +694,7 @@ namespace BookStore
             HashCode hash = new HashCode(NewPassword.Text);//new password hashlendi
             string NewPasswordtxt = hash.hashCode;
 
-          
+
             Database database = Database.get_instance();
             database.CustomerList.Clear();
             database.read_customer("UserTable");
@@ -689,12 +749,19 @@ namespace BookStore
             else
             {
                 MessageLbl.Text = "Avaible Password Text is wrong !";
-               
+
             }
 
 
         }
 
+        /*! \fn void billBtn_Click_1(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to show products in shopping cart
+        *  \param sender an object.
+        *  \param e an EventArgs.
+        *  \return void
+       */
         private void billBtn_Click_1(object sender, EventArgs e)
         {
             double total_Price = 0.0;
@@ -775,6 +842,13 @@ namespace BookStore
             panel2.Controls.Add(confirm_cart_button);
         }
 
+        /*! \fn void searchBtn_Click(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to search product
+        *  \param sender an object.
+        *  \param e an EventArgs.
+        *  \return void
+       */
         private void searchBtn_Click(object sender, EventArgs e)
         {
             Database database = Database.get_instance();
@@ -785,84 +859,153 @@ namespace BookStore
             database.read_magazine("MagazineTable");
             database.read_musiccd("MusicCDTable");
 
+
             if (cmbProduct.SelectedIndex == 0)
             {
                 if (cmbFiltre.SelectedIndex == 0)
                 {
-                    for (int i = 0; i < database.BookList.Count; i++)
+                    panel2.Controls.Clear();
+                    int control = 0;
+                    for (int k = 0; k < database.BookList.Count; k++)
                     {
-                        if (Searchtxt.Text == database.BookList[i].getName())
+                        if (Searchtxt.Text == database.BookList[k].getName())
                         {
-                            panel2.Controls.Clear();
+                            Panel productPanel = new Panel();
                             PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(170, 100);
 
-                            pictureBox1.Size = new System.Drawing.Size(170, 200);
-                            pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + (i + 1) + ".jpg";
+                            productPanel.Size = new Size(400, 190);
+                            productPanel.BorderStyle = BorderStyle.FixedSingle;
+                            pictureBox1.Location = new Point(0, 0);
+
+                            pictureBox1.Size = new Size(170, 200);
+                            pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + (k + 1) + ".jpg";
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
-                            // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            productPanel.Controls.Add(pictureBox1);
+
 
                             Label lb = new Label();
                             lb.AutoSize = true;
-                            lb.Text = database.BookList[i].getName() + "\n" + database.BookList[i].author;
-                            Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                            lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            lb.Text = database.BookList[(k)].getName() + "\n" + database.BookList[(k)].author;
+                            lb.Font = new Font("Adobe Fan Heiti Std", 12, FontStyle.Bold);
+                            lb.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y);
+                            productPanel.Controls.Add(lb);
 
-                            Button btn = new Button();
-                            btn.Text = "SEPETE EKLE";
-                            btn.Size = new Size(100, 70);
-                            btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                            btn.Click += yeniolusturulanButonlarinClickOlayi;
-                            btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            Label LbPrice = new Label();
+                            LbPrice.AutoSize = true;
+                            LbPrice.Text = database.BookList[(k)].getPrice().ToString() + "TL";
+                            LbPrice.Font = new Font("Adobe Fan Heiti Std", 16, FontStyle.Bold);
+                            LbPrice.Location = new Point(pictureBox1.Location.X + +pictureBox1.Width, pictureBox1.Location.Y + 120);
+                            productPanel.Controls.Add(LbPrice);
 
-                            pictureBox1.Name = "pictureBox" + i + 10;
-                            btn.Name = "btn" + i;
-                            lb.Name = "lb" + i;
+                            PictureBox infoIcon = new PictureBox();
+                            infoIcon.Size = new Size(25, 25);
+                            infoIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "info" + ".jpg";
+                            infoIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y + 50);
+                            infoIcon.SizeMode = PictureBoxSizeMode.Zoom;
+                            infoIcon.BackColor = Color.Honeydew;
+                            infoIcon.Name = (k + 1).ToString();
+                            infoIcon.Click += (s, p) =>
+                            {
+                                var img = s as PictureBox;
+                                InfoForm infoForm = new InfoForm();
+                                int number = Int32.Parse(img.Name);
 
+                                infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Book\" + number + ".jpg";
+                                infoForm.lnName.Text = database.BookList[number].getName() + "\n" + database.BookList[number].author;
+                                infoForm.lbPage.Text = "Page : " + database.BookList[number].page.ToString();
+                                infoForm.lbDescription.Text = database.BookList[number].Description;
+                                infoForm.lbPrice.Text = database.BookList[number].getPrice().ToString() + " TL";
+                                infoForm.lbPublisher.Text = database.BookList[number].publisher;
+
+                                infoForm.Show();
+
+
+                            };
+                            productPanel.Controls.Add(infoIcon);
+                            panel2.Controls.Add(productPanel);
+                            pictureBox1.Name = "pictureBox" + k + 10;
+                            lb.Name = "lb" + k;
+                            control++;
+
+                            if (control >= database.BookList.Count)
+                            {
+                                break;
+                            }
                         }
                     }
 
                 }
                 if (cmbFiltre.SelectedIndex == 1)
                 {
-                    for (int i = 0; i < database.BookList.Count; i++)
+                    panel2.Controls.Clear();
+                    int control = 0;
+                    for (int k = 0; k < database.BookList.Count; k++)
                     {
-                        if (Searchtxt.Text == database.BookList[i].author)
+                        if (Searchtxt.Text == database.BookList[k].author)
                         {
-                            panel2.Controls.Clear();
+                            Panel productPanel = new Panel();
                             PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(170, 100);
 
-                            pictureBox1.Size = new System.Drawing.Size(170, 200);
-                            pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + (i + 1) + ".jpg";
+                            productPanel.Size = new Size(400, 190);
+                            productPanel.BorderStyle = BorderStyle.FixedSingle;
+                            pictureBox1.Location = new Point(0, 0);
+
+                            pictureBox1.Size = new Size(170, 200);
+                            pictureBox1.ImageLocation = Application.StartupPath + @"\Book\" + (k + 1) + ".jpg";
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
-                            // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            productPanel.Controls.Add(pictureBox1);
+
 
                             Label lb = new Label();
                             lb.AutoSize = true;
-                            lb.Text = database.BookList[i].getName() + "\n" + database.BookList[i].author;
-                            Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                            lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            lb.Text = database.BookList[(k)].getName() + "\n" + database.BookList[(k)].author;
+                            lb.Font = new Font("Adobe Fan Heiti Std", 12, FontStyle.Bold);
+                            lb.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y);
+                            productPanel.Controls.Add(lb);
 
-                            Button btn = new Button();
-                            btn.Text = "SEPETE EKLE";
-                            btn.Size = new Size(100, 70);
-                            btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                            btn.Click += yeniolusturulanButonlarinClickOlayi;
-                            btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            Label LbPrice = new Label();
+                            LbPrice.AutoSize = true;
+                            LbPrice.Text = database.BookList[(k)].getPrice().ToString() + "TL";
+                            LbPrice.Font = new Font("Adobe Fan Heiti Std", 16, FontStyle.Bold);
+                            LbPrice.Location = new Point(pictureBox1.Location.X + +pictureBox1.Width, pictureBox1.Location.Y + 120);
+                            productPanel.Controls.Add(LbPrice);
 
-                            pictureBox1.Name = "pictureBox" + i + 10;
-                            btn.Name = "btn" + i;
-                            lb.Name = "lb" + i;
+                            PictureBox infoIcon = new PictureBox();
+                            infoIcon.Size = new Size(25, 25);
+                            infoIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "info" + ".jpg";
+                            infoIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y + 50);
+                            infoIcon.SizeMode = PictureBoxSizeMode.Zoom;
+                            infoIcon.BackColor = Color.Honeydew;
+                            infoIcon.Name = (k + 1).ToString();
+                            infoIcon.Click += (s, p) =>
+                            {
+                                var img = s as PictureBox;
+                                InfoForm infoForm = new InfoForm();
+                                int number = Int32.Parse(img.Name);
 
+
+                                infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Book\" + number + ".jpg";
+                                infoForm.lnName.Text = database.BookList[number].getName() + "\n" + database.BookList[number].author;
+                                infoForm.lbPage.Text = "Page : " + database.BookList[number].page.ToString();
+                                infoForm.lbDescription.Text = database.BookList[number].Description;
+                                infoForm.lbPrice.Text = database.BookList[number].getPrice().ToString() + " TL";
+                                infoForm.lbPublisher.Text = database.BookList[number].publisher;
+
+                                infoForm.Show();
+
+                            };
+                            productPanel.Controls.Add(infoIcon);
+                            panel2.Controls.Add(productPanel);
+                            pictureBox1.Name = "pictureBox" + k + 10;
+                            lb.Name = "lb" + k;
+                            control++;
+
+                            if (control >= database.BookList.Count)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
@@ -871,79 +1014,149 @@ namespace BookStore
             {
                 if (cmbFiltre.SelectedIndex == 0)
                 {
+                    panel2.Controls.Clear();
+                    int control = 0;
                     for (int i = 0; i < database.MagazineList.Count; i++)
                     {
                         if (Searchtxt.Text == database.MagazineList[i].getName())
                         {
-                            panel2.Controls.Clear();
-                            PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(170, 100);
 
-                            pictureBox1.Size = new System.Drawing.Size(170, 200);
+                            Panel productPanel = new Panel();
+                            productPanel.Size = new Size(400, 190);
+                            productPanel.BorderStyle = BorderStyle.FixedSingle;
+                            PictureBox pictureBox1 = new PictureBox();
+                            pictureBox1.Location = new Point(0, 0);
+
+                            pictureBox1.Size = new Size(170, 200);
                             pictureBox1.ImageLocation = Application.StartupPath + @"\Magazine\" + (i + 1) + ".jpg";
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
-                            // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            productPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
-                            lb.Text = database.MagazineList[i].getName() + "\n" + database.MagazineList[i].type;
-                            Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                            lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            lb.Text = database.MagazineList[(i)].getName() + "\n" + database.MagazineList[(i)].type;
+                            lb.Font = new Font("Adobe Fan Heiti Std", 12, FontStyle.Bold);
+                            lb.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y);
+                            productPanel.Controls.Add(lb);
 
-                            Button btn = new Button();
-                            btn.Text = "SEPETE EKLE";
-                            btn.Size = new Size(100, 70);
-                            btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                            btn.Click += yeniolusturulanButonlarinClickOlayi;
-                            btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            Label LbPrice = new Label();
+                            LbPrice.AutoSize = true;
+                            LbPrice.Text = database.MagazineList[(i)].getPrice().ToString() + "TL";
+                            LbPrice.Font = new Font("Adobe Fan Heiti Std", 16, FontStyle.Bold);
+                            LbPrice.Location = new Point(pictureBox1.Location.X + +pictureBox1.Width, pictureBox1.Location.Y + 120);
+                            productPanel.Controls.Add(LbPrice);
 
+                            PictureBox infoIcon = new PictureBox();
+                            infoIcon.Size = new Size(25, 25);
+                            infoIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "info" + ".jpg";
+                            infoIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y + 50);
+                            infoIcon.SizeMode = PictureBoxSizeMode.Zoom;
+                            infoIcon.BackColor = Color.Honeydew;
+
+
+                            infoIcon.Name = (i).ToString();
+                            infoIcon.Click += (s, p) =>
+                            {
+                                var img = s as PictureBox;
+                                InfoForm infoForm = new InfoForm();
+                                int number = Int32.Parse(img.Name);
+
+                                infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Magazine\" + (number + 1) + ".jpg";
+                                infoForm.lnName.Text = database.MagazineList[number].getName();
+                                infoForm.lbPage.Text = "Type : " + database.MagazineList[number].type;
+                                infoForm.lbDescription.Text = database.MagazineList[number].Description;
+                                infoForm.lbPrice.Text = database.MagazineList[number].getPrice().ToString() + " TL";
+                                infoForm.lbPublisher.Text = database.MagazineList[number].issue;
+
+                                infoForm.Show();
+
+                            };
+                            productPanel.Controls.Add(infoIcon);
+
+                            panel2.Controls.Add(productPanel);
                             pictureBox1.Name = "pictureBox" + i + 10;
-                            btn.Name = "btn" + i;
                             lb.Name = "lb" + i;
+                            control++;
 
+                            if (control >= database.MagazineList.Count)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
                 if (cmbFiltre.SelectedIndex == 1)
                 {
+                    panel2.Controls.Clear();
+                    int control = 0;
                     for (int i = 0; i < database.MagazineList.Count; i++)
                     {
                         if (Searchtxt.Text == database.MagazineList[i].type.ToString())
                         {
-                            panel2.Controls.Clear();
-                            PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(170 * i, 100);
 
-                            pictureBox1.Size = new System.Drawing.Size(170, 200);
+                            Panel productPanel = new Panel();
+                            productPanel.Size = new Size(400, 190);
+                            productPanel.BorderStyle = BorderStyle.FixedSingle;
+                            PictureBox pictureBox1 = new PictureBox();
+                            pictureBox1.Location = new Point(0, 0);
+
+                            pictureBox1.Size = new Size(170, 200);
                             pictureBox1.ImageLocation = Application.StartupPath + @"\Magazine\" + (i + 1) + ".jpg";
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
-                            // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            productPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
-                            lb.Text = database.MagazineList[i].getName() + "\n" + database.MagazineList[i].type;
-                            Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                            lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            lb.Text = database.MagazineList[(i)].getName() + "\n" + database.MagazineList[(i)].type;
+                            lb.Font = new Font("Adobe Fan Heiti Std", 12, FontStyle.Bold);
+                            lb.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y);
+                            productPanel.Controls.Add(lb);
 
-                            Button btn = new Button();
-                            btn.Text = "SEPETE EKLE";
-                            btn.Size = new Size(100, 70);
-                            btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                            btn.Click += yeniolusturulanButonlarinClickOlayi;
-                            btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            Label LbPrice = new Label();
+                            LbPrice.AutoSize = true;
+                            LbPrice.Text = database.MagazineList[(i)].getPrice().ToString() + "TL";
+                            LbPrice.Font = new Font("Adobe Fan Heiti Std", 16, FontStyle.Bold);
+                            LbPrice.Location = new Point(pictureBox1.Location.X + +pictureBox1.Width, pictureBox1.Location.Y + 120);
+                            productPanel.Controls.Add(LbPrice);
 
+
+                            PictureBox infoIcon = new PictureBox();
+                            infoIcon.Size = new Size(25, 25);
+                            infoIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "info" + ".jpg";
+                            infoIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y + 50);
+                            infoIcon.SizeMode = PictureBoxSizeMode.Zoom;
+                            infoIcon.BackColor = Color.Honeydew;
+
+                            infoIcon.Name = (i).ToString();
+                            infoIcon.Click += (s, p) =>
+                            {
+                                var img = s as PictureBox;
+                                InfoForm infoForm = new InfoForm();
+                                int number = Int32.Parse(img.Name);
+
+                                infoForm.picBoxImage.ImageLocation = Application.StartupPath + @"\Magazine\" + (number + 1) + ".jpg";
+                                infoForm.lnName.Text = database.MagazineList[number].getName();
+                                infoForm.lbPage.Text = "Type : " + database.MagazineList[number].type;
+                                infoForm.lbDescription.Text = database.MagazineList[number].Description;
+                                infoForm.lbPrice.Text = database.MagazineList[number].getPrice().ToString() + " TL";
+                                infoForm.lbPublisher.Text = database.MagazineList[number].issue;
+
+                                infoForm.Show();
+
+                            };
+                            productPanel.Controls.Add(infoIcon);
+
+                            panel2.Controls.Add(productPanel);
                             pictureBox1.Name = "pictureBox" + i + 10;
-                            btn.Name = "btn" + i;
                             lb.Name = "lb" + i;
+                            control++;
 
+                            if (control >= database.MagazineList.Count)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
@@ -952,87 +1165,156 @@ namespace BookStore
             {
                 if (cmbFiltre.SelectedIndex == 0)
                 {
-                    for (int i = 0; i < database.MusicCDList.Count; i++)
-                    {
-                        if (Searchtxt.Text == database.MusicCDList[i].getName())
-                        {
-                            panel2.Controls.Clear();
-                            PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(170, 100);
+                    panel2.Controls.Clear();
 
-                            pictureBox1.Size = new System.Drawing.Size(170 * i, 200);
-                            pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (i + 1) + ".jpg";
+
+                    int control = 0;
+                    for (int k = 0; k < database.MusicCDList.Count; k++)
+                    {
+                        if (Searchtxt.Text == database.MusicCDList[k].getName())
+                        {
+                            Panel productPanel = new Panel();
+                            productPanel.Size = new Size(400, 190);
+                            productPanel.BorderStyle = BorderStyle.FixedSingle;
+
+                            PictureBox pictureBox1 = new PictureBox();
+                            pictureBox1.Location = new Point(0, 0);
+
+                            pictureBox1.Size = new Size(170, 200);
+                            pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (k + 1) + ".jpg";
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
-                            // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            productPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
-                            lb.Text = database.MusicCDList[i].getName() + "\n" + database.MusicCDList[i].singer;
-                            Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                            lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            lb.Text = database.MusicCDList[(k)].getName() + "\n" + database.MusicCDList[(k)].singer;
+                            lb.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y);
+                            lb.Font = new Font("Adobe Fan Heiti Std", 12, FontStyle.Bold);
+                            productPanel.Controls.Add(lb);
 
-                            Button btn = new Button();
-                            btn.Text = "SEPETE EKLE";
-                            btn.Size = new Size(100, 70);
-                            btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                            btn.Click += yeniolusturulanButonlarinClickOlayi;
-                            btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
+                            Label LbPrice = new Label();
+                            LbPrice.AutoSize = true;
+                            LbPrice.Text = database.MusicCDList[(k)].getPrice().ToString() + "TL";
+                            LbPrice.Font = new Font("Adobe Fan Heiti Std", 16, FontStyle.Bold);
+                            LbPrice.Location = new Point(pictureBox1.Location.X + +pictureBox1.Width, pictureBox1.Location.Y + 120);
+                            productPanel.Controls.Add(LbPrice);
 
-                            pictureBox1.Name = "pictureBox" + i + 10;
-                            btn.Name = "btn" + i;
-                            lb.Name = "lb" + i;
+                            PictureBox playIcon = new PictureBox();
+                            playIcon.Size = new Size(25, 25);
+                            playIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "play" + ".jpg";
+                            playIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width + 5, pictureBox1.Location.Y + 70);
+                            playIcon.SizeMode = PictureBoxSizeMode.Zoom;
+                            playIcon.BackColor = Color.Honeydew;
+
+                            playIcon.Name = (k + 1).ToString();
+                            playIcon.Click += (s, p) =>
+                            {
+                                SoundPlayer player = new SoundPlayer();
+                                var img = s as PictureBox;
+
+                                player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Demos\\" + img.Name + ".wav";
+                                player.Play();
+
+                            };
+                            productPanel.Controls.Add(playIcon);
+                            panel2.Controls.Add(productPanel);
+
+                            pictureBox1.Name = "pictureBox" + k + 10;
+                            lb.Name = "lb" + k;
+                            control++;
+                            if (control >= database.MusicCDList.Count)
+                            {
+                                break;
+                            }
 
                         }
                     }
+
                 }
                 if (cmbFiltre.SelectedIndex == 1)
                 {
-                    for (int i = 0; i < database.MusicCDList.Count; i++)
-                    {
-                        if (Searchtxt.Text == database.MusicCDList[i].singer)
-                        {
-                            panel2.Controls.Clear();
-                            PictureBox pictureBox1 = new PictureBox();
-                            pictureBox1.Location = new Point(170, 100);
+                    panel2.Controls.Clear();
 
-                            pictureBox1.Size = new System.Drawing.Size(170, 200);
-                            pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (i + 1) + ".jpg";
+
+                    int control = 0;
+                    for (int k = 0; k < database.MusicCDList.Count; k++)
+                    {
+                        if (Searchtxt.Text == database.MusicCDList[k].singer)
+                        {
+                            Panel productPanel = new Panel();
+                            productPanel.Size = new Size(400, 190);
+                            productPanel.BorderStyle = BorderStyle.FixedSingle;
+
+                            PictureBox pictureBox1 = new PictureBox();
+                            pictureBox1.Location = new Point(0, 0);
+
+                            pictureBox1.Size = new Size(170, 200);
+                            pictureBox1.ImageLocation = Application.StartupPath + @"\MusicCD\" + (k + 1) + ".jpg";
                             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
                             pictureBox1.BackColor = Color.Honeydew;
-                            // pictureBox1.BackColor = Color.Black;
-                            panel2.Controls.Add(pictureBox1);
+                            productPanel.Controls.Add(pictureBox1);
 
                             Label lb = new Label();
                             lb.AutoSize = true;
-                            lb.Text = database.MusicCDList[i].getName() + "\n" + database.MusicCDList[i].singer;
-                            Point labelp = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 210);
-                            lb.Location = labelp;
-                            panel2.Controls.Add(lb);
+                            lb.Text = database.MusicCDList[(k)].getName() + "\n" + database.MusicCDList[(k)].singer;
+                            lb.Location = new Point(pictureBox1.Location.X + pictureBox1.Width, pictureBox1.Location.Y);
+                            lb.Font = new Font("Adobe Fan Heiti Std", 12, FontStyle.Bold);
+                            productPanel.Controls.Add(lb);
 
-                            Button btn = new Button();
-                            btn.Text = "SEPETE EKLE";
-                            btn.Size = new Size(100, 70);
-                            btn.Location = new Point(pictureBox1.Location.X + pictureBox1.Width / 10, pictureBox1.Location.Y + 245);
-                            btn.Click += yeniolusturulanButonlarinClickOlayi;
-                            btn.BackColor = Color.DarkSeaGreen;
-                            panel2.Controls.Add(btn);
 
-                            pictureBox1.Name = "pictureBox" + i + 10;
-                            btn.Name = "btn" + i;
-                            lb.Name = "lb" + i;
+                            Label LbPrice = new Label();
+                            LbPrice.AutoSize = true;
+                            LbPrice.Text = database.MusicCDList[(k)].getPrice().ToString() + "TL";
+                            LbPrice.Font = new Font("Adobe Fan Heiti Std", 16, FontStyle.Bold);
+                            LbPrice.Location = new Point(pictureBox1.Location.X + +pictureBox1.Width, pictureBox1.Location.Y + 120);
+                            productPanel.Controls.Add(LbPrice);
+
+                            PictureBox playIcon = new PictureBox();
+                            playIcon.Size = new Size(25, 25);
+                            playIcon.ImageLocation = Application.StartupPath + @"\Icon\" + "play" + ".jpg";
+                            playIcon.Location = new Point(pictureBox1.Location.X + pictureBox1.Width + 5, pictureBox1.Location.Y + 70);
+                            playIcon.SizeMode = PictureBoxSizeMode.Zoom;
+                            playIcon.BackColor = Color.Honeydew;
+
+                            playIcon.Name = (k + 1).ToString();
+                            playIcon.Click += (s, p) =>
+                            {
+                                SoundPlayer player = new SoundPlayer();
+                                var img = s as PictureBox;
+
+                                player.SoundLocation = AppDomain.CurrentDomain.BaseDirectory + "\\Demos\\" + img.Name + ".wav";
+                                player.Play();
+
+                            };
+                            productPanel.Controls.Add(playIcon);
+                            panel2.Controls.Add(productPanel);
+
+                            pictureBox1.Name = "pictureBox" + k + 10;
+                            lb.Name = "lb" + k;
+                            control++;
+                            if (control >= database.MusicCDList.Count)
+                            {
+                                break;
+                            }
 
                         }
                     }
+
                 }
             }
             cmbFiltre.Text = "Select";
             cmbProduct.Text = "Select";
         }
 
+        /*! \fn void searchBtn_Click(object sender, EventArgs e)
+         *  \brief A mouse listener function.
+         *  \details It is used to show delete option into customer.If customer want to delete product in shopping cart,
+         *           He/She click on right datagridview then delete option is opened.
+         *  \param sender an object.
+         *  \param e an MouseEventArgs.
+         *  \return void
+         */
         private void shoppingcart_datagridview_mouseDown(Object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -1054,7 +1336,13 @@ namespace BookStore
 
         }
 
-        //to delete product in shoppingcart 
+        /*! \fn void DeleteRow_Click(object sender, EventArgs e)
+         *  \brief A click listener function.
+         *  \details It is used to delete product in shoppingcart.       
+         *  \param sender an object.
+         *  \param e an EventArgs.
+         *  \return void
+         */
         private void DeleteRow_Click(object sender, EventArgs e)
         {
             contextmenu.Hide();
@@ -1097,28 +1385,13 @@ namespace BookStore
 
         }
 
-        public void yeniolusturulanButonlarinClickOlayi(object sender, EventArgs e)
-        {
-            PictureBox tıklananPictureNesnesi = (sender as PictureBox);
-
-            string picture_name = tıklananPictureNesnesi.Name;
-            string temp = picture_name.Remove(0, 3);
-            string label_name = "lb" + temp;
-
-            //to call related label
-            Control label = this.Controls.Find(label_name, true).FirstOrDefault() as Label;
-
-            if (label != null)
-            {
-
-            }
-            //ShoppingCart shopping_cart = new ShoppingCart();
-
-
-
-
-        }
-
+        /*! \fn void confirm_cart_button_Click(object sender, EventArgs e)
+        *  \brief A click listener function.
+        *  \details It is used to buy a product/products by customer.    
+        *  \param sender an object.
+        *  \param e an EventArgs.
+        *  \return void
+        */
         private void confirm_cart_button_Click(object sender, EventArgs e)
         {
             if (LoginForm.current_customer_id != -1)

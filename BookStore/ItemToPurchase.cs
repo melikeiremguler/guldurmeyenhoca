@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
+    /*! \class ItemToPurchase
+     *  \brief It is ItemToPurchase class.
+        \details It is used to hold product that customer wants to buy.
+     */
     class ItemToPurchase
     {
         

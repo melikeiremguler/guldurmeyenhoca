@@ -10,7 +10,11 @@ using System.Windows.Forms;
 
 namespace BookStore
 {
-   public class Customer:Observer
+    /*! \class Customer
+     *  \brief It is customer class.
+     *  \details it is derived from Observer class
+     */
+    public class Customer:Observer
     {
         public int customerID { get; set; }
         public string name { get; set; }
@@ -20,6 +24,9 @@ namespace BookStore
         public string password { get; set; }
         public string Address { get; set; }
         public static int TotalCustomer { get; set; } = 0;
+
+        List<Customer> CustumerList = new List<Customer>();
+
         public Customer(int id,string Name,string Email,string Username,string Password,string address)
         {
             customerID = id;
@@ -31,7 +38,12 @@ namespace BookStore
             TotalCustomer++;
 
         }
-        List<Customer> CustumerList = new List<Customer>();
+
+        /*! \fn List<Customer> read_customer()
+        *  \brief A List<Customer> function.
+        *  \details It is used to read data about customer from database.
+        *  \return List<Customer>
+       */
         public List<Customer> read_customer()
         {
             Database database = Database.get_instance();
@@ -39,6 +51,14 @@ namespace BookStore
 
             return CustumerList;
         }
+
+        /*! \fn Customer customer_search(List<Customer> customers, int searchID)
+        *  \brief A Customer function.
+        *  \details It is used to search customer.
+        *  \param customers (List<Customer>) customer list.
+        *  \param searchID (int) id that is wanted to search of customer 
+        *  \return List<Customer>
+       */
         public Customer customer_search(List<Customer> customers, int searchID)
         {
             foreach (Customer customer in customers)
@@ -50,6 +70,12 @@ namespace BookStore
             }
             return null;
         }
+
+        /*! \fn DataTable printCustomerDetails()
+        *  \brief A DataTable function.
+        *  \details It is used to print customer details.
+        *  \return DataTable
+       */
         public DataTable printCustomerDetails()
         {
 
@@ -71,6 +97,7 @@ namespace BookStore
 
 
         }
+
         public void printCustomerPurchases()
         {
 
@@ -80,6 +107,11 @@ namespace BookStore
 
         }
 
+        /*! \fn override void Update()
+        *  \brief A void function.
+        *  \details It is overrided from Observer and It is used to send message when stock is updated.
+        *  \return void
+       */
         public override void Update()
         {
            

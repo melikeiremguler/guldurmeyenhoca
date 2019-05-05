@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace BookStore
 {
-  public  class HashCode
+    /*! \class HashCode
+    *   \brief It is HashCode class.
+    *   \details Password is converted to hashcode in this class.
+    */
+    public class HashCode
     {
         public string hashCode;
 

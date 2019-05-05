@@ -86,7 +86,6 @@
             this.panelyaziLbl.Size = new System.Drawing.Size(719, 44);
             this.panelyaziLbl.TabIndex = 0;
             this.panelyaziLbl.Text = "BOOK SHOP MANAGEMENT SYSTEM";
-            this.panelyaziLbl.Click += new System.EventHandler(this.panelyaziLbl_Click);
             // 
             // panelMenu
             // 
@@ -106,7 +105,6 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(988, 119);
             this.panelMenu.TabIndex = 1;
-            this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // StokBtn
             // 
@@ -170,6 +168,7 @@
             this.SettingBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SettingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.SettingBtn.UseVisualStyleBackColor = false;
+            this.SettingBtn.Click += new System.EventHandler(this.SettingBtn_Click_1);
             // 
             // chancePasswordBtn
             // 
@@ -259,7 +258,6 @@
             this.reklam2picturebox.Size = new System.Drawing.Size(191, 187);
             this.reklam2picturebox.TabIndex = 17;
             this.reklam2picturebox.TabStop = false;
-            this.reklam2picturebox.Click += new System.EventHandler(this.reklam2picturebox_Click);
             // 
             // reklam1picturebox
             // 
@@ -286,7 +284,6 @@
             this.searchgroupBox.Size = new System.Drawing.Size(189, 135);
             this.searchgroupBox.TabIndex = 15;
             this.searchgroupBox.TabStop = false;
-            this.searchgroupBox.Enter += new System.EventHandler(this.searchgroupBox_Enter);
             // 
             // searchBtn
             // 
@@ -306,7 +303,6 @@
             this.Searchtxt.Name = "Searchtxt";
             this.Searchtxt.Size = new System.Drawing.Size(156, 20);
             this.Searchtxt.TabIndex = 15;
-            this.Searchtxt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // lbFilter
             // 
@@ -327,7 +323,6 @@
             this.lbPruduct.Size = new System.Drawing.Size(44, 13);
             this.lbPruduct.TabIndex = 10;
             this.lbPruduct.Text = "Product";
-            this.lbPruduct.Click += new System.EventHandler(this.lbPruduct_Click);
             // 
             // cmbFiltre
             // 

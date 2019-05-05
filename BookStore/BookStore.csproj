@@ -107,12 +107,6 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminUser.cs" />
-    <Compile Include="BillForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BillForm.designer.cs">
-      <DependentUpon>BillForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Book.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="CustomerForm.cs">
@@ -148,12 +142,6 @@
     <Compile Include="LogUpForm.Designer.cs">
       <DependentUpon>LogUpForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="ItemToPurchase.cs" />
     <Compile Include="Magazine.cs" />
     <Compile Include="MusicCD.cs" />
@@ -165,19 +153,21 @@
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
-    <Compile Include="ProductPanel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Settingsform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settingsform.Designer.cs">
+      <DependentUpon>Settingsform.cs</DependentUpon>
+    </Compile>
     <Compile Include="ShoppingCart.cs" />
     <EmbeddedResource Include="AddProduct.resx">
       <DependentUpon>AddProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BillForm.resx">
-      <DependentUpon>BillForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerForm.resx">
       <DependentUpon>CustomerForm.cs</DependentUpon>
@@ -194,9 +184,6 @@
     <EmbeddedResource Include="LogUpForm.resx">
       <DependentUpon>LogUpForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +196,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Settingsform.resx">
+      <DependentUpon>Settingsform.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

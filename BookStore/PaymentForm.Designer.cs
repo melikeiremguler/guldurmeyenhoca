@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PaymentForm));
             this.cash_radiobutton = new System.Windows.Forms.RadioButton();
             this.creditcard_radiobutton = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -452,6 +453,7 @@
             this.Controls.Add(this.buy_button);
             this.Controls.Add(this.creditcart_groupbox);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "PaymentForm";
             this.Text = "PaymentForm";
             this.groupBox1.ResumeLayout(false);
