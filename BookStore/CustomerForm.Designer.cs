@@ -70,7 +70,6 @@
             this.reklam1picturebox.Size = new System.Drawing.Size(191, 187);
             this.reklam1picturebox.TabIndex = 13;
             this.reklam1picturebox.TabStop = false;
-         
             // 
             // reklam2picturebox
             // 
@@ -344,6 +343,7 @@
             this.SettingBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.SettingBtn.UseVisualStyleBackColor = false;
             this.SettingBtn.Visible = false;
+            this.SettingBtn.Click += new System.EventHandler(this.SettingBtn_Click);
             // 
             // SearchReklamPanel
             // 

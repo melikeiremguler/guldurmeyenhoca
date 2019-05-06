@@ -149,6 +149,7 @@
             this.pcbImage.Location = new System.Drawing.Point(316, 39);
             this.pcbImage.Name = "pcbImage";
             this.pcbImage.Size = new System.Drawing.Size(143, 83);
+            this.pcbImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pcbImage.TabIndex = 9;
             this.pcbImage.TabStop = false;
             // 
@@ -495,7 +496,6 @@
             this.Controls.Add(this.txtIsbn);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtName);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddProduct";
             this.Text = "AddProduct";
             this.Load += new System.EventHandler(this.AddProduct_Load);

@@ -138,12 +138,12 @@ namespace BookStore
 
             string password;
             password = password_txtbox.Text;
-            //if (username_txtbox.Text != "tiv")
-            //{
-            //    HashCode hash = new HashCode(password_txtbox.Text);
-            //    password = hash.hashCode; //Hashlendi
+            if (username_txtbox.Text != "tiv")
+            {
+                HashCode hash = new HashCode(password_txtbox.Text);
+                password = hash.hashCode; //Hashlendi
 
-            //}
+            }
             for (int i = 0; i < data_base_.CustomerList.Count; i++)
             {
                 if (username_txtbox.Text.Equals(data_base_.CustomerList[i].userName) && password.Equals(data_base_.CustomerList[i].password))

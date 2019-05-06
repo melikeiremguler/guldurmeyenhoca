@@ -1407,6 +1407,12 @@ namespace BookStore
 
         }
 
+        private void SettingBtn_Click(object sender, EventArgs e)
+        {
+            Settingsform settingsform = new Settingsform();
+            settingsform.Show();
+        }
+
         public void OpenForm(Form Openform)
         {
             // Not: Ana Form (Form1) hariç, sadece Form2 olduğu için sadece Form2'yi ele alıyoruz.
