@@ -1,2 +1,178 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BookStore.AddProduct" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBEpgAAiwACCnAQoCACBACACUQiAiRJSAAAiCREKw=</HashCode>
+      <FileName>AddProduct.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.AdminForm" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAQKAgkEBCAAAhgAABCIASAmABABIgZSoAQNKADAgCI=</HashCode>
+      <FileName>AdminForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.AdminUser" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAQAAAEAAASAMAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>AdminUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Book" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAQAgAAAAEAAAAIgAEAAAQAAAAAAAAAAUAAA=</HashCode>
+      <FileName>Book.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Customer" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAQAAgAAABAAAgAAAEAAACAQAAAhEAEAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.CustomerForm" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>JAYCAgmEFCAAAhAAAhCEECEmACADKgJSAAyJIQBQAiI=</HashCode>
+      <FileName>CustomerForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Database" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAgAAAAAAQAAFAAAATAAAkYCCAEBEAAQgQQBAAAgA=</HashCode>
+      <FileName>Database.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Email" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAIE=</HashCode>
+      <FileName>Email.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.HashCode" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HashCode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.InfoForm" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEFAAACAAAAAAAACAAAACAQAAAAABAAAAAAABAAA=</HashCode>
+      <FileName>InfoForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.InvoiceForm" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAARAEMDAA4oAlEACQAgASAAABgAAEAEAABACAAAA=</HashCode>
+      <FileName>InvoiceForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.ItemToPurchase" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAQCAAAAAAAAAAAA=</HashCode>
+      <FileName>ItemToPurchase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.LoginForm" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAhABBAIKAAAAAgAACAQQAaADIAAAQCAAJAAQCSAAA=</HashCode>
+      <FileName>LoginForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.LogUpForm" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAgAAAARACQAAAAAAACABQACAAABAIQwAAAAAAAAIAQ=</HashCode>
+      <FileName>LogUpForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Magazine" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAQAAAAgAAAAAAAAAAAAAAABQEAAAAAAAAAFAAA=</HashCode>
+      <FileName>Magazine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.MusicCD" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="BookStore.MusicCD.Type" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>MusicCD.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAEAAAAAAABQAAABAAAAAQEAAA=</HashCode>
+      <FileName>MusicCD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Observer" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Observer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.PaymentForm" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YAIBEAAFEyBRABAAQUCygAACERBEgAiAACBAAggYCUA=</HashCode>
+      <FileName>PaymentForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Product" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAKAAACAQAAAAIAAiACARQAAIAAAABAAAAEAAAEAAQ=</HashCode>
+      <FileName>Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Program" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Settingsform" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQgAAAABACQAAAAAABCABAACAAAAAIAgACAAAACAAAQ=</HashCode>
+      <FileName>Settingsform.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.ShoppingCart" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAABABAAAAAAAAAAEAgAAAAAQAIAAAAEAA=</HashCode>
+      <FileName>ShoppingCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Properties.Resources" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BookStore.Properties.Settings" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAIAAAAAABAAAAAAAAAAAACAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

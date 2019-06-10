@@ -16,6 +16,7 @@ namespace BookStore {
 
         public static int TotalProduct { get; set; } = 0; //eğer kodda bi şey patlarsa total ile ilgili olabilir
         private int Id;
+        int a;
         private string Name;
         private double Price;
         public string image_path { get; set; }
