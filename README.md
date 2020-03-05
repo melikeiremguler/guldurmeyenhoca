@@ -1,2 +1,2 @@
-# guldurmeyenhoca
+# BookStore
 OOP Lab Projesi
